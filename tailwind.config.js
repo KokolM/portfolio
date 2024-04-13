@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'background-black': '#191c1c',
         'primary-50': 'rgb(var(--primary-50))',
         'primary-100': 'rgb(var(--primary-100))',
         'primary-200': 'rgb(var(--primary-200))',
@@ -27,6 +28,10 @@ export default {
         'surface-800': 'rgb(var(--surface-800))',
         'surface-900': 'rgb(var(--surface-900))',
         'surface-950': 'rgb(var(--surface-950))',
+        text: 'rgb(255, 255, 255)',
+        secondary: '#222525',
+        border: '#2A2E2E',
+        'light-grey': '#D9D9D9',
       },
     },
   },
