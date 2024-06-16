@@ -17,18 +17,18 @@
         implementation of User Interfaces and implementation of Server-facing part of the platform.
       </div>
       <template #technologiesDaily>
-        <i class="devicon-angular-plain" v-tooltip.bottom="'Angular 17'" style="font-size: 2.4rem"></i>
-        <i class="pi pi-prime" v-tooltip.bottom="'Prime NG'" style="font-size: 1.7rem"></i>
-        <i class="devicon-tailwindcss-original" v-tooltip.bottom="'Tailwind CSS'" style="font-size: 2rem"></i>
-        <i class="devicon-nodejs-plain" v-tooltip.bottom="'Node JS'" style="font-size: 2rem"></i>
-        <i class="devicon-postgresql-plain" v-tooltip.bottom="'PostreSQL'" style="font-size: 2rem"></i>
-        <i class="devicon-typescript-plain" v-tooltip.bottom="'TypeScript'" style="font-size: 1.9rem"></i>
+        <TechIconAngular17></TechIconAngular17>
+        <TechIconPrimeNg></TechIconPrimeNg>
+        <TechIconTailwindCss></TechIconTailwindCss>
+        <TechIconNodeJs></TechIconNodeJs>
+        <TechIconPostgreSql></TechIconPostgreSql>
+        <TechIconTypescript></TechIconTypescript>
       </template>
       <template #technologiesOccasinaly>
-        <i class="devicon-docker-plain" v-tooltip.bottom="'Docker'" style="font-size: 2.5rem"></i>
-        <i class="devicon-figma-plain" v-tooltip.bottom="'Figma'" style="font-size: 1.8rem"></i>
-        <i class="devicon-sketch-plain" v-tooltip.bottom="'Sketch'" style="font-size: 2rem"></i>
-        <i class="devicon-nginx-original" v-tooltip.bottom="'Nginx'" style="font-size: 2.5rem"></i>
+        <TechIconDocker></TechIconDocker>
+        <TechIconFigma></TechIconFigma>
+        <TechIconSketch></TechIconSketch>
+        <TechIconNginx></TechIconNginx>
       </template>
     </LayoutSectionExperience>
     <LayoutSectionExperience title="Frontend Developer" subtitle="Ministry of Justice - Slovak Republic">
