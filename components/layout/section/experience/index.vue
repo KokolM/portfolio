@@ -2,8 +2,8 @@
   <LayoutSectionDetail :title="title" :subtitle="subtitle">
     <slot></slot>
     <div v-if="hasTechnologies">
-      <div class="mt-5 text-sm text-light-grey pb-6">Technologies:</div>
-      <div class="flex flex-col lg:flex-row lg:items-center gap-20">
+      <div class="mt-5 text-xs pb-6">Technologies:</div>
+      <div class="flex flex-col lg:flex-row lg:items-center gap-24 lg:gap-20">
         <div v-if="$slots.technologiesDaily != undefined" class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 relative">
           <slot name="technologiesDaily"></slot>
           <div class="absolute -bottom-8 left-0 w-full">

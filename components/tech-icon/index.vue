@@ -1,10 +1,14 @@
 <template lang="">
   <div class="cursor-pointer hover:text-primary hidden lg:block" v-tooltip.bottom="title" @click="goToPage()">
-    <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
+    <div class="size-12 flex items-center justify-center">
+      <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
+    </div>
   </div>
   <div class="cursor-pointer hover:text-primary flex flex-col items-center lg:hidden gap-2" @click="goToPage()">
-    <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
-    <div class="text-xs text-light-grey">{{ title }}</div>
+    <div class="size-12 flex items-center justify-center">
+      <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
+    </div>
+    <div class="text-xs">{{ title }}</div>
   </div>
 </template>
 <script setup lang="ts">
@@ -19,10 +23,10 @@ const props = defineProps<{
   sizeRem?: number
 }>()
 
-const { url } = toRefs(props);
+const { url } = toRefs(props)
 
 function goToPage() {
-    window.open(url.value, '_blank');
+  window.open(url.value, '_blank')
 }
 
 const hasTechnologies = computed(() => slots.technologiesDaily != undefined || slots.technologiesOccasinaly != undefined)
