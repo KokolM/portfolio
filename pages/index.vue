@@ -11,7 +11,7 @@
     <div class="mt-10 max-w-[820px]">Hello 👋, I'm a passionate full-stack software developer dedicated to turning innovative ideas into functional, user-friendly solutions.</div>
   </LayoutSection>
   <LayoutSection title="Experience">
-    <LayoutSectionExperience title="Fullstack Developer" subtitle="bAvenir s.r.o.">
+    <LayoutSectionExperience title="Fullstack Developer" subtitle="bAvenir s.r.o." :startDate="new Date(2023, 9)">
       <div>
         I played a crucial role in the development of an innovative platform focused on decentralized data sharing and data governance. I was responsible for design and
         implementation of User Interfaces and implementation of Server-facing part of the platform.
@@ -22,7 +22,6 @@
         <TechIconTailwindCss></TechIconTailwindCss>
         <TechIconNodeJs></TechIconNodeJs>
         <TechIconPostgreSql></TechIconPostgreSql>
-        <TechIconTypescript></TechIconTypescript>
       </template>
       <template #technologiesOccasinaly>
         <TechIconDocker></TechIconDocker>
@@ -31,11 +30,20 @@
         <TechIconNginx></TechIconNginx>
       </template>
     </LayoutSectionExperience>
-    <LayoutSectionExperience title="Frontend Developer" subtitle="Ministry of Justice - Slovak Republic">
+    <LayoutSectionExperience title="Frontend Developer" subtitle="Ministry of Justice - Slovak Republic" :startDate="new Date(2021, 3)" :endDate="new Date(2023, 9)">
       <div>
         I contributed to the "Chance for Reentry" project, focusing on developing a mobile/kiosk application aimed at assisting reintegration efforts for formerly incarcerated
         individuals. Application is currently running in all Slovak correctional facilities.
       </div>
+      <template #technologiesDaily>
+        <TechIconFlutter></TechIconFlutter>
+        <TechIconVuejs></TechIconVuejs>
+        <TechIconVuetify></TechIconVuetify>
+      </template>
+      <template #technologiesOccasinaly>
+        <TechIconSketch></TechIconSketch>
+        <TechIconNginx></TechIconNginx>
+      </template>
     </LayoutSectionExperience>
   </LayoutSection>
   <LayoutSection title="Projects"> Hello </LayoutSection>

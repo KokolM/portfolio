@@ -1,10 +1,10 @@
 <template lang="">
-  <LayoutSectionDetail :title="title" :subtitle="subtitle">
+  <LayoutSectionDetail :title="title" :subtitle="subtitle" :startDate="startDate" :endDate="endDate">
     <slot></slot>
     <div v-if="hasTechnologies">
       <div class="mt-5 text-xs pb-6">Technologies:</div>
       <div class="flex flex-col lg:flex-row lg:items-center gap-24 lg:gap-20">
-        <div v-if="$slots.technologiesDaily != undefined" class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 relative">
+        <div v-if="$slots.technologiesDaily != undefined" class="grid grid-cols-5 sm:grid-cols-6 items-center gap-4 min-w-60 w-fit relative">
           <slot name="technologiesDaily"></slot>
           <div class="absolute -bottom-8 left-0 w-full">
             <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
@@ -12,7 +12,7 @@
             </div>
           </div>
         </div>
-        <div v-if="$slots.technologiesOccasinaly != undefined" class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 relative">
+        <div v-if="$slots.technologiesOccasinaly != undefined" class="grid grid-cols-5 sm:grid-cols-6 items-center gap-4 min-w-60 w-fit relative">
           <slot name="technologiesOccasinaly"></slot>
           <div class="absolute -bottom-8 left-0 w-full">
             <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
@@ -32,6 +32,8 @@ const slots = useSlots()
 defineProps<{
   title: string
   subtitle: string
+  startDate: Date
+  endDate?: Date
 }>()
 
 const hasTechnologies = computed(() => slots.technologiesDaily != undefined || slots.technologiesOccasinaly != undefined)
