@@ -3,8 +3,12 @@
 <template>
   <LayoutSection>
     <h1>Matt <span class="text-primary">Kokol</span></h1>
-    <h4>Fullstack software developer · (+421) 948 432 249 · <span class="text-primary">kokol.matej0@gmail.com</span></h4>
-    <div class="mt-10 w-[820px]">Hello 👋, I'm a passionate full-stack software developer dedicated to turning innovative ideas into functional, user-friendly solutions.</div>
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-1">
+      <h4>Fullstack software developer ·</h4>
+      <h4>(+421) 948 432 249 ·</h4>
+      <h4><span class="text-primary">kokol.matej0@gmail.com ·</span></h4>
+    </div>
+    <div class="mt-10 max-w-[820px]">Hello 👋, I'm a passionate full-stack software developer dedicated to turning innovative ideas into functional, user-friendly solutions.</div>
   </LayoutSection>
   <LayoutSection title="Experience">
     <LayoutSectionExperience title="Fullstack Developer" subtitle="bAvenir s.r.o.">
