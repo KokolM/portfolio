@@ -3,7 +3,7 @@
     <div class="hidden h-full lg:block">
       <LayoutSideNav />
     </div>
-    <div class="w-full h-full overflow-y-auto">
+    <div id="app" class="w-full h-full overflow-y-auto">
       <slot />
     </div>
   </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <LayoutSection>
+  <LayoutSection id="about">
     <h1>Matt <span class="text-primary">Kokol</span></h1>
     <div class="flex flex-col md:flex-row items-start md:items-center gap-1">
       <h4>Fullstack software developer ·</h4>
@@ -10,7 +10,7 @@
     </div>
     <div class="mt-10 max-w-[820px]">Hello 👋, I'm a passionate full-stack software developer dedicated to turning innovative ideas into functional, user-friendly solutions.</div>
   </LayoutSection>
-  <LayoutSection title="Experience">
+  <LayoutSection id="experience" title="Experience">
     <LayoutSectionExperience title="Fullstack Developer" subtitle="bAvenir s.r.o." :startDate="new Date(2023, 9)">
       <div>
         I played a crucial role in the development of an innovative platform focused on decentralized data sharing and data governance. I was responsible for design and
@@ -46,7 +46,7 @@
       </template>
     </LayoutSectionExperience>
   </LayoutSection>
-  <LayoutSection title="Projects"> Hello </LayoutSection>
-  <LayoutSection title="Skills"> Hello </LayoutSection>
-  <LayoutSection title="Education"> Hello </LayoutSection>
+  <LayoutSection id="projects" title="Projects"> Hello </LayoutSection>
+  <LayoutSection id="skills" title="Skills"> Hello </LayoutSection>
+  <LayoutSection id="education" title="Education"> Hello </LayoutSection>
 </template>
