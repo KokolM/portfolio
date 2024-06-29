@@ -10,7 +10,7 @@
     </div>
     <Drawer v-model:visible="visible" position="top" style="height: auto">
       <template #container="{ closeCallback }">
-        <div class="bg-primary flex flex-col items-start w-full px-4 py-4">
+        <div class="bg-primary flex flex-col items-start w-full px-2 py-2">
           <div class="w-full flex justify-end">
             <Button icon="pi pi-times" :rounded="true" severity="secondary" @click="closeCallback"></Button>
           </div>
