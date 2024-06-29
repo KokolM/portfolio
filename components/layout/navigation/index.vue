@@ -100,7 +100,7 @@ function handleScroll(event: Event) {
 }
 </script>
 <style>
-.p-drawer {
+/* .p-drawer {
   border: none;
-}
+} */
 </style>
