@@ -15,7 +15,7 @@
     <div class="lg:w-60 lg:h-full w-full h-16 fixed z-50">
       <LayoutNavigation />
     </div>
-    <div class="lg:pl-64 pt-16">
+    <div class="lg:pl-64 lg:pt-0 pt-16">
       <slot />
     </div>
   </div>

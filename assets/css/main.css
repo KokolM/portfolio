@@ -53,5 +53,5 @@ h4 {
 }
 
 .p-drawer {
-  border: none;
+  border: none !important;
 }
