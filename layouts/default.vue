@@ -12,10 +12,10 @@
 
 <template lang="">
   <div class="w-full h-full">
-    <div class="lg:w-60 lg:h-full w-full h-20 fixed z-50">
+    <div class="lg:w-60 lg:h-full w-full h-16 fixed z-50">
       <LayoutNavigation />
     </div>
-    <div class="lg:pl-64 pt-20">
+    <div class="lg:pl-64 pt-16">
       <slot />
     </div>
   </div>
