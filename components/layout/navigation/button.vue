@@ -3,7 +3,7 @@
     <NuxtLink :to="{ path: item.path, hash: item.hash }" @click.native="onLinkClick">
       <div
         class="text-white font-semibold uppercase h-10 w-full flex items-center justify-center cursor-pointer"
-        :class="{ 'opacity-100': item.active, 'opacity-40 hover:opacity-60 ': !item.active }"
+        :class="{ 'opacity-100': item.active, 'opacity-60 hover:opacity-80 ': !item.active }"
       >
         {{ item.title }}
       </div>
