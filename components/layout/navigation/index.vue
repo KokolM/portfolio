@@ -4,7 +4,7 @@
       <LayoutNavigationButton v-for="item in menu" :item="item"></LayoutNavigationButton>
     </div>
   </div>
-  <div class="w-full bg-primary flex justify-end items-center lg:hidden px-4 py-1">
+  <div class="w-full bg-primary flex justify-end items-center lg:hidden px-2 py-2">
     <div>
       <Button icon="pi pi-bars" severity="secondary" @click="visible = true"></Button>
     </div>
