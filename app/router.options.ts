@@ -6,9 +6,8 @@ export default <RouterConfig>{
     if (to.hash) {
       const id = to.hash.replace('#', '')
       const el = document.getElementById(id)
-      const app = document.getElementById('app')
-      if (app && el) {
-        app.scrollTo({behavior: 'smooth', top: el.offsetTop})
+      if (el) {
+        window.scrollTo({behavior: 'smooth', top: el.offsetTop})
       }
     }
   },
