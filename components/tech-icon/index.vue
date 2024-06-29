@@ -8,7 +8,7 @@
     <div class="size-12 flex items-center justify-center">
       <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
     </div>
-    <div class="text-xs">{{ title }}</div>
+    <div class="text-xs w-20 flex justify-center">{{ title }}</div>
   </div>
 </template>
 <script setup lang="ts">

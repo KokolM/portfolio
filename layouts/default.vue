@@ -1,14 +1,11 @@
 <template lang="">
-  <div class="w-full h-full flex items-center">
-    <div class="hidden h-full lg:block">
-      <LayoutSideNav />
-    </div>
+  <div class="w-full h-full flex flex-col lg:flex-row items-center">
+    <LayoutNavigation />
     <div id="app" class="w-full h-full overflow-y-auto">
       <slot />
     </div>
   </div>
 </template>
-<script>
-export default {}
+<script setup lang="ts">
 </script>
 <style lang=""></style>
