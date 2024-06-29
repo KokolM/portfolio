@@ -67,17 +67,13 @@ const menu: Ref<MenuItem[]> = ref([
 let active: MenuItem | null = null
 
 onMounted(() => {
-  init()
+  menu.value.forEach((item) => (item.menuRef = document.getElementById(item.hash.replace('#', ''))))
   window.addEventListener('scroll', handleScroll)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
-function init() {
-  menu.value.forEach((item) => (item.menuRef = document.getElementById(item.hash.replace('#', ''))))
-}
 
 function handleScroll(event: Event) {
   const scrollY = window.scrollY
@@ -91,14 +87,21 @@ function handleScroll(event: Event) {
     }
   }
   if (target && target != active) {
-    menu.value.forEach((element) => (element.active = false))
-    target.active = true
-    active = target
+    updateActiveTarget(target)
   }
+}
+
+function updateActiveTarget(target: MenuItem) {
+  menu.value.forEach((element) => (element.active = false))
+  target.active = true
+  active = target
+  if (history.pushState) {
+    history.pushState(null, '', target.hash)
+  }
+  // const base = window.location.hash
+  // window.history.pushState("object or string", "Title", "/new-url")
 }
 </script>
 <style>
-/* .p-drawer {
-  border: none;
-} */
+
 </style>
