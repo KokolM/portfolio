@@ -1,6 +1,9 @@
 <template lang="">
   <div class="h-full w-full hidden lg:block">
     <div class="w-full h-full bg-primary text-white flex flex-col items-center justify-center px-4 pb-6">
+      <div class="pb-6">
+        <LayoutNavigationProfileImage></LayoutNavigationProfileImage>
+      </div>
       <LayoutNavigationButton v-for="item in menu" :item="item"></LayoutNavigationButton>
     </div>
   </div>
