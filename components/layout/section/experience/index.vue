@@ -1,67 +1,68 @@
 <template lang="">
-  <div class="pb-40">
-    <div class="flex flex-col lg:flex-row items-start justify-end gap-1 lg:gap-4 w-full">
-      <div class="grow">
-        <h3>{{ title }}</h3>
-        <h4>{{ subtitle }}</h4>
+  <LayoutSection title="Experience">
+    <LayoutSectionExperienceDetail title="Fullstack Developer" subtitle="bAvenir s.r.o." :startDate="new Date(2023, 9)">
+      <div>
+        I played a crucial role in the development of an innovative platform focused on decentralized data sharing and
+        data governance. I was responsible for design and implementation of User Interfaces and implementation of
+        Server-facing part of the platform.
       </div>
-      <div class="text-primary flex items-center gap-1">
-        <div>{{ moment(startDate).format('MMM YYYY') }}</div>
-        <div>-</div>
-        <div>{{ endDate ? moment(endDate).format('MMM YYYY') : 'Present' }}</div>
+      <template #technologiesDaily>
+        <TechIconAngular17></TechIconAngular17>
+        <TechIconPrimeNg></TechIconPrimeNg>
+        <TechIconTailwindCss></TechIconTailwindCss>
+        <TechIconNodeJs></TechIconNodeJs>
+        <TechIconPostgreSql></TechIconPostgreSql>
+      </template>
+      <template #technologiesOccasinaly>
+        <TechIconDocker></TechIconDocker>
+        <TechIconFigma></TechIconFigma>
+        <TechIconSketch></TechIconSketch>
+        <TechIconNginx></TechIconNginx>
+      </template>
+    </LayoutSectionExperienceDetail>
+    <LayoutSectionExperienceDetail title="Freelance Developer" subtitle="jabono.sk and others" :startDate="new Date(2023, 5)">
+      <div>
+        I played a crucial role in the development of an innovative platform focused on decentralized data sharing and
+        data governance. I was responsible for design and implementation of User Interfaces and implementation of
+        Server-facing part of the platform.
       </div>
-    </div>
-    <div class="mt-4 max-w-[800px]">
-      <slot></slot>
-      <div v-if="hasTechnologies">
-        <div class="mt-5 text-xs pb-6">Technologies:</div>
-        <div class="flex flex-col lg:flex-row lg:items-center gap-24 lg:gap-20">
-          <div
-            v-if="$slots.technologiesDaily != undefined"
-            class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 w-fit relative"
-          >
-            <slot name="technologiesDaily"></slot>
-            <div class="absolute -bottom-8 left-0 w-full">
-              <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
-                <div class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2">
-                  Used daily
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            v-if="$slots.technologiesOccasinaly != undefined"
-            class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 w-fit relative"
-          >
-            <slot name="technologiesOccasinaly"></slot>
-            <div class="absolute -bottom-8 left-0 w-full">
-              <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
-                <div class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2">
-                  Used occasionaly
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <template #technologiesDaily>
+        <TechIconAngular17></TechIconAngular17>
+        <TechIconPrimeNg></TechIconPrimeNg>
+        <TechIconTailwindCss></TechIconTailwindCss>
+        <TechIconNodeJs></TechIconNodeJs>
+        <TechIconPostgreSql></TechIconPostgreSql>
+      </template>
+      <template #technologiesOccasinaly>
+        <TechIconDocker></TechIconDocker>
+        <TechIconFigma></TechIconFigma>
+        <TechIconSketch></TechIconSketch>
+        <TechIconNginx></TechIconNginx>
+      </template>
+    </LayoutSectionExperienceDetail>
+    <LayoutSectionExperienceDetail
+      title="Frontend Developer"
+      subtitle="Ministry of Justice - Slovak Republic"
+      :startDate="new Date(2021, 3)"
+      :endDate="new Date(2023, 9)"
+    >
+      <div>
+        I contributed to the "Chance for Reentry" project, focusing on developing a mobile/kiosk application aimed at
+        assisting reintegration efforts for formerly incarcerated individuals. Application is currently running in all
+        Slovak correctional facilities.
       </div>
-    </div>
-  </div>
+      <template #technologiesDaily>
+        <TechIconFlutter></TechIconFlutter>
+        <TechIconVuejs></TechIconVuejs>
+        <TechIconVuetify></TechIconVuetify>
+      </template>
+      <template #technologiesOccasinaly>
+        <TechIconSketch></TechIconSketch>
+        <TechIconNginx></TechIconNginx>
+      </template>
+    </LayoutSectionExperienceDetail>
+  </LayoutSection>
 </template>
-<script setup lang="ts">
-import { computed, useSlots } from 'vue'
-import moment from 'moment';
 
-const slots = useSlots()
-
-defineProps<{
-  title: string
-  subtitle: string
-  startDate: Date
-  endDate?: Date
-}>()
-
-const hasTechnologies = computed(
-  () => slots.technologiesDaily != undefined || slots.technologiesOccasinaly != undefined
-)
-</script>
+<script setup lang="ts"></script>
 <style lang=""></style>

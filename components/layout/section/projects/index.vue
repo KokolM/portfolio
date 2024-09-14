@@ -1,22 +1,66 @@
 <template lang="">
-  <div class="pb-40">
-    <div class="flex flex-col lg:flex-row items-start justify-end gap-1 lg:gap-4 w-full">
-      <div class="grow">
-        <h3>{{ title }}</h3>
-        <h4>{{ subtitle }}</h4>
+  <LayoutSection title="Projects">
+    <LayoutSectionProjectsDetail title="Holup" subtitle="A web and mobile app">
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <div class="max-w-[800px]">
+            I played a crucial role in the development of an innovative platform focused on decentralized data sharing
+            and data governance. I was responsible for design and implementation of User Interfaces and implementation
+            of Server-facing part of the platform.
+          </div>
+          <img src="~/assets/images/holup/holup-kiosk.png" alt="Holup App Kiosk" width="520px" height="100%" />
+        </div>
+        <div class="flex flex-col lg:flex-row  gap-8 items-center">
+          <img src="~/assets/images/holup/holup-mobile.png" alt="Holup App Mobile" width="520px" height="100%" />
+          <div class="max-w-[800px]">
+            I played a crucial role in the development of an innovative platform focused on decentralized data sharing
+            and data governance. I was responsible for design and implementation of User Interfaces and implementation
+            of Server-facing part of the platform.
+          </div>
+        </div>
       </div>
-      <div class=""></div>
-    </div>
-  </div>
+    </LayoutSectionProjectsDetail>
+    <LayoutSectionProjectsDetail title="Holup" subtitle="A web and mobile app">
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <div class="max-w-[800px]">
+            I played a crucial role in the development of an innovative platform focused on decentralized data sharing
+            and data governance. I was responsible for design and implementation of User Interfaces and implementation
+            of Server-facing part of the platform.
+          </div>
+          <img src="~/assets/images/holup/holup-kiosk.png" alt="Holup App Kiosk" width="520px" height="100%" />
+        </div>
+        <div class="flex flex-col lg:flex-row  gap-8 items-center">
+          <img src="~/assets/images/holup/holup-mobile.png" alt="Holup App Mobile" width="520px" height="100%" />
+          <div class="max-w-[800px]">
+            I played a crucial role in the development of an innovative platform focused on decentralized data sharing
+            and data governance. I was responsible for design and implementation of User Interfaces and implementation
+            of Server-facing part of the platform.
+          </div>
+        </div>
+      </div>
+    </LayoutSectionProjectsDetail>
+    <LayoutSectionProjectsDetail title="Holup" subtitle="A web and mobile app">
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <div class="max-w-[800px]">
+            I played a crucial role in the development of an innovative platform focused on decentralized data sharing
+            and data governance. I was responsible for design and implementation of User Interfaces and implementation
+            of Server-facing part of the platform.
+          </div>
+          <img src="~/assets/images/holup/holup-kiosk.png" alt="Holup App Kiosk" width="520px" height="100%" />
+        </div>
+        <div class="flex flex-col lg:flex-row  gap-8 items-center">
+          <img src="~/assets/images/holup/holup-mobile.png" alt="Holup App Mobile" width="520px" height="100%" />
+          <div class="max-w-[800px]">
+            I played a crucial role in the development of an innovative platform focused on decentralized data sharing
+            and data governance. I was responsible for design and implementation of User Interfaces and implementation
+            of Server-facing part of the platform.
+          </div>
+        </div>
+      </div>
+    </LayoutSectionProjectsDetail>
+  </LayoutSection>
 </template>
-<script setup lang="ts">
-import { computed, useSlots } from 'vue'
-
-const slots = useSlots()
-
-defineProps<{
-  title: string
-  subtitle: string
-}>()
-</script>
+<script setup lang="ts"></script>
 <style lang=""></style>
