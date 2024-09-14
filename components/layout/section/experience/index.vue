@@ -20,11 +20,16 @@
         <TechIconNginx></TechIconNginx>
       </template>
     </LayoutSectionExperienceDetail>
-    <LayoutSectionExperienceDetail title="Freelance Developer" subtitle="jabono.sk and others" :startDate="new Date(2023, 5)">
+    <LayoutSectionExperienceDetail
+      title="Freelance Developer"
+      subtitle="Multilpe companies"
+      :startDate="new Date(2023, 5)"
+    >
       <div>
-        I played a crucial role in the development of an innovative platform focused on decentralized data sharing and
-        data governance. I was responsible for design and implementation of User Interfaces and implementation of
-        Server-facing part of the platform.
+        As a freelance full-stack developer, I work on a diverse range of projects, building both front-end interfaces
+        and back-end systems. I focus on creating responsive, user-friendly applications while ensuring robust, scalable
+        server-side architecture. My goal is to deliver clean, efficient solutions tailored to meet each client’s unique
+        requirements.
       </div>
       <template #technologiesDaily>
         <TechIconAngular17></TechIconAngular17>

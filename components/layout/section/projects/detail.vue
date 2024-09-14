@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="pb-40">
+  <div class="pb-56">
     <div class="flex flex-col lg:flex-row items-start justify-end gap-1 lg:gap-4 w-full">
       <div class="grow">
         <h3>{{ title }}</h3>
