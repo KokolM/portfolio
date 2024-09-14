@@ -46,7 +46,9 @@
       </template>
     </LayoutSectionExperience>
   </LayoutSection>
-  <LayoutSection id="projects" title="Projects"> Hello </LayoutSection>
+  <LayoutSection id="projects" title="Projects"> 
+    <LayoutSectionProjects title="Frontend Developer" subtitle="Ministry of Justice - Slovak Republic"></LayoutSectionProjects>
+  </LayoutSection>
   <LayoutSection id="skills" title="Skills"> Hello </LayoutSection>
   <LayoutSection id="education" title="Education"> Hello </LayoutSection>
 </template>

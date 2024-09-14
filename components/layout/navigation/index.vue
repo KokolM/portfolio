@@ -7,20 +7,26 @@
       <LayoutNavigationButton v-for="item in menu" :item="item"></LayoutNavigationButton>
     </div>
   </div>
-  <div class="w-full h-20 bg-primary flex justify-end items-center lg:hidden px-2 py-2">
-    <div>
-      <Button icon="pi pi-bars" severity="secondary" @click="visible = true"></Button>
-    </div>
-    <Drawer v-model:visible="visible" position="top" style="height: auto">
-      <template #container="{ closeCallback }">
-        <div class="bg-primary flex flex-col items-start w-full px-2 py-2">
-          <div class="w-full flex justify-end">
-            <Button icon="pi pi-times" :rounded="true" severity="secondary" @click="closeCallback"></Button>
+  <div class="fixed top-0 right-0 lg:hidden w-full">
+    <div class="w-full flex justify-end items-center px-2 py-2">
+      <div v-if="!visible">
+        <Button icon="pi pi-bars" severity="primary" @click="visible = true"></Button>
+      </div>
+      <Drawer v-model:visible="visible" position="top" style="height: auto">
+        <template #container="{ closeCallback }">
+          <div class="bg-primary flex flex-col items-start w-full px-2 py-2">
+            <div class="w-full flex justify-end">
+              <Button icon="pi pi-times" :rounded="true" severity="secondary" @click="closeCallback"></Button>
+            </div>
+            <LayoutNavigationButton
+              v-for="item in menu"
+              :item="item"
+              @onLinkClick="closeCallback"
+            ></LayoutNavigationButton>
           </div>
-          <LayoutNavigationButton v-for="item in menu" :item="item" @onLinkClick="closeCallback"></LayoutNavigationButton>
-        </div>
-      </template>
-    </Drawer>
+        </template>
+      </Drawer>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -105,6 +111,4 @@ function updateActiveTarget(target: MenuItem) {
   // window.history.pushState("object or string", "Title", "/new-url")
 }
 </script>
-<style>
-
-</style>
+<style></style>
