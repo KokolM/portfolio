@@ -1,75 +1,151 @@
-<template lang="">
-  <LayoutSection title="Projects">
-    <LayoutSectionProjectsDetail title="Holup" subtitle="A web and mobile application">
-      <div class="flex flex-col gap-10">
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <div class="max-w-[800px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc metus, semper nec interdum vitae, imperdiet
-            quis eros. Aenean sit amet tincidunt diam, vitae tempus velit. Proin ut ante lobortis, lobortis turpis at,
-            egestas mauris. Aliquam in libero sit amet ipsum rutrum eleifend a in magna. Morbi semper malesuada ante.
-            Duis ligula diam, pretium tempor libero id, euismod vestibulum justo.
-          </div>
-          <img src="~/assets/images/holup/holup-kiosk.png" alt="Holup App Kiosk" width="520px" height="100%" />
-        </div>
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <img src="~/assets/images/holup/holup-mobile.png" alt="Holup App Mobile" width="520px" height="100%" />
-          <div class="max-w-[800px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc metus, semper nec interdum vitae, imperdiet
-            quis eros. Aenean sit amet tincidunt diam, vitae tempus velit. Proin ut ante lobortis, lobortis turpis at,
-            egestas mauris. Aliquam in libero sit amet ipsum rutrum eleifend a in magna. Morbi semper malesuada ante.
-            Duis ligula diam, pretium tempor libero id, euismod vestibulum justo. Sed aliquet sapien lorem, ac efficitur
-            sem rutrum sit amet. Duis ut dapibus enim, vel laoreet orci.
-          </div>
-        </div>
-      </div>
+<template>
+  <LayoutSection id="projects" title="Projects">
+    <LayoutSectionProjectsDetail
+      title="Holup"
+      subtitle="Flutter app for reintegration of ex-prisoners"
+      :screenshots="['/images/holup/holup-kiosk.png', '/images/holup/holup-mobile.png']"
+      description="Holup is a cross-platform app (kiosks, iOS, Android) built for the Slovak government to help ex-prisoners reintegrate into society. It offers job search (Profesia.sk), CV creation, housing assistance, and practical guidance for life after release. It currently runs on kiosks in all Slovak prisons."
+      :features="[
+        'Job search & CV builder',
+        'Emergency housing finder',
+        'Step-by-step reentry guidance',
+        'User-friendly & secure',
+        'Runs on kiosks as Flutter Web App in all Slovak prisons',
+        'Downloadable app for iOS and Android after release',
+      ]"
+      contribution="Developed the Flutter app for kiosks, iOS, and Android. Integrated job and housing features, and focused on usability and security for a sensitive user base."
+    >
+      <template #techstack>
+        <TechIconFlutter />
+        <TechIconDart />
+      </template>
+      <template #links>
+        <a
+          href="https://play.google.com/store/apps/details?id=sk.sancananavrat.holup"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 font-medium shadow-sm hover:bg-gray-50 transition-colors duration-150"
+        >
+          <i class="devicon-google-plain colored text-2xl"></i>
+          <span class="text-base">Google Play</span>
+        </a>
+        <a
+          href="https://apps.apple.com/sk/app/holup/id6503700108"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 font-medium shadow-sm hover:bg-gray-50 transition-colors duration-150"
+        >
+          <i class="devicon-apple-original colored text-2xl"></i>
+          <span class="text-base">App Store</span>
+        </a>
+      </template>
     </LayoutSectionProjectsDetail>
-    <LayoutSectionProjectsDetail title="Platform for Horizon Projects" subtitle="A dashboard application & API">
-      <div class="flex flex-col gap-10">
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <div class="max-w-[800px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc metus, semper nec interdum vitae, imperdiet
-            quis eros. Aenean sit amet tincidunt diam, vitae tempus velit. Proin ut ante lobortis, lobortis turpis at,
-            egestas mauris. Aliquam in libero sit amet ipsum rutrum eleifend a in magna. Morbi semper malesuada ante.
-            Duis ligula diam, pretium tempor libero id, euismod vestibulum justo.
-          </div>
-          <img src="~/assets/images/spade/spade-1.png" alt="Spade Dashboard App 1" width="600px" height="100%" />
-        </div>
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <img src="~/assets/images/spade/spade-2.png" alt="Spade Dashboard App 1" width="600px" height="100%" />
-          <div class="max-w-[800px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc metus, semper nec interdum vitae, imperdiet
-            quis eros. Aenean sit amet tincidunt diam, vitae tempus velit. Proin ut ante lobortis, lobortis turpis at,
-            egestas mauris. Aliquam in libero sit amet ipsum rutrum eleifend a in magna. Morbi semper malesuada ante.
-            Duis ligula diam, pretium tempor libero id, euismod vestibulum justo. Sed aliquet sapien lorem, ac efficitur
-            sem rutrum sit amet. Duis ut dapibus enim, vel laoreet orci.
-          </div>
-        </div>
-      </div>
+
+    <LayoutSectionProjectsDetail
+      title="Data Sharing Platform"
+      subtitle="Decentralized platform for data sharing and governance"
+      :screenshots="['/images/spade/spade-1.png', '/images/spade/spade-2.png']"
+      description="A decentralized platform for secure data sharing and governance, developed for EU Horizon projects (Auroral, Spade, Circuless) at bAvenir s.r.o. The platform enables organizations to share data and manage identities across Europe, supporting innovative and sustainable data ecosystems."
+      :features="[
+        'Frontend for decentralized data tools',
+        'Centralized backend for identity & relationships',
+        'API & service development',
+        'Secure, compliant data management',
+        'Collaboration on EU Horizon projects',
+        'Decentralized governance features',
+      ]"
+      contribution="Full stack development: built user-facing components, managed backend for identities and relationships, and contributed to EU Horizon projects (Auroral, Spade, Circuless) to advance data sharing across Europe."
+    >
+      <template #techstack>
+        <TechIconVue />
+        <TechIconTypescript />
+        <TechIconTailwind />
+        <TechIconNode />
+        <TechIconDocker />
+      </template>
+      <template #links>
+        <a
+          href="https://spade.example.com"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 font-medium shadow-sm hover:bg-gray-50 transition-colors duration-150"
+        >
+          <i class="devicon-chrome-plain colored text-2xl"></i>
+          <span class="text-base">Live Demo</span>
+        </a>
+        <a
+          href="https://github.com/KokolM/spade"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 font-medium shadow-sm hover:bg-gray-50 transition-colors duration-150"
+        >
+          <i class="devicon-github-original colored text-2xl"></i>
+          <span class="text-base">GitHub</span>
+        </a>
+      </template>
     </LayoutSectionProjectsDetail>
-    <LayoutSectionProjectsDetail title="Holup" subtitle="A web and mobile app">
-      <div class="flex flex-col gap-10">
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <div class="max-w-[800px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc metus, semper nec interdum vitae, imperdiet
-            quis eros. Aenean sit amet tincidunt diam, vitae tempus velit. Proin ut ante lobortis, lobortis turpis at,
-            egestas mauris. Aliquam in libero sit amet ipsum rutrum eleifend a in magna. Morbi semper malesuada ante.
-            Duis ligula diam, pretium tempor libero id, euismod vestibulum justo.
-          </div>
-          <img src="~/assets/images/holup/holup-kiosk.png" alt="Holup App Kiosk" width="520px" height="100%" />
-        </div>
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-          <img src="~/assets/images/holup/holup-mobile.png" alt="Holup App Mobile" width="520px" height="100%" />
-          <div class="max-w-[800px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc metus, semper nec interdum vitae, imperdiet
-            quis eros. Aenean sit amet tincidunt diam, vitae tempus velit. Proin ut ante lobortis, lobortis turpis at,
-            egestas mauris. Aliquam in libero sit amet ipsum rutrum eleifend a in magna. Morbi semper malesuada ante.
-            Duis ligula diam, pretium tempor libero id, euismod vestibulum justo. Sed aliquet sapien lorem, ac efficitur
-            sem rutrum sit amet. Duis ut dapibus enim, vel laoreet orci.
-          </div>
-        </div>
-      </div>
+
+    <LayoutSectionProjectsDetail
+      title="Omnium Capital Portal"
+      subtitle="Client Portal for Investment Company"
+      :screenshots="['/images/omnium/omnium-desktop.png', '/images/omnium/omnium-mobile.png']"
+      description="Engineered a secure, full-stack client portal for Omnium Capital, providing clients and staff with role-based access to investment data and tools. The platform integrates with upstream investment systems and automates data flows."
+      :features="[
+        'Django REST API with data sync & transformation',
+        'Role-based access for clients, staff, brokers, admins',
+        'Responsive Vue.js + PrimeVue frontend',
+        'Secure authentication & authorization',
+        'VM-based deployment with Nginx & HTTPS',
+        'Scalable, robust system architecture',
+      ]"
+      contribution="Built the backend (Django REST), designed RBAC, developed the Vue.js frontend, and handled deployment and system architecture."
+    >
+      <template #techstack>
+        <TechIconVue />
+        <TechIconTypescript />
+        <TechIconPrimeNg />
+        <TechIconNode />
+        <TechIconDocker />
+        <TechIconNginx />
+        <TechIconPostgre />
+        <TechIconPython />
+        <TechIconDjango />
+      </template>
+      <template #links>
+        <span class="px-4 py-2 rounded-lg border border-gray-300 bg-gray-100 text-gray-500 font-medium shadow-sm cursor-not-allowed"
+          >Private Project</span
+        >
+      </template>
+    </LayoutSectionProjectsDetail>
+
+    <LayoutSectionProjectsDetail
+      title="GreenCast"
+      subtitle="Management portal for energy communities"
+      :screenshots="['/images/greencast/greencast-desktop.png', '/images/greencast/greencast-mobile.png']"
+      description="A client-server Nuxt application that integrates with Slovakia's Energetic Data Center (EDC) to provide simplified access and role management for renewable energy source owners. The dashboard enables solar panel owners to organize into energy communities and manage their renewable energy assets."
+      :features="[
+        'Integration with Slovakia EDC',
+        'User role & access management',
+        'Energy community management',
+        'Dashboard with analytics',
+        'Billing & consumption tracking',
+        'Simplified EDC interface layer',
+        'Client-server Nuxt architecture',
+      ]"
+      contribution="Developed the full Nuxt application, integrated with EDC APIs, implemented role management system, and created user-friendly interface for energy community management."
+    >
+      <template #techstack>
+        <TechIconVue />
+        <TechIconNuxt />
+        <TechIconTypescript />
+        <TechIconTailwind />
+        <TechIconNode />
+        <TechIconDocker />
+      </template>
+      <template #links>
+        <span class="px-4 py-2 rounded-lg border border-gray-300 bg-gray-100 text-gray-500 font-medium shadow-sm cursor-not-allowed"
+          >Private Project</span
+        >
+      </template>
     </LayoutSectionProjectsDetail>
   </LayoutSection>
 </template>
-<script setup lang="ts"></script>
-<style lang=""></style>
+<script setup lang="ts">
+// No manual imports needed for tech icons in Nuxt (auto-imported)
+</script>
