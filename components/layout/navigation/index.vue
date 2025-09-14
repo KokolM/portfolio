@@ -57,20 +57,20 @@ const menu: Ref<MenuItem[]> = ref([
     menuRef: null,
     active: false,
   },
-  {
-    title: 'Skills',
-    path: '/',
-    hash: '#skills',
-    menuRef: null,
-    active: false,
-  },
-  {
-    title: 'Education',
-    path: '/',
-    hash: '#education',
-    menuRef: null,
-    active: false,
-  },
+  // {
+  //   title: 'Skills',
+  //   path: '/',
+  //   hash: '#skills',
+  //   menuRef: null,
+  //   active: false,
+  // },
+  // {
+  //   title: 'Education',
+  //   path: '/',
+  //   hash: '#education',
+  //   menuRef: null,
+  //   active: false,
+  // },
 ])
 
 let active: MenuItem | null = null

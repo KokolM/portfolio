@@ -4,6 +4,6 @@
   <LayoutSectionAbout id="about"> </LayoutSectionAbout>
   <LayoutSectionExperience id="experience"> </LayoutSectionExperience>
   <LayoutSectionProjects id="projects"> </LayoutSectionProjects>
-  <LayoutSectionSkills id="skills"> </LayoutSectionSkills>
-  <LayoutSectionEducation id="education"> </LayoutSectionEducation>
+  <!-- <LayoutSectionSkills id="skills"> </LayoutSectionSkills>
+  <LayoutSectionEducation id="education"> </LayoutSectionEducation> -->
 </template>

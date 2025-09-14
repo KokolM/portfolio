@@ -1,7 +1,13 @@
 <template>
   <div class="pb-20">
     <div class="flex flex-col gap-2 mb-6">
-      <h3>{{ title }}</h3>
+      <div class="flex items-center gap-3 mb-2">
+        <h3>{{ title }}</h3>
+        <div v-if="status" class="flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium" :class="statusClasses">
+          <div class="w-2 h-2 rounded-full" :class="statusDotClass"></div>
+          {{ statusText }}
+        </div>
+      </div>
       <h4>{{ subtitle }}</h4>
     </div>
     <div v-if="screenshots?.length" class="mb-8">
@@ -62,7 +68,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+
+type ProjectStatus = 'development' | 'production' | 'discontinued'
 
 const props = defineProps<{
   title: string
@@ -71,7 +79,47 @@ const props = defineProps<{
   description?: string
   features?: string[]
   contribution?: string
+  status?: ProjectStatus
 }>()
+
+const statusText = computed(() => {
+  switch (props.status) {
+    case 'development':
+      return 'In Development'
+    case 'production':
+      return 'In Production'
+    case 'discontinued':
+      return 'Discontinued'
+    default:
+      return ''
+  }
+})
+
+const statusClasses = computed(() => {
+  switch (props.status) {
+    case 'development':
+      return 'bg-blue-100 text-blue-800'
+    case 'production':
+      return 'bg-green-100 text-green-800'
+    case 'discontinued':
+      return 'bg-red-100 text-red-800'
+    default:
+      return ''
+  }
+})
+
+const statusDotClass = computed(() => {
+  switch (props.status) {
+    case 'development':
+      return 'bg-blue-600'
+    case 'production':
+      return 'bg-green-600'
+    case 'discontinued':
+      return 'bg-red-600'
+    default:
+      return ''
+  }
+})
 
 const fullscreenIndex = ref<number|null>(null)
 function openFullscreen(i: number) {
