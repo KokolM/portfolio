@@ -11,37 +11,57 @@
         <div>{{ endDate ? moment(endDate).format('MMM YYYY') : 'Present' }}</div>
       </div>
     </div>
-    <div class="mt-4 max-w-[800px]">
+    <div class="mt-6 max-w-[960px]">
       <slot></slot>
       <div v-if="hasTechnologies">
-        <div class="mt-5 text-xs pb-6">Technologies:</div>
-        <div class="flex flex-col lg:flex-row lg:items-center gap-24 lg:gap-20">
+        <div class="mt-16 text-xs pb-6">Experience in Technologies:</div>
+        <div class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-12">
           <div
-            v-if="$slots.technologiesDaily != undefined"
-            class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 w-fit relative"
+            v-if="$slots.technologiesFronend != undefined"
+            class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
           >
-            <slot name="technologiesDaily"></slot>
+            <slot name="technologiesFronend"></slot>
             <div class="absolute -bottom-8 left-0 w-full">
               <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
                 <div class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2">
-                  Used daily
+                  Frontend
                 </div>
               </div>
             </div>
           </div>
           <div
-            v-if="$slots.technologiesOccasinaly != undefined"
-            class="grid grid-cols-4 sm:grid-cols-6 items-center gap-4 min-w-60 w-fit relative"
+            v-if="$slots.technologiesBackend != undefined"
+            class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
           >
-            <slot name="technologiesOccasinaly"></slot>
+            <slot name="technologiesBackend"></slot>
             <div class="absolute -bottom-8 left-0 w-full">
               <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
                 <div class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2">
-                  Used occasionaly
+                  Backend
                 </div>
               </div>
             </div>
           </div>
+          <div
+            v-if="$slots.technologiesDevOps != undefined"
+            class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
+          >
+            <slot name="technologiesDevOps"></slot>
+            <div class="absolute -bottom-8 left-0 w-full">
+              <div class="relative h-0.5 w-full bg-secondary bg-opacity-20">
+                <div class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2">
+                  DevOps
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div v-if="hasRelatedProjects" class="mt-28">
+        <div class="text-xs pb-6">Related Projects:</div>
+        <div class="space-y-4">
+          <slot name="relatedProjects"></slot>
         </div>
       </div>
     </div>
@@ -61,7 +81,11 @@ defineProps<{
 }>()
 
 const hasTechnologies = computed(
-  () => slots.technologiesDaily != undefined || slots.technologiesOccasinaly != undefined
+  () => slots.technologiesFronend != undefined || slots.technologiesBackend != undefined
+)
+
+const hasRelatedProjects = computed(
+  () => slots.relatedProjects != undefined
 )
 </script>
 <style lang=""></style>

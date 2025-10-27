@@ -1,42 +1,80 @@
 <template lang="">
   <LayoutSection title="Experience">
     <LayoutSectionExperienceDetail title="Fullstack Developer" subtitle="bAvenir s.r.o." :startDate="new Date(2023, 9)">
-      <div>
-        I played a crucial role in the development of an innovative platform focused on decentralized data sharing and data governance. I was
-        responsible for design and implementation of User Interfaces and implementation of Server-facing part of the platform.
-      </div>
-      <template #technologiesDaily>
-        <TechIconAngular17 />
-        <TechIconPrimeNg />
-        <TechIconTailwindCss />
-        <TechIconNodeJs />
-        <TechIconPostgreSql />
-      </template>
-      <template #technologiesOccasinaly>
-        <TechIconDocker />
+      <p>
+        I contributed to the development of a decentralized data sharing and governance platform, designing user interfaces and implementing core
+        server-side features. The system uses Keycloak for role-based access control and certificate-based authentication to enable secure
+        machine-to-machine communication.
+      </p>
+      <p class="mt-6">
+        In collaboration with energy experts, I developed a customer portal for energy communities in Slovakia. The platform enables users and
+        administrators to manage communities, share energy, and handle transparent billing for energy production and consumption.
+      </p>
+      <template #technologiesFronend>
+        <TechIconNuxt />
+        <TechIconAngular />
+        <TechIconPrimeFaces />
+        <TechIconTailwind />
         <TechIconFigma />
-        <TechIconSketch />
+      </template>
+      <template #technologiesBackend>
+        <TechIconNuxt />
+        <TechIconNode />
+        <TechIconPostgres />
+        <TechIconPrisma />
+      </template>
+      <template #technologiesDevOps>
+        <TechIconDocker />
+        <TechIconTraefik />
         <TechIconNginx />
+      </template>
+      <template #relatedProjects>
+        <LayoutSectionExperienceProjectCard
+          title="Data Sharing Platform"
+          subtitle="Decentralized platform for data sharing and governance"
+          status="production"
+          project-link="#data-sharing-platform"
+        />
+        <LayoutSectionExperienceProjectCard
+          title="Greencast"
+          subtitle="Energy community management and electricity sharing platform"
+          status="production"
+          project-link="#greencast"
+        />
       </template>
     </LayoutSectionExperienceDetail>
-    <LayoutSectionExperienceDetail title="Freelance Developer" subtitle="Multilpe companies" :startDate="new Date(2023, 5)">
-      <div>
-        As a freelance full-stack developer, I work on a diverse range of projects, building both front-end interfaces and back-end systems. I focus
-        on creating responsive, user-friendly applications while ensuring robust, scalable server-side architecture. My goal is to deliver clean,
-        efficient solutions tailored to meet each client’s unique requirements.
-      </div>
-      <template #technologiesDaily>
-        <TechIconAngular17 />
-        <TechIconPrimeNg />
-        <TechIconTailwindCss />
-        <TechIconNodeJs />
-        <TechIconPostgreSql />
+    <LayoutSectionExperienceDetail title="Freelance Developer" subtitle="Multilpe clients" :startDate="new Date(2023, 5)">
+      <p>
+        As a freelance full-stack developer, I've worked on diverse projects building modern, scalable web applications. My experience includes
+        creating a role-based dashboard for an investment company, implementing backend integrations with third-party APIs, and developing a
+        Notion-like collaborative app for real-time content editing and teamwork.
+      </p>
+      <template #technologiesFronend>
+        <TechIconAngular />
+        <TechIconPrimeFaces />
+        <TechIconTailwind />
+        <TechIconNode />
+        <TechIconPostgres />
       </template>
-      <template #technologiesOccasinaly>
+      <template #technologiesBackend>
         <TechIconDocker />
         <TechIconFigma />
         <TechIconSketch />
         <TechIconNginx />
+      </template>
+      <template #relatedProjects>
+        <LayoutSectionExperienceProjectCard
+          title="Omnium Capital Portal"
+          subtitle="Client Portal for Investment Company"
+          status="production"
+          project-link="#omnium-capital-portal"
+        />
+        <LayoutSectionExperienceProjectCard
+          title="HeyMe"
+          subtitle="Notion-like collaborative editing platform"
+          status="development"
+          project-link="#heyme"
+        />
       </template>
     </LayoutSectionExperienceDetail>
     <LayoutSectionExperienceDetail
@@ -45,18 +83,26 @@
       :startDate="new Date(2021, 3)"
       :endDate="new Date(2023, 9)"
     >
-      <div>
-        I contributed to the "Chance for Reentry" project, focusing on developing a mobile/kiosk application and various other supporting applications aimed at assisting reintegration efforts
-        for formerly incarcerated individuals. Applications are currently running in all Slovak correctional facilities.
-      </div>
-      <template #technologiesDaily>
+      <p>
+        I contributed to the "Chance for Reentry" project, developing a mobile and kiosk application, along with several supporting tools, to support
+        the reintegration of formerly incarcerated individuals. These applications are now deployed across all Slovak correctional facilities.
+      </p>
+      <template #technologiesFronend>
         <TechIconFlutter />
-        <TechIconVuejs />
+        <TechIconVue />
         <TechIconVuetify />
-      </template>
-      <template #technologiesOccasinaly>
         <TechIconSketch />
+      </template>
+      <template #technologiesDevOps>
         <TechIconNginx />
+      </template>
+      <template #relatedProjects>
+        <LayoutSectionExperienceProjectCard
+          title="Holup"
+          subtitle="Flutter app for reintegration of ex-prisoners"
+          status="production"
+          project-link="#holup"
+        />
       </template>
     </LayoutSectionExperienceDetail>
   </LayoutSection>

@@ -1,6 +1,7 @@
 <template>
   <LayoutSection id="projects" title="Projects">
     <LayoutSectionProjectsDetail
+      id="holup"
       title="Holup"
       subtitle="Flutter app for reintegration of ex-prisoners"
       status="production"
@@ -41,6 +42,7 @@
     </LayoutSectionProjectsDetail>
 
     <LayoutSectionProjectsDetail
+      id="data-sharing-platform"
       title="Data Sharing Platform"
       subtitle="Decentralized platform for data sharing and governance"
       status="production"
@@ -84,6 +86,7 @@
     </LayoutSectionProjectsDetail>
 
     <LayoutSectionProjectsDetail
+      id="omnium-capital-portal"
       title="Omnium Capital Portal"
       subtitle="Client Portal for Investment Company"
       status="production"
@@ -118,6 +121,7 @@
     </LayoutSectionProjectsDetail>
 
     <LayoutSectionProjectsDetail
+      id="greencast"
       title="GreenCast"
       subtitle="Management portal for energy communities"
       status="production"
@@ -150,6 +154,7 @@
     </LayoutSectionProjectsDetail>
 
     <LayoutSectionProjectsDetail
+      id="heyme"
       title="Heyme"
       subtitle="Task and collaboration software platform"
       status="development"

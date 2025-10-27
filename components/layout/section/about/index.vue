@@ -1,6 +1,6 @@
 <template lang="">
   <LayoutSection>
-    <h1>Matt <span class="text-primary">Kokol</span></h1>
+    <h1>Matej <span class="text-primary">Kokol</span></h1>
     <div class="flex flex-col md:flex-row items-start md:items-center gap-1">
       <h4>Fullstack software developer ·</h4>
       <h4>(+421) 948 432 249 ·</h4>

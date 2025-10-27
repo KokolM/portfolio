@@ -29,6 +29,6 @@ function goToPage() {
   window.open(url.value, '_blank')
 }
 
-const hasTechnologies = computed(() => slots.technologiesDaily != undefined || slots.technologiesOccasinaly != undefined)
+const hasTechnologies = computed(() => slots.technologiesFronend != undefined || slots.technologiesBackend != undefined)
 </script>
 <style lang=""></style>
