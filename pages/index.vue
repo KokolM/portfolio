@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <LayoutSectionAbout id="about"> </LayoutSectionAbout>
-  <LayoutSectionExperience id="experience"> </LayoutSectionExperience>
-  <LayoutSectionProjects id="projects"> </LayoutSectionProjects>
-  <!-- <LayoutSectionSkills id="skills"> </LayoutSectionSkills>
-  <LayoutSectionEducation id="education"> </LayoutSectionEducation> -->
+  <HomeSectionAbout id="about"> </HomeSectionAbout>
+  <HomeSectionExperience id="experience"> </HomeSectionExperience>
+  <HomeSectionProjects id="projects"> </HomeSectionProjects>
+  <!-- <HomeSectionSkills id="skills"> </HomeSectionSkills>
+  <HomeSectionEducation id="education"> </HomeSectionEducation> -->
 </template>
