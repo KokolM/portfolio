@@ -1,5 +1,16 @@
 import type { Project } from './models/project.models'
 import type { Experience } from './models/experience.models'
+import type { Education } from './models/education.models'
+
+export const personalData = {
+    name: 'Matej',
+    surname: 'Kokol',
+    email: 'kokol.matej0@gmail.com',
+    phone: '(+421) 948 432 249',
+    location: 'Slovakia',
+    linkedin: 'linkedin.com/in/matej-kokol',
+    github: 'github.com/KokolM',
+}
 
 export const experienceData: Record<string, Experience> = {
     bavenir: {
@@ -277,5 +288,23 @@ export const projectsData: Record<string, Project> = {
         ],
         contribution:
             'Developed the complete backend architecture and RESTful API, ensuring robust data management, real-time synchronization, and scalable infrastructure to support the collaboration platform.',
+    },
+}
+
+export const educationData: Record<string, Education> = {
+    stu: {
+        id: 'stu',
+        institution: 'Slovak University of Technology in Bratislava',
+        degree: "Bachelor's Degree",
+        field: 'Internet Technologies',
+        location: 'Bratislava, Slovakia',
+        startDate: new Date(2015, 8), // September 2015
+        endDate: new Date(2019, 5), // June 2019
+        description: [
+            'Studied at the Faculty of Informatics and Information Technologies (FIIT), focusing on modern web technologies, software engineering, and mobile application development.',
+            'Gained expertise in full-stack development, database systems, and user interface design, which laid the foundation for my professional career as a software developer.',
+        ],
+        thesis:
+            'Mobile Application for Prisoners - Developed a Flutter-based mobile application designed to support the reintegration of prisoners into society. This project evolved into the Holup app, which is now deployed across all Slovak correctional facilities.',
     },
 }

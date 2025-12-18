@@ -21,6 +21,7 @@
     "@primevue/forms": "^4.4.1",
     "@vercel/speed-insights": "^1.2.0",
     "devicon": "^2.17.0",
+    "jspdf": "^3.0.4",
     "moment": "^2.30.1",
     "nuxt": "^4.2.0",
     "nuxt-viewport": "^2.3.1",
