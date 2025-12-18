@@ -18,24 +18,7 @@
         >
             <h3>{{ props.title }}</h3>
             <h4>{{ props.description }}</h4>
-            <div
-                class="mt-3 text-sm font-semibold text-white rounded-md px-2 py-1 inline-block"
-                :class="{
-                    'bg-yellow-600': props.status === 'development',
-                    'bg-green-600': props.status === 'production',
-                    'bg-gray-600': props.status === 'discontinued',
-                }"
-            >
-                {{
-                    props.status === 'development'
-                        ? 'In Development'
-                        : props.status === 'production'
-                        ? 'In Production'
-                        : props.status === 'discontinued'
-                        ? 'Discontinued'
-                        : ''
-                }}
-            </div>
+            <ProjectStatus :status="props.status" size="small" class="mt-3" />
             <div class="flex flex-col gap-4 mt-8">
                 <div
                     v-for="feature in props.features"
@@ -62,7 +45,8 @@
 </template>
 
 <script lang="ts" setup>
-type ProjectStatus = 'development' | 'production' | 'discontinued'
+import type { ProjectStatus } from '~/models/project.models';
+
 
 const props = defineProps<{
     id: string

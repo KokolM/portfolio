@@ -1,40 +1,58 @@
-import Aura from '@primeuix/themes/aura'
+import AuraTheme from './themes/aura'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-  modules: [
-    '@primevue/nuxt-module',
-    ['@nuxtjs/google-fonts', { families: { 'Saira Extra Condensed': [400, 500, 600, 700, 800] } }],
-    'nuxt-viewport',
-    '@primevue/nuxt-module',
-  ],
+    devtools: { enabled: true },
+    modules: [
+        '@primevue/nuxt-module',
+        [
+            '@nuxtjs/google-fonts',
+            {
+                families: {
+                    'Saira Extra Condensed': [400, 500, 600, 700, 800],
+                },
+            },
+        ],
+        'nuxt-viewport',
+    ],
 
-  primevue: {
-    options: {
-      theme: {
-        preset: Aura,
-      },
+    primevue: {
+        options: {
+            theme: {
+                preset: AuraTheme.preset,
+                options: {
+                    ...AuraTheme.options,
+                    cssLayer: {
+                        name: 'primevue',
+                        order: 'tailwind-base, primevue, tailwind-utilities',
+                    },
+                },
+            },
+        },
     },
-  },
 
-  css: ['~/assets/css/main.css', 'primeicons/primeicons.css', '@fortawesome/fontawesome-svg-core/styles.css', 'devicon/devicon.min.css'],
+    css: [
+        '~/assets/css/main.css',
+        'primeicons/primeicons.css',
+        '@fortawesome/fontawesome-svg-core/styles.css',
+        'devicon/devicon.min.css',
+    ],
 
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
+    postcss: {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
     },
-  },
 
-  // router: {
-  //   options: {
-  //     scrollBehaviorType: 'smooth'
-  //   }
-  // },
-  build: {
-    transpile: ['@fortawesome/vue-fontawesome'],
-  },
+    build: {
+        transpile: ['@fortawesome/vue-fontawesome'],
+    },
 
-  compatibilityDate: '2024-08-24',
+    compatibilityDate: '2024-08-24',
+
+    components: [
+        // import all components globally for dynamic component (TechIcon*) to work
+        { path: '~/components', global: true },
+    ],
 })

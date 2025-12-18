@@ -2,54 +2,40 @@
     <div class="bg-white min-h-screen">
         <div class="flex flex-col lg:flex-row min-h-screen">
             <!-- Left Panel - Project Details -->
-            <div class="w-full lg:w-2/5 p-8 lg:p-16 flex flex-col justify-between relative">
-                <!-- Close button -->
-                <Button
-                    icon="pi pi-times"
-                    text
-                    rounded
-                    severity="secondary"
-                    class="absolute top-8 right-8"
-                    @click="$router.back()"
-                />
-
+            <div
+                class="w-full lg:w-2/5 p-8 lg:p-16 flex flex-col justify-between relative"
+            >
                 <div class="space-y-6">
                     <!-- Title Section -->
                     <div>
-                        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
+                        <h1
+                            class="text-4xl lg:text-5xl font-bold text-gray-900 mb-2"
+                        >
                             {{ project.title }}
                         </h1>
-                        <p class="text-sm text-gray-500 uppercase tracking-wide">
+                        <h4>
                             {{ project.subtitle }}
-                        </p>
-                    </div>
-
-                    <!-- Tech Stack -->
-                    <div class="space-y-2">
-                        <p class="text-sm text-gray-600 font-medium">TECH STACK</p>
-                        <div class="flex flex-wrap gap-3">
-                            <component
-                                v-for="tech in project.techStack"
-                                :key="tech.name"
-                                :is="tech.component"
-                                class="w-8 h-8"
-                            />
-                        </div>
+                        </h4>
                     </div>
 
                     <!-- Status -->
                     <div class="space-y-2">
                         <p class="text-sm text-gray-600 font-medium">STATUS</p>
-                        <Tag
-                            :value="project.status.toUpperCase()"
-                            :severity="
-                                project.status === 'production'
-                                    ? 'success'
-                                    : project.status === 'development'
-                                      ? 'info'
-                                      : 'secondary'
-                            "
-                        />
+                        <ProjectStatus :status="project.status" />
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div class="space-y-8">
+                        <p class="text-sm text-gray-600 font-medium">
+                            TECH STACK
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <component
+                                v-for="tech in project.techStack"
+                                :key="tech.name"
+                                :is="tech.component"
+                            />
+                        </div>
                     </div>
 
                     <!-- Links/Actions -->
@@ -61,16 +47,30 @@
                             :disabled="link.disabled"
                             :severity="link.disabled ? 'secondary' : 'contrast'"
                             class="w-full"
-                            @click="link.url && !link.disabled ? openLink(link.url) : null"
+                            @click="
+                                link.url && !link.disabled
+                                    ? openLink(link.url)
+                                    : null
+                            "
                         />
                     </div>
 
                     <!-- Screenshots Navigation -->
-                    <div v-if="project.screenshots && project.screenshots.length > 1" class="pt-4">
-                        <p class="text-xs text-gray-500 uppercase mb-3">IMAGES</p>
+                    <div
+                        v-if="
+                            project.screenshots &&
+                            project.screenshots.length > 1
+                        "
+                        class="pt-4"
+                    >
+                        <p class="text-xs text-gray-500 uppercase mb-3">
+                            IMAGES
+                        </p>
                         <div class="flex gap-3 flex-wrap">
                             <div
-                                v-for="(screenshot, index) in project.screenshots"
+                                v-for="(
+                                    screenshot, index
+                                ) in project.screenshots"
                                 :key="index"
                                 :class="[
                                     'w-20 h-20 border-2 transition-all overflow-hidden cursor-pointer',
@@ -82,7 +82,9 @@
                             >
                                 <img
                                     :src="screenshot"
-                                    :alt="`${project.title} screenshot ${index + 1}`"
+                                    :alt="`${project.title} screenshot ${
+                                        index + 1
+                                    }`"
                                     class="w-full h-full object-cover"
                                 />
                             </div>
@@ -97,8 +99,13 @@
                     </p>
 
                     <!-- Features -->
-                    <div v-if="project.features && project.features.length > 0" class="space-y-2">
-                        <p class="text-sm text-gray-600 font-medium uppercase">Key Features</p>
+                    <div
+                        v-if="project.features && project.features.length > 0"
+                        class="space-y-2"
+                    >
+                        <p class="text-sm text-gray-600 font-medium uppercase">
+                            Key Features
+                        </p>
                         <ul class="space-y-1">
                             <li
                                 v-for="feature in project.features"
@@ -112,32 +119,39 @@
 
                     <!-- Contribution -->
                     <div v-if="project.contribution" class="space-y-2">
-                        <p class="text-sm text-gray-600 font-medium uppercase">My Contribution</p>
-                        <p class="text-sm text-gray-600">{{ project.contribution }}</p>
+                        <p class="text-sm text-gray-600 font-medium uppercase">
+                            My Contribution
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            {{ project.contribution }}
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!-- Right Panel - Image -->
             <div class="w-full lg:w-3/5 bg-gray-50 relative">
-                <div class="sticky top-0 h-screen flex items-center justify-center p-8">
+                <div
+                    class="sticky top-0 h-screen flex items-center justify-center p-8"
+                >
                     <!-- Navigation Arrows for Images -->
                     <Button
                         v-if="hasMultipleImages && selectedImageIndex > 0"
                         icon="pi pi-chevron-left"
-                        text
                         rounded
-                        severity="secondary"
+                        severity="primary"
                         class="absolute left-4 top-1/2 -translate-y-1/2 z-10"
                         @click="previousImage"
                     />
 
                     <Button
-                        v-if="hasMultipleImages && selectedImageIndex < totalImages - 1"
+                        v-if="
+                            hasMultipleImages &&
+                            selectedImageIndex < totalImages - 1
+                        "
                         icon="pi pi-chevron-right"
-                        text
                         rounded
-                        severity="secondary"
+                        severity="primary"
                         class="absolute right-4 top-1/2 -translate-y-1/2 z-10"
                         @click="nextImage"
                     />
@@ -150,6 +164,17 @@
                     />
                 </div>
             </div>
+        </div>
+
+        <div class="fixed top-4 right-4">
+            <!-- Close button -->
+            <Button
+                icon="pi pi-times"
+                text
+                rounded
+                severity="secondary"
+                @click="$router.back()"
+            />
         </div>
     </div>
 </template>
@@ -197,7 +222,10 @@ const previousImage = () => {
 }
 
 const nextImage = () => {
-    if (project.screenshots && selectedImageIndex.value < project.screenshots.length - 1) {
+    if (
+        project.screenshots &&
+        selectedImageIndex.value < project.screenshots.length - 1
+    ) {
         selectedImageIndex.value++
     }
 }

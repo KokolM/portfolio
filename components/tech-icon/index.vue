@@ -1,10 +1,10 @@
 <template lang="">
-  <div v-if="$viewport.isGreaterOrEquals('tablet')" class="cursor-pointer hover:text-primary" v-tooltip.bottom="title" @click="goToPage()">
+  <div v-if="compact" class="cursor-pointer hover:text-primary" v-tooltip.bottom="title" @click="goToPage()">
     <div class="size-12 flex items-center justify-center">
       <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
     </div>
   </div>
-  <div v-else class="cursor-pointer hover:text-primary flex flex-col items-center gap-2" @click="goToPage()">
+  <div v-else class="cursor-pointer hover:text-primary flex flex-col items-center" @click="goToPage()">
     <div class="size-12 flex items-center justify-center">
       <i :class="icon" :style="{ fontSize: (sizeRem ?? 2) + 'rem' }"></i>
     </div>
@@ -21,6 +21,7 @@ const props = defineProps<{
   title: string
   url: string
   sizeRem?: number
+  compact?: boolean
 }>()
 
 const { url } = toRefs(props)

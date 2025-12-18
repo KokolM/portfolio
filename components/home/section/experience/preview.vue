@@ -29,10 +29,14 @@
                     class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-12"
                 >
                     <div
-                        v-if="$slots.technologiesFronend != undefined"
+                        v-if="techStackFrontend && techStackFrontend.length > 0"
                         class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
                     >
-                        <slot name="technologiesFronend"></slot>
+                        <component
+                            v-for="tech in techStackFrontend"
+                            :key="tech.name"
+                            :is="tech.component"
+                        />
                         <div class="absolute -bottom-8 left-0 w-full">
                             <div
                                 class="relative h-0.5 w-full bg-secondary bg-opacity-20"
@@ -46,10 +50,14 @@
                         </div>
                     </div>
                     <div
-                        v-if="$slots.technologiesBackend != undefined"
+                        v-if="techStackBackend && techStackBackend.length > 0"
                         class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
                     >
-                        <slot name="technologiesBackend"></slot>
+                        <component
+                            v-for="tech in techStackBackend"
+                            :key="tech.name"
+                            :is="tech.component"
+                        />
                         <div class="absolute -bottom-8 left-0 w-full">
                             <div
                                 class="relative h-0.5 w-full bg-secondary bg-opacity-20"
@@ -63,10 +71,14 @@
                         </div>
                     </div>
                     <div
-                        v-if="$slots.technologiesDevOps != undefined"
+                        v-if="techStackDevOps && techStackDevOps.length > 0"
                         class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
                     >
-                        <slot name="technologiesDevOps"></slot>
+                        <component
+                            v-for="tech in techStackDevOps"
+                            :key="tech.name"
+                            :is="tech.component"
+                        />
                         <div class="absolute -bottom-8 left-0 w-full">
                             <div
                                 class="relative h-0.5 w-full bg-secondary bg-opacity-20"
@@ -85,22 +97,25 @@
     </div>
 </template>
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { computed } from 'vue'
 import moment from 'moment'
+import type { TechStack } from '~/models/experience.models'
 
-const slots = useSlots()
-
-defineProps<{
+const props = defineProps<{
     title: string
     subtitle: string
     startDate: Date
     endDate?: Date
+    techStackFrontend?: TechStack[]
+    techStackBackend?: TechStack[]
+    techStackDevOps?: TechStack[]
 }>()
 
 const hasTechnologies = computed(
     () =>
-        slots.technologiesFronend != undefined ||
-        slots.technologiesBackend != undefined
+        (props.techStackFrontend && props.techStackFrontend.length > 0) ||
+        (props.techStackBackend && props.techStackBackend.length > 0) ||
+        (props.techStackDevOps && props.techStackDevOps.length > 0)
 )
 </script>
 <style lang=""></style>
