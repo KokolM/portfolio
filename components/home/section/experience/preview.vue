@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="pb-56 max-w-4xl">
+    <div class="pb-32 max-w-4xl">
         <div
             class="flex flex-col lg:flex-row items-start justify-end gap-1 lg:gap-4 w-full"
         >
@@ -21,101 +21,17 @@
         </div>
         <div class="mt-8">
             <slot></slot>
-            <div v-if="hasTechnologies">
-                <div class="mt-10 text-xs pb-6">
-                    Technologies used:
-                </div>
-                <div
-                    class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-12"
-                >
-                    <div
-                        v-if="techStackFrontend && techStackFrontend.length > 0"
-                        class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
-                    >
-                        <component
-                            v-for="tech in techStackFrontend"
-                            :key="tech.name"
-                            :is="tech.component"
-                        />
-                        <div class="absolute -bottom-8 left-0 w-full">
-                            <div
-                                class="relative h-0.5 w-full bg-secondary bg-opacity-20"
-                            >
-                                <div
-                                    class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2"
-                                >
-                                    Frontend
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        v-if="techStackBackend && techStackBackend.length > 0"
-                        class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
-                    >
-                        <component
-                            v-for="tech in techStackBackend"
-                            :key="tech.name"
-                            :is="tech.component"
-                        />
-                        <div class="absolute -bottom-8 left-0 w-full">
-                            <div
-                                class="relative h-0.5 w-full bg-secondary bg-opacity-20"
-                            >
-                                <div
-                                    class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2"
-                                >
-                                    Backend
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        v-if="techStackDevOps && techStackDevOps.length > 0"
-                        class="grid grid-cols-4 sm:grid-cols-5 items-center gap-4 min-w-60 w-fit relative"
-                    >
-                        <component
-                            v-for="tech in techStackDevOps"
-                            :key="tech.name"
-                            :is="tech.component"
-                        />
-                        <div class="absolute -bottom-8 left-0 w-full">
-                            <div
-                                class="relative h-0.5 w-full bg-secondary bg-opacity-20"
-                            >
-                                <div
-                                    class="absolute bg-white text-xs text-light-grey -top-2 px-2 left-1/2 transform -translate-x-1/2"
-                                >
-                                    DevOps
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
 import moment from 'moment'
-import type { TechStack } from '~/models/experience.models'
 
 const props = defineProps<{
     title: string
     subtitle: string
     startDate: Date
     endDate?: Date
-    techStackFrontend?: TechStack[]
-    techStackBackend?: TechStack[]
-    techStackDevOps?: TechStack[]
 }>()
-
-const hasTechnologies = computed(
-    () =>
-        (props.techStackFrontend && props.techStackFrontend.length > 0) ||
-        (props.techStackBackend && props.techStackBackend.length > 0) ||
-        (props.techStackDevOps && props.techStackDevOps.length > 0)
-)
 </script>
 <style lang=""></style>

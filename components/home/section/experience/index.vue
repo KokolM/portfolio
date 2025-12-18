@@ -7,9 +7,6 @@
       :subtitle="experience.position"
       :startDate="experience.startDate"
       :endDate="experience.endDate"
-      :techStackFrontend="experience.techStackFrontend"
-      :techStackBackend="experience.techStackBackend"
-      :techStackDevOps="experience.techStackDevOps"
     >
       <p v-for="(paragraph, index) in experience.description" :key="index" :class="{ 'mt-6': index > 0 }">
         {{ paragraph }}

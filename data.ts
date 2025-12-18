@@ -1,6 +1,7 @@
 import type { Project } from './models/project.models'
 import type { Experience } from './models/experience.models'
 import type { Education } from './models/education.models'
+import type { Skill } from './models/skill.models'
 
 export const personalData = {
     name: 'Matej',
@@ -306,5 +307,127 @@ export const educationData: Record<string, Education> = {
         ],
         thesis:
             'Mobile Application for Prisoners - Developed a Flutter-based mobile application designed to support the reintegration of prisoners into society. This project evolved into the Holup app, which is now deployed across all Slovak correctional facilities.',
+    },
+}
+
+export const skillsData: Record<string, Skill> = {
+    nuxt: {
+        id: 'nuxt',
+        name: 'Nuxt',
+        yearsOfExperience: 2,
+        category: 'Frontend',
+        component: 'TechIconNuxt',
+    },
+    angular: {
+        id: 'angular',
+        name: 'Angular',
+        yearsOfExperience: 4,
+        category: 'Frontend',
+        component: 'TechIconAngular',
+    },
+    primefaces: {
+        id: 'primefaces',
+        name: 'PrimeFaces',
+        yearsOfExperience: 4,
+        category: 'Frontend',
+        component: 'TechIconPrimeFaces',
+    },
+    tailwind: {
+        id: 'tailwind',
+        name: 'Tailwind',
+        yearsOfExperience: 4,
+        category: 'Frontend',
+        component: 'TechIconTailwind',
+    },
+    vue: {
+        id: 'vue',
+        name: 'Vue',
+        yearsOfExperience: 4,
+        category: 'Frontend',
+        component: 'TechIconVue',
+    },
+    vuetify: {
+        id: 'vuetify',
+        name: 'Vuetify',
+        yearsOfExperience: 2,
+        category: 'Frontend',
+        component: 'TechIconVuetify',
+    },
+    flutter: {
+        id: 'flutter',
+        name: 'Flutter',
+        yearsOfExperience: 4,
+        category: 'Frontend',
+        component: 'TechIconFlutter',
+    },
+    typescript: {
+        id: 'typescript',
+        name: 'TypeScript',
+        yearsOfExperience: 4,
+        category: 'Backend',
+        component: 'TechIconTypescript',
+    },
+    node: {
+        id: 'node',
+        name: 'Node',
+        yearsOfExperience: 4,
+        category: 'Backend',
+        component: 'TechIconNode',
+    },
+    postgres: {
+        id: 'postgres',
+        name: 'PostgreSQL',
+        yearsOfExperience: 4,
+        category: 'Backend',
+        component: 'TechIconPostgres',
+    },
+    prisma: {
+        id: 'prisma',
+        name: 'Prisma',
+        yearsOfExperience: 2,
+        category: 'Backend',
+        component: 'TechIconPrisma',
+    },
+    docker: {
+        id: 'docker',
+        name: 'Docker',
+        yearsOfExperience: 4,
+        category: 'DevOps',
+        component: 'TechIconDocker',
+    },
+    traefik: {
+        id: 'traefik',
+        name: 'Traefik',
+        yearsOfExperience: 2,
+        category: 'DevOps',
+        component: 'TechIconTraefik',
+    },
+    nginx: {
+        id: 'nginx',
+        name: 'Nginx',
+        yearsOfExperience: 4,
+        category: 'DevOps',
+        component: 'TechIconNginx',
+    },
+    figma: {
+        id: 'figma',
+        name: 'Figma',
+        yearsOfExperience: 2,
+        category: 'Design',
+        component: 'TechIconFigma',
+    },
+    sketch: {
+        id: 'sketch',
+        name: 'Sketch',
+        yearsOfExperience: 3,
+        category: 'Design',
+        component: 'TechIconSketch',
+    },
+    dart: {
+        id: 'dart',
+        name: 'Dart',
+        yearsOfExperience: 4,
+        category: 'Backend',
+        component: 'TechIconDart',
     },
 }

@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf'
-import { personalData, experienceData, projectsData, educationData } from '~/data'
+import { personalData, experienceData, projectsData, educationData, skillsData } from '~/data'
 
 export const useCVGenerator = () => {
     const generateCV = () => {
@@ -161,31 +161,68 @@ export const useCVGenerator = () => {
                 const height = addText(desc, 25, yPosition, 165, 9)
                 yPosition += height + 2
             }
-            yPosition += 2
 
-            // Tech Stack with clean separator
-            const allTech = [
-                ...(exp.techStackFrontend || []),
-                ...(exp.techStackBackend || []),
-                ...(exp.techStackDevOps || []),
-            ]
-            if (allTech.length > 0) {
-                doc.setFont('helvetica', 'normal')
-                doc.setFontSize(8)
-                doc.setTextColor(lightGray.r, lightGray.g, lightGray.b)
-                const techNames = allTech.map((t) => t.name).join(' | ')
-                const height = addText(
-                    techNames,
-                    20,
-                    yPosition,
-                    170,
-                    8
-                )
-                yPosition += height + 6
+            yPosition += 6
+        }
+
+        // Skills Section
+        if (yPosition > 200) {
+            doc.addPage()
+            yPosition = 25
+        }
+
+        yPosition = addSectionHeader('SKILLS', yPosition)
+
+        const skills = Object.values(skillsData).sort((a, b) => {
+            // Sort by years of experience (descending), then by name
+            if (b.yearsOfExperience !== a.yearsOfExperience) {
+                return b.yearsOfExperience - a.yearsOfExperience
+            }
+            return a.name.localeCompare(b.name)
+        })
+
+        // Group skills by category
+        const skillsByCategory: Record<string, typeof skills> = {}
+        for (const skill of skills) {
+            if (!skillsByCategory[skill.category]) {
+                skillsByCategory[skill.category] = []
+            }
+            skillsByCategory[skill.category]!.push(skill)
+        }
+
+        // Display skills by category
+        const categories = ['Frontend', 'Backend', 'DevOps', 'Design']
+        for (const category of categories) {
+            const categorySkills = skillsByCategory[category]
+            if (!categorySkills || categorySkills.length === 0) continue
+
+            // Check if we need a new page
+            if (yPosition > 240) {
+                doc.addPage()
+                yPosition = 25
             }
 
-            yPosition += 2
+            // Category name
+            doc.setFontSize(10)
+            doc.setFont('helvetica', 'bold')
+            doc.setTextColor(primaryColor.r, primaryColor.g, primaryColor.b)
+            doc.text(category, 20, yPosition)
+            yPosition += 5
+
+            // Skills in this category
+            doc.setFontSize(9)
+            doc.setFont('helvetica', 'normal')
+            doc.setTextColor(darkGray.r, darkGray.g, darkGray.b)
+            
+            const skillsText = categorySkills
+                .map(s => `${s.name} (${s.yearsOfExperience}y)`)
+                .join(' • ')
+            
+            const height = addText(skillsText, 20, yPosition, 170, 9)
+            yPosition += height + 6
         }
+
+        yPosition += 4
 
         // Education Section
         if (yPosition > 200) {
