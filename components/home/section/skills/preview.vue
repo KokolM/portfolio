@@ -10,9 +10,7 @@
                     </div>
                 </div>
             </div>
-            <div class="px-4 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">
-                {{ skill.category }}
-            </div>
+            <Tag severity="warn" :value="skill.category" rounded class="text-xs"></Tag>
         </div>
     </div>
 </template>

@@ -18,10 +18,7 @@
         </div>
         <div class="mt-8">
             <slot></slot>
-            <div v-if="thesis" class="mt-8 p-4 bg-gray-50 border-l-4 border-primary">
-                <div class="text-xs font-bold text-primary mb-2 uppercase">Bachelor Thesis</div>
-                <div class="text-sm">{{ thesis }}</div>
-            </div>
+            <Admonition v-if="thesis" title="Bachelor Thesis" :text="thesis" />
         </div>
     </div>
 </template>

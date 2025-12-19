@@ -3,7 +3,7 @@
     <div class="space-y-16">
       <div v-for="category in categories" :key="category" class="max-w-4xl">
         <h3 class="text-xl font-semibold mb-8 text-primary">{{ category }}</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-40 gap-y-4">
           <HomeSectionSkillsPreview
             v-for="skill in skillsByCategory[category]"
             :key="skill.id"

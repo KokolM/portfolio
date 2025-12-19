@@ -2,7 +2,7 @@
     <div
         :to="`/projects/${id}`"
         :id="id"
-        class="flex items-center gap-24 relative p-6 rounded-lg cursor-pointer group w-full"
+        class="flex items-center gap-24 relative -m-6 p-6 group-hover:m-0 group-hover:p-12 rounded-lg cursor-pointer group w-full transition-all duration-300"
         :class="
             layout === 'image-right'
                 ? 'flex-row justify-start'
@@ -18,7 +18,7 @@
         >
             <h3>{{ props.title }}</h3>
             <h4>{{ props.description }}</h4>
-            <ProjectStatus :status="props.status" size="small" class="mt-3" />
+            <StatusTag :status="props.status" size="small" class="mt-3" />
             <div class="flex flex-col gap-4 mt-8">
                 <div
                     v-for="feature in props.features"

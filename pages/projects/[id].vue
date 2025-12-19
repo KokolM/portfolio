@@ -3,7 +3,7 @@
         <div class="flex flex-col lg:flex-row min-h-screen">
             <!-- Left Panel - Project Details -->
             <div
-                class="w-full lg:w-2/5 p-8 lg:p-16 flex flex-col justify-between relative"
+                class="w-full lg:w-2/5 p-8 flex flex-col justify-between relative"
             >
                 <div class="space-y-6">
                     <!-- Title Section -->
@@ -21,7 +21,7 @@
                     <!-- Status -->
                     <div class="space-y-2">
                         <p class="text-sm text-gray-600 font-medium">STATUS</p>
-                        <ProjectStatus :status="project.status" />
+                        <StatusTag :status="project.status" />
                     </div>
 
                     <!-- Tech Stack -->
@@ -61,7 +61,7 @@
                             project.screenshots &&
                             project.screenshots.length > 1
                         "
-                        class="pt-4"
+                        class="pt-8"
                     >
                         <p class="text-xs text-gray-500 uppercase mb-3">
                             IMAGES
@@ -93,7 +93,7 @@
                 </div>
 
                 <!-- Description Section -->
-                <div class="mt-8 space-y-4">
+                <div class="mt-8 space-y-8">
                     <p class="text-gray-700 leading-relaxed">
                         {{ project.longDescription || project.description }}
                     </p>
@@ -118,14 +118,11 @@
                     </div>
 
                     <!-- Contribution -->
-                    <div v-if="project.contribution" class="space-y-2">
-                        <p class="text-sm text-gray-600 font-medium uppercase">
-                            My Contribution
-                        </p>
-                        <p class="text-sm text-gray-600">
-                            {{ project.contribution }}
-                        </p>
-                    </div>
+                    <Admonition
+                        v-if="project.contribution"
+                        title="My Contribution"
+                        :text="project.contribution"
+                    />
                 </div>
             </div>
 
