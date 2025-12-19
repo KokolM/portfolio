@@ -10,7 +10,9 @@ export default defineNuxtConfig({
             {
                 families: {
                     'Saira Extra Condensed': [400, 500, 600, 700, 800],
+                    'Open Sans': true,
                 },
+                display: 'swap',
             },
         ],
         'nuxt-viewport',
