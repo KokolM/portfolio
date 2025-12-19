@@ -157,7 +157,8 @@
                     <img
                         :src="currentImage"
                         :alt="project.title"
-                        class="max-w-full max-h-full object-contain"
+                        class="max-w-full max-h-full object-contain cursor-pointer"
+                        @click="openFullscreen"
                     />
                 </div>
             </div>
@@ -171,6 +172,60 @@
                 rounded
                 severity="secondary"
                 @click="$router.back()"
+            />
+        </div>
+
+        <!-- Fullscreen Modal -->
+        <div
+            v-if="isFullscreen"
+            class="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center"
+            @click="closeFullscreen"
+        >
+            <!-- Navigation Arrows -->
+            <Button
+                v-if="hasMultipleImages && selectedImageIndex > 0"
+                icon="pi pi-chevron-left"
+                rounded
+                severity="primary"
+                class="absolute left-4 top-1/2 -translate-y-1/2 z-10"
+                @click.stop="previousImage"
+            />
+
+            <Button
+                v-if="
+                    hasMultipleImages &&
+                    selectedImageIndex < totalImages - 1
+                "
+                icon="pi pi-chevron-right"
+                rounded
+                severity="primary"
+                class="absolute right-4 top-1/2 -translate-y-1/2 z-10"
+                @click.stop="nextImage"
+            />
+
+            <!-- Close button -->
+            <Button
+                icon="pi pi-times"
+                rounded
+                severity="secondary"
+                class="absolute top-4 right-4 z-10"
+                @click.stop="closeFullscreen"
+            />
+
+            <!-- Image counter -->
+            <div
+                v-if="hasMultipleImages"
+                class="absolute top-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black bg-opacity-50 px-4 py-2 rounded-full"
+            >
+                {{ selectedImageIndex + 1 }} / {{ totalImages }}
+            </div>
+
+            <!-- Fullscreen Image -->
+            <img
+                :src="currentImage"
+                :alt="project.title"
+                class="max-w-[95vw] max-h-[95vh] object-contain"
+                @click.stop
             />
         </div>
     </div>
@@ -195,6 +250,7 @@ onMounted(() => {
 })
 
 const selectedImageIndex = ref(0)
+const isFullscreen = ref(false)
 
 const currentImage = computed(() => {
     if (project.screenshots && project.screenshots.length > 0) {
@@ -230,6 +286,34 @@ const nextImage = () => {
 const openLink = (url: string) => {
     window.open(url, '_blank')
 }
+
+const openFullscreen = () => {
+    isFullscreen.value = true
+    // Prevent body scroll when fullscreen is open
+    document.body.style.overflow = 'hidden'
+}
+
+const closeFullscreen = () => {
+    isFullscreen.value = false
+    // Restore body scroll
+    document.body.style.overflow = ''
+}
+
+// Handle ESC key to close fullscreen
+onMounted(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape' && isFullscreen.value) {
+            closeFullscreen()
+        }
+    }
+    window.addEventListener('keydown', handleEscape)
+    
+    // Cleanup
+    onUnmounted(() => {
+        window.removeEventListener('keydown', handleEscape)
+        document.body.style.overflow = '' // Ensure scroll is restored
+    })
+})
 </script>
 
 <style scoped>
