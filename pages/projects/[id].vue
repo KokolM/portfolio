@@ -171,7 +171,7 @@
                 text
                 rounded
                 severity="secondary"
-                @click="$router.back()"
+                @click="$router.replace(`/#${project.id}`)"
             />
         </div>
 
