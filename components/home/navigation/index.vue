@@ -56,6 +56,7 @@ import { onMounted, onUnmounted } from 'vue'
 import type { MenuItem } from '~/models/menu.models'
 
 const visible = ref(false)
+const route = useRoute()
 
 const menu: Ref<MenuItem[]> = ref([
     {
@@ -97,16 +98,28 @@ const menu: Ref<MenuItem[]> = ref([
 
 let active: MenuItem | null = null
 
-onMounted(() => {
+function updateMenuRefs() {
     menu.value.forEach(
         (item) =>
             (item.menuRef = document.getElementById(item.hash.replace('#', '')))
     )
+}
+
+onMounted(() => {
+    updateMenuRefs()
     window.addEventListener('scroll', handleScroll)
 })
 
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
+})
+
+// Re-query DOM elements when route changes
+watch(() => route.path, () => {
+    // Use nextTick to ensure DOM is updated
+    nextTick(() => {
+        updateMenuRefs()
+    })
 })
 
 function handleScroll(event: Event) {
@@ -123,6 +136,7 @@ function handleScroll(event: Event) {
             target = item
         }
     }
+
     if (target && target != active) {
         updateActiveTarget(target)
     }
@@ -135,8 +149,6 @@ function updateActiveTarget(target: MenuItem) {
     if (history.pushState) {
         history.pushState(null, '', target.hash)
     }
-    // const base = window.location.hash
-    // window.history.pushState("object or string", "Title", "/new-url")
 }
 </script>
 <style></style>
