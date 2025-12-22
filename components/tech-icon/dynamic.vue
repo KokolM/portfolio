@@ -13,15 +13,15 @@
 import { techIconsConfig, getConfigKey } from './config'
 
 const props = defineProps<{
-  name: string
+  name?: string
   compact?: boolean
 }>()
 
 const config = computed(() => {
   // Support both 'nuxt' and 'TechIconNuxt' format
-  const key = props.name.startsWith('TechIcon') 
+  const key = props.name?.startsWith('TechIcon') 
     ? getConfigKey(props.name) 
     : props.name
-  return techIconsConfig[key]
+  return key ? techIconsConfig[key] : undefined
 })
 </script>
