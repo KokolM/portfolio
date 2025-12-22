@@ -30,10 +30,10 @@
                             TECH STACK
                         </p>
                         <div class="flex flex-wrap gap-3">
-                            <component
+                            <TechIconDynamic
                                 v-for="tech in project.techStack"
                                 :key="tech.name"
-                                :is="tech.component"
+                                :name="tech.component"
                             />
                         </div>
                     </div>
@@ -233,6 +233,7 @@
 
 <script lang="ts" setup>
 import { projectsData } from '~/data'
+import { resolveComponent } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
