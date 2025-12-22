@@ -9,6 +9,71 @@
   @tailwind utilities;
 }
 
+/* Self-hosted fonts */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/open-sans-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url('/fonts/open-sans-600.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/open-sans-700.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/saira-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/saira-500.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url('/fonts/saira-600.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/saira-700.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saira Extra Condensed';
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url('/fonts/saira-800.ttf') format('truetype');
+}
+
 /* ::-webkit-scrollbar {
   width: 24px;
   height: 24px;

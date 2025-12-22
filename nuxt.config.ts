@@ -5,17 +5,6 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: [
         '@primevue/nuxt-module',
-        [
-            '@nuxtjs/google-fonts',
-            {
-                families: {
-                    'Saira Extra Condensed': [400, 500, 600, 700, 800],
-                    'Open Sans': true,
-                },
-                display: 'swap',
-                preload: true,
-            },
-        ],
         'nuxt-viewport',
     ],
 
