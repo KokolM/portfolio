@@ -18,6 +18,10 @@ export default defineNuxtConfig({
         'nuxt-viewport',
     ],
 
+    routeRules: {
+        '/**': { prerender: true, ssr: false },
+    },
+
     primevue: {
         options: {
             theme: {
