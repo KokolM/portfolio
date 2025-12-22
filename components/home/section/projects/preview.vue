@@ -34,12 +34,17 @@
             </div>
         </div>
         <div class="relative z-10">
-            <img
+            <NuxtImg
                 :src="props.image"
                 :alt="`${props.title} Project Screenshot`"
-                class="object-fit rounded-md"
+                class="object-fit rounded-md transition-opacity duration-300"
                 :class="getImageSizeClass()"
-            />
+                loading="lazy"
+            >
+                <template #placeholder>
+                    <Skeleton :width="getSkeletonWidth()" height="300px" />
+                </template>
+            </NuxtImg>
         </div>
     </div>
 </template>
@@ -81,6 +86,18 @@ const getImageSizeClass = () => {
         'heyme': 'max-w-xl',
     }
     return sizeMap[props.id] || 'max-w-xl'
+}
+
+const getSkeletonWidth = () => {
+    // Match skeleton width to image size
+    const sizeMap: Record<string, string> = {
+        'holup': '32rem',
+        'data-sharing-platform': '40rem',
+        'omnium-capital-portal': '576px',
+        'greencast': '32rem',
+        'heyme': '576px',
+    }
+    return sizeMap[props.id] || '576px'
 }
 </script>
 

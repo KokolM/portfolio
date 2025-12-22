@@ -85,9 +85,13 @@
                                     :alt="`${project.title} screenshot ${
                                         index + 1
                                     }`"
-                                    class="w-full h-full object-cover"
+                                    class="w-full h-full object-cover transition-opacity duration-300"
                                     loading="lazy"
-                                />
+                                >
+                                    <template #placeholder>
+                                        <Skeleton width="100%" height="100%" />
+                                    </template>
+                                </NuxtImg>
                             </div>
                         </div>
                     </div>
@@ -158,10 +162,14 @@
                     <NuxtImg
                         :src="currentImage"
                         :alt="project.title"
-                        class="max-w-full max-h-full object-contain cursor-pointer"
+                        class="max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300"
                         loading="lazy"
                         @click="openFullscreen"
-                    />
+                    >
+                        <template #placeholder>
+                            <Skeleton width="100%" height="600px" />
+                        </template>
+                    </NuxtImg>
                 </div>
             </div>
         </div>
@@ -226,9 +234,13 @@
             <NuxtImg
                 :src="currentImage"
                 :alt="project.title"
-                class="max-w-[95vw] max-h-[95vh] object-contain"
+                class="max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300"
                 @click.stop
-            />
+            >
+                <template #placeholder>
+                    <Skeleton width="800px" height="600px" />
+                </template>
+            </NuxtImg>
         </div>
     </div>
 </template>
