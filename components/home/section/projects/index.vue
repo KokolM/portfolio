@@ -1,6 +1,6 @@
 <template>
     <HomeSection id="projects" title="Projects">
-        <div class="flex flex-col gap-24 w-fit">
+        <div class="flex flex-col gap-56 w-fit">
             <HomeSectionProjectsPreview
                 v-for="project in projects"
                 :key="project.id"
@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { projectsData } from '~/data'
+import { projectsMeta } from '~/data/projects'
 
-// Convert projectsData object to array
-const projects = Object.values(projectsData)
+// Convert projectsMeta object to array
+const projects = Object.values(projectsMeta)
 </script>
