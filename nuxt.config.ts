@@ -13,6 +13,7 @@ export default defineNuxtConfig({
                     'Open Sans': true,
                 },
                 display: 'swap',
+                preload: true,
             },
         ],
         'nuxt-viewport',
