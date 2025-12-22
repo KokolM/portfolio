@@ -80,18 +80,26 @@
                                 ]"
                                 @click="selectedImageIndex = index"
                             >
-                                <NuxtImg
-                                    :src="screenshot"
-                                    :alt="`${project.title} screenshot ${
-                                        index + 1
-                                    }`"
-                                    class="w-full h-full object-cover transition-opacity duration-300"
-                                    loading="lazy"
-                                >
-                                    <template #placeholder>
+                                <ClientOnly>
+                                    <template #fallback>
                                         <Skeleton width="100%" height="100%" />
                                     </template>
-                                </NuxtImg>
+                                    <NuxtImg
+                                        :src="screenshot"
+                                        :alt="`${project.title} screenshot ${
+                                            index + 1
+                                        }`"
+                                        class="w-full h-full object-cover transition-opacity duration-300"
+                                        loading="lazy"
+                                    >
+                                        <template #placeholder>
+                                            <Skeleton
+                                                width="100%"
+                                                height="100%"
+                                            />
+                                        </template>
+                                    </NuxtImg>
+                                </ClientOnly>
                             </div>
                         </div>
                     </div>
@@ -159,17 +167,22 @@
                     />
 
                     <!-- Project Image -->
-                    <NuxtImg
-                        :src="currentImage"
-                        :alt="project.title"
-                        class="max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300"
-                        loading="lazy"
-                        @click="openFullscreen"
-                    >
-                        <template #placeholder>
+                    <ClientOnly>
+                        <template #fallback>
                             <Skeleton width="100%" height="600px" />
                         </template>
-                    </NuxtImg>
+                        <NuxtImg
+                            :src="currentImage"
+                            :alt="project.title"
+                            class="max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300"
+                            loading="lazy"
+                            @click="openFullscreen"
+                        >
+                            <template #placeholder>
+                                <Skeleton width="100%" height="600px" />
+                            </template>
+                        </NuxtImg>
+                    </ClientOnly>
                 </div>
             </div>
         </div>
@@ -202,10 +215,7 @@
             />
 
             <Button
-                v-if="
-                    hasMultipleImages &&
-                    selectedImageIndex < totalImages - 1
-                "
+                v-if="hasMultipleImages && selectedImageIndex < totalImages - 1"
                 icon="pi pi-chevron-right"
                 rounded
                 severity="primary"
@@ -231,16 +241,21 @@
             </div>
 
             <!-- Fullscreen Image -->
-            <NuxtImg
-                :src="currentImage"
-                :alt="project.title"
-                class="max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300"
-                @click.stop
-            >
-                <template #placeholder>
+            <ClientOnly>
+                <template #fallback>
                     <Skeleton width="800px" height="600px" />
                 </template>
-            </NuxtImg>
+                <NuxtImg
+                    :src="currentImage"
+                    :alt="project.title"
+                    class="max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300"
+                    @click.stop
+                >
+                    <template #placeholder>
+                        <Skeleton width="800px" height="600px" />
+                    </template>
+                </NuxtImg>
+            </ClientOnly>
         </div>
     </div>
 </template>
@@ -322,7 +337,7 @@ onMounted(() => {
         }
     }
     window.addEventListener('keydown', handleEscape)
-    
+
     // Cleanup
     onUnmounted(() => {
         window.removeEventListener('keydown', handleEscape)

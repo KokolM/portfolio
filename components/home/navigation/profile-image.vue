@@ -1,6 +1,6 @@
 <template lang="">
   <div class="w-[160px] h-[160px] rounded-full bg-white bg-opacity-40 flex items-center justify-center border-8 border-primary border-opacity-60">
-    <NuxtImg 
+    <NuxtImg
       src="/images/profile-image.webp" 
       alt="Matej Kokol - Profile Image" 
       width="100%" 
