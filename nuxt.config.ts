@@ -1,4 +1,7 @@
 import AuraTheme from './themes/aura'
+import { projectsData } from './data'
+
+const projectRoutes = Object.keys(projectsData).map(id => `/projects/${id}`)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -11,6 +14,12 @@ export default defineNuxtConfig({
 
     routeRules: {
         '/**': { prerender: true },
+    },
+
+    nitro: {
+        prerender: {
+            routes: ['/', ...projectRoutes]
+        }
     },
 
     primevue: {
