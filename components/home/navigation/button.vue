@@ -1,17 +1,15 @@
 <template lang="">
-    <ClientOnly>
-        <div @click.native="onLinkClick">
-            <div
-                class="text-white font-semibold uppercase h-10 w-full flex items-center justify-center cursor-pointer"
-                :class="{
-                    'opacity-100': item.active,
-                    'opacity-60 hover:opacity-80 ': !item.active,
-                }"
-            >
-                {{ item.title }}
-            </div>
+    <div @click.native="onLinkClick">
+        <div
+            class="text-white font-semibold uppercase h-10 w-full flex items-center justify-center cursor-pointer"
+            :class="{
+                'opacity-100': item.active,
+                'opacity-60 hover:opacity-80 ': !item.active,
+            }"
+        >
+            {{ item.title }}
         </div>
-    </ClientOnly>
+    </div>
 </template>
 <script setup lang="ts">
 import type { MenuItem } from '~/models/menu.models'
