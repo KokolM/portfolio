@@ -73,33 +73,29 @@
                                 ) in project.screenshots"
                                 :key="index"
                                 :class="[
-                                    'w-20 h-20 border-2 transition-all overflow-hidden cursor-pointer',
+                                    'w-20 h-20 border-2 transition-all overflow-hidden cursor-pointer relative',
                                     selectedImageIndex === index
                                         ? 'border-gray-900'
                                         : 'border-gray-200 hover:border-gray-400',
                                 ]"
                                 @click="selectedImageIndex = index"
                             >
-                                <ClientOnly>
-                                    <template #fallback>
-                                        <Skeleton width="100%" height="100%" />
-                                    </template>
-                                    <NuxtImg
-                                        :src="screenshot"
-                                        :alt="`${project.title} screenshot ${
-                                            index + 1
-                                        }`"
-                                        class="w-full h-full object-cover transition-opacity duration-300"
-                                        loading="lazy"
-                                    >
-                                        <template #placeholder>
-                                            <Skeleton
-                                                width="100%"
-                                                height="100%"
-                                            />
-                                        </template>
-                                    </NuxtImg>
-                                </ClientOnly>
+                                <Skeleton 
+                                    v-if="!thumbnailsLoaded[index]" 
+                                    class="absolute inset-0"
+                                    width="100%" 
+                                    height="100%" 
+                                />
+                                <NuxtImg
+                                    :src="screenshot"
+                                    :alt="`${project.title} screenshot ${
+                                        index + 1
+                                    }`"
+                                    :class="['w-full h-full object-cover transition-opacity duration-300', thumbnailsLoaded[index] ? 'opacity-100' : 'opacity-0']"
+                                    loading="lazy"
+                                    @load="thumbnailsLoaded[index] = true"
+                                    @error="thumbnailsLoaded[index] = true"
+                                />
                             </div>
                         </div>
                     </div>
@@ -167,22 +163,22 @@
                     />
 
                     <!-- Project Image -->
-                    <ClientOnly>
-                        <template #fallback>
-                            <Skeleton width="100%" height="600px" />
-                        </template>
+                    <div class="relative w-full h-full flex items-center justify-center">
+                        <Skeleton 
+                            v-if="!mainImageLoaded" 
+                            class="absolute inset-0 m-auto"
+                            width="100%" 
+                            height="600px" 
+                        />
                         <NuxtImg
                             :src="currentImage"
                             :alt="project.title"
-                            class="max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300"
-                            loading="lazy"
+                            :class="['max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300', mainImageLoaded ? 'opacity-100' : 'opacity-0']"
+                            @load="mainImageLoaded = true"
+                            @error="mainImageLoaded = true"
                             @click="openFullscreen"
-                        >
-                            <template #placeholder>
-                                <Skeleton width="100%" height="600px" />
-                            </template>
-                        </NuxtImg>
-                    </ClientOnly>
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -241,21 +237,22 @@
             </div>
 
             <!-- Fullscreen Image -->
-            <ClientOnly>
-                <template #fallback>
-                    <Skeleton width="800px" height="600px" />
-                </template>
+            <div class="relative">
+                <Skeleton 
+                    v-if="!fullscreenImageLoaded" 
+                    class="absolute inset-0 m-auto"
+                    width="800px" 
+                    height="600px" 
+                />
                 <NuxtImg
                     :src="currentImage"
                     :alt="project.title"
-                    class="max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300"
+                    :class="['max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300', fullscreenImageLoaded ? 'opacity-100' : 'opacity-0']"
+                    @load="fullscreenImageLoaded = true"
+                    @error="fullscreenImageLoaded = true"
                     @click.stop
-                >
-                    <template #placeholder>
-                        <Skeleton width="800px" height="600px" />
-                    </template>
-                </NuxtImg>
-            </ClientOnly>
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -282,11 +279,29 @@ onMounted(() => {
 const selectedImageIndex = ref(0)
 const isFullscreen = ref(false)
 
+// Image loading states
+const mainImageLoaded = ref(false)
+const fullscreenImageLoaded = ref(false)
+const thumbnailsLoaded = ref<Record<number, boolean>>({})
+
+// Initialize thumbnails loaded state
+if (project.screenshots) {
+    project.screenshots.forEach((_, index) => {
+        thumbnailsLoaded.value[index] = false
+    })
+}
+
 const currentImage = computed(() => {
     if (project.screenshots && project.screenshots.length > 0) {
         return project.screenshots[selectedImageIndex.value]
     }
     return project.image
+})
+
+// Reset loading states when image changes
+watch(currentImage, () => {
+    mainImageLoaded.value = false
+    fullscreenImageLoaded.value = false
 })
 
 // Image navigation

@@ -40,18 +40,14 @@
                 class="object-fit rounded-md transition-opacity duration-300"
                 :class="getImageSizeClass()"
                 loading="lazy"
-            >
-                <template #placeholder>
-                    <Skeleton :width="getSkeletonWidth()" height="300px" />
-                </template>
-            </NuxtImg>
+                placeholder
+            />
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import type { ProjectStatus } from '~/models/project.models';
-
+import type { ProjectStatus } from '~/models/project.models'
 
 const props = defineProps<{
     id: string
@@ -79,25 +75,13 @@ const onClick = () => {
 const getImageSizeClass = () => {
     // You can customize image sizes based on project id or other criteria
     const sizeMap: Record<string, string> = {
-        'holup': 'w-[32rem]',
+        holup: 'w-[32rem]',
         'data-sharing-platform': 'w-[40rem]',
         'omnium-capital-portal': 'max-w-xl',
-        'greencast': 'max-w-[32rem]',
-        'heyme': 'max-w-xl',
+        greencast: 'max-w-[32rem]',
+        heyme: 'max-w-xl',
     }
     return sizeMap[props.id] || 'max-w-xl'
-}
-
-const getSkeletonWidth = () => {
-    // Match skeleton width to image size
-    const sizeMap: Record<string, string> = {
-        'holup': '32rem',
-        'data-sharing-platform': '40rem',
-        'omnium-capital-portal': '576px',
-        'greencast': '32rem',
-        'heyme': '576px',
-    }
-    return sizeMap[props.id] || '576px'
 }
 </script>
 
