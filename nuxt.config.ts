@@ -53,8 +53,8 @@ export default defineNuxtConfig({
 
     compatibilityDate: '2024-08-24',
 
-    components: [
-        // import all components globally for dynamic component (TechIcon*) to work
-        { path: '~/components', global: true },
-    ],
+    // components: [
+    //     // import all components globally for dynamic component (TechIcon*) to work
+    //     { path: '~/components', global: true },
+    // ],
 })
