@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     modules: [
         '@primevue/nuxt-module',
         'nuxt-viewport',
+        '@nuxt/image',
     ],
 
     routeRules: {

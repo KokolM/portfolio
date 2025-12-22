@@ -80,12 +80,13 @@
                                 ]"
                                 @click="selectedImageIndex = index"
                             >
-                                <img
+                                <NuxtImg
                                     :src="screenshot"
                                     :alt="`${project.title} screenshot ${
                                         index + 1
                                     }`"
                                     class="w-full h-full object-cover"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -154,10 +155,11 @@
                     />
 
                     <!-- Project Image -->
-                    <img
+                    <NuxtImg
                         :src="currentImage"
                         :alt="project.title"
                         class="max-w-full max-h-full object-contain cursor-pointer"
+                        loading="lazy"
                         @click="openFullscreen"
                     />
                 </div>
@@ -221,7 +223,7 @@
             </div>
 
             <!-- Fullscreen Image -->
-            <img
+            <NuxtImg
                 :src="currentImage"
                 :alt="project.title"
                 class="max-w-[95vw] max-h-[95vh] object-contain"

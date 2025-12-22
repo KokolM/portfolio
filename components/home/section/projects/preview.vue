@@ -61,9 +61,9 @@ const props = defineProps<{
 const router = useRouter()
 const route = useRoute()
 
-const onClick = async () => {
-    // Update current URL with hash BEFORE navigating
-    await router.replace({
+const onClick = () => {
+    // Update current URL with hash BEFORE navigating (non-blocking)
+    router.replace({
         path: route.path,
         hash: `#${props.id}`,
     })
