@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf'
-import { personalData, experienceData, educationData, skillsData, projectsMeta } from '~/data'
+import { personalData, experienceData, educationData, skillsData, projectsData } from '~/data'
 
 export const useCVGenerator = () => {
     const generateCV = () => {
@@ -319,7 +319,7 @@ export const useCVGenerator = () => {
 
         yPosition = addSectionHeader('KEY PROJECTS', yPosition)
 
-        const projects = Object.values(projectsMeta)
+        const projects = Object.values(projectsData)
         const productionProjects = projects.filter(
             (p) => p.status === 'Production'
         )
@@ -338,35 +338,48 @@ export const useCVGenerator = () => {
             doc.text(project.title, 20, yPosition)
             yPosition += 5
 
-            // Subtitle (projects don't have subtitle, use description instead)
+            // Subtitle
             doc.setFontSize(9)
             doc.setFont('helvetica', 'italic')
             doc.setTextColor(lightGray.r, lightGray.g, lightGray.b)
-            doc.text(project.description, 20, yPosition)
+            doc.text(project.subtitle, 20, yPosition)
             yPosition += 5
 
-            // Features as bullet points
+            // Description with bullet
             doc.setFont('helvetica', 'normal')
             doc.setTextColor(darkGray.r, darkGray.g, darkGray.b)
             doc.setFontSize(9)
-            
-            if (project.features && project.features.length > 0) {
-                project.features.slice(0, 3).forEach((feature) => {
-                    doc.setFont('helvetica', 'bold')
-                    doc.text('-', 20, yPosition)
-                    doc.setFont('helvetica', 'normal')
-                    const height = addText(
-                        feature,
-                        25,
-                        yPosition,
-                        165,
-                        9
-                    )
-                    yPosition += height + 2
-                })
+            doc.setFont('helvetica', 'bold')
+            doc.text('-', 20, yPosition)
+            doc.setFont('helvetica', 'normal')
+            const height = addText(
+                project.longDescription ?? 'No description provided.',
+                25,
+                yPosition,
+                165,
+                9
+            )
+            yPosition += height + 3
+
+            // Tech Stack
+            if (project.techStack && project.techStack.length > 0) {
+                doc.setFont('helvetica', 'normal')
+                doc.setFontSize(8)
+                doc.setTextColor(lightGray.r, lightGray.g, lightGray.b)
+                const techNames = project.techStack
+                    .map((t) => t.name)
+                    .join(' | ')
+                const techHeight = addText(
+                    techNames,
+                    20,
+                    yPosition,
+                    170,
+                    8
+                )
+                yPosition += techHeight + 6
             }
-            
-            yPosition += 4
+
+            yPosition += 2
         }
 
         // Footer on last page

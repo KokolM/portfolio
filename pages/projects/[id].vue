@@ -258,14 +258,13 @@
 </template>
 
 <script lang="ts" setup>
-import { getProject } from '~/data/projects'
+import { projectsData } from '~/data'
 
 const route = useRoute()
 const router = useRouter()
 const id = route.params.id as string
 
-// Dynamically load project data
-const project = await getProject(id)
+const project = projectsData[id]
 
 if (!project) {
     throw createError({ statusCode: 404, statusMessage: 'Project not found' })
