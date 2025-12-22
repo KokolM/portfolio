@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     ],
 
     routeRules: {
-        '/**': { prerender: true, ssr: false },
+        '/**': { prerender: true },
     },
 
     primevue: {
