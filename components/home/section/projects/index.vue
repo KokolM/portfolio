@@ -1,6 +1,6 @@
 <template>
     <HomeSection id="projects" title="Projects">
-        <div class="flex flex-col gap-32 w-fit">
+        <div class="flex flex-col gap-32 w-full sm:w-fit">
             <HomeSectionProjectsPreview
                 v-for="project in projects"
                 :key="project.id"

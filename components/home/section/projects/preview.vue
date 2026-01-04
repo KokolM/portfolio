@@ -2,11 +2,11 @@
     <div
         :to="`/projects/${id}`"
         :id="id"
-        class="flex items-center gap-24 relative -m-6 p-6 group-hover:m-0 group-hover:p-12 rounded-lg cursor-pointer group w-full transition-all duration-300"
+        class="flex items-start lg:items-center gap-6 lg:gap-24 relative -m-6 p-6 group-hover:m-0 group-hover:p-12 rounded-lg cursor-pointer group min-w-full transition-all duration-300"
         :class="
             layout === 'image-right'
-                ? 'flex-row justify-start'
-                : 'flex-row-reverse justify-end'
+                ? 'flex-col lg:flex-row lg:justify-start'
+                : 'flex-col lg:flex-row-reverse lg:justify-end'
         "
         @click="onClick"
     >
@@ -14,7 +14,7 @@
             class="absolute inset-0 bg-gradient-to-t from-primary/20 to-primary/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
         ></div>
         <div
-            class="border-l-4 border-primary pt-2 pb-5 relative z-10 pl-8 shrink-0 max-w-96"
+            class="border-l-4 border-primary pt-2 pb-5 relative z-10 sm:pl-8 pl-4 shrink-0 w-full lg:max-w-96"
         >
             <h3>{{ props.title }}</h3>
             <h4>{{ props.description }}</h4>
@@ -37,7 +37,7 @@
             <NuxtImg
                 :src="props.image"
                 :alt="`${props.title} Project Screenshot`"
-                class="object-fit rounded-md transition-opacity duration-300"
+                class="object-fit rounded-md transition-opacity duration-300 w-auto"
                 :class="getImageSizeClass()"
                 loading="lazy"
                 placeholder
@@ -75,11 +75,11 @@ const onClick = async () => {
 const getImageSizeClass = () => {
     // You can customize image sizes based on project id or other criteria
     const sizeMap: Record<string, string> = {
-        holup: 'w-[32rem]',
-        'data-sharing-platform': 'w-[40rem]',
-        'omnium-capital-portal': 'max-w-xl',
-        greencast: 'max-w-[32rem]',
-        heyme: 'max-w-xl',
+        holup: 'sm:w-[32rem]',
+        'data-sharing-platform': 'sm:w-[40rem]',
+        'omnium-capital-portal': 'sm:max-w-xl',
+        greencast: 'sm:max-w-[32rem]',
+        heyme: 'sm:max-w-xl',
     }
     return sizeMap[props.id] || 'max-w-xl'
 }
