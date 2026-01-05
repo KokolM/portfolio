@@ -6,7 +6,7 @@
                 class="w-full lg:w-2/5 p-8 flex flex-col justify-between relative"
             >
                 <!-- Back button -->
-                <div class="w-full sticky top-0 bg-white z-10 py-4 mb-6">
+                <div class="w-full sticky top-0 bg-white z-50 py-4 mb-6">
                     <Button
                         icon="pi pi-chevron-left"
                         label="Back to Projects"
