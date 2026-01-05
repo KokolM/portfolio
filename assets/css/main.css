@@ -95,7 +95,7 @@ html {
 }
 
 body {
-  @apply w-full h-full bg-white;
+  @apply w-full h-full bg-white overflow-x-hidden;
 }
 
 h1,

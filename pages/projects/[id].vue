@@ -7,19 +7,19 @@
             >
                 <!-- Back button -->
                 <div
-                        class="w-fit sticky top-0 z-50 py-4 mb-6 pr-4 bg-transparent pb-4"
-                    >
-                        <Button
-                            icon="pi pi-chevron-left"
-                            label="Back to Projects"
-                            iconPos="left"
-                            outlined
-                            severity="secondary"
-                            size="small"
-                            class="bg-white"
-                            @click="$router.replace(`/#${project.id}`)"
-                        />
-                    </div>
+                    class="w-fit sticky top-0 z-50 py-4 mb-6 pr-4 bg-transparent pb-4"
+                >
+                    <Button
+                        icon="pi pi-chevron-left"
+                        label="Back to Projects"
+                        iconPos="left"
+                        outlined
+                        severity="secondary"
+                        size="small"
+                        class="bg-white"
+                        @click="$router.replace(`/#${project.id}`)"
+                    />
+                </div>
                 <div class="space-y-6">
                     <!-- Title Section -->
                     <div>
