@@ -5,6 +5,18 @@
             <div
                 class="w-full lg:w-2/5 p-8 flex flex-col justify-between relative"
             >
+                <!-- Back button -->
+                <div class="w-full sticky top-0 bg-white z-10 py-4 mb-6">
+                    <Button
+                        icon="pi pi-chevron-left"
+                        label="Back to Projects"
+                        iconPos="left"
+                        outlined
+                        severity="secondary"
+                        size="small"
+                        @click="$router.replace(`/#${project.id}`)"
+                    />
+                </div>
                 <div class="space-y-6">
                     <!-- Title Section -->
                     <div>
@@ -75,23 +87,28 @@
                                 :class="[
                                     'w-20 h-20 border-2 transition-all overflow-hidden cursor-pointer relative',
                                     selectedImageIndex === index
-                                        ? 'border-gray-900'
-                                        : 'border-gray-200 hover:border-gray-400',
+                                        ? 'lg:border-gray-900'
+                                        : 'border-gray-200 lg:hover:border-gray-400',
                                 ]"
-                                @click="selectedImageIndex = index"
+                                @click="selectActiveThumbnail(index)"
                             >
-                                <Skeleton 
-                                    v-if="!thumbnailsLoaded[index]" 
+                                <Skeleton
+                                    v-if="!thumbnailsLoaded[index]"
                                     class="absolute inset-0"
-                                    width="100%" 
-                                    height="100%" 
+                                    width="100%"
+                                    height="100%"
                                 />
                                 <NuxtImg
                                     :src="screenshot"
                                     :alt="`${project.title} screenshot ${
                                         index + 1
                                     }`"
-                                    :class="['w-full h-full object-cover transition-opacity duration-300', thumbnailsLoaded[index] ? 'opacity-100' : 'opacity-0']"
+                                    :class="[
+                                        'w-full h-full object-cover transition-opacity duration-300',
+                                        thumbnailsLoaded[index]
+                                            ? 'opacity-100'
+                                            : 'opacity-0',
+                                    ]"
                                     loading="lazy"
                                     @load="thumbnailsLoaded[index] = true"
                                     @error="thumbnailsLoaded[index] = true"
@@ -136,7 +153,7 @@
             </div>
 
             <!-- Right Panel - Image -->
-            <div class="w-full lg:w-3/5 bg-gray-50 relative">
+            <div class="w-full lg:w-3/5 bg-gray-50 relative hidden lg:flex">
                 <div
                     class="sticky top-0 h-screen flex items-center justify-center p-8"
                 >
@@ -163,17 +180,22 @@
                     />
 
                     <!-- Project Image -->
-                    <div class="relative w-full h-full flex items-center justify-center">
-                        <Skeleton 
-                            v-if="!mainImageLoaded" 
+                    <div
+                        class="relative w-full h-full flex items-center justify-center"
+                    >
+                        <Skeleton
+                            v-if="!mainImageLoaded"
                             class="absolute inset-0 m-auto"
-                            width="100%" 
-                            height="600px" 
+                            width="100%"
+                            height="600px"
                         />
                         <NuxtImg
                             :src="currentImage"
                             :alt="project.title"
-                            :class="['max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300', mainImageLoaded ? 'opacity-100' : 'opacity-0']"
+                            :class="[
+                                'max-w-full max-h-full object-contain cursor-pointer transition-opacity duration-300',
+                                mainImageLoaded ? 'opacity-100' : 'opacity-0',
+                            ]"
                             @load="mainImageLoaded = true"
                             @error="mainImageLoaded = true"
                             @click="openFullscreen"
@@ -181,17 +203,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="fixed top-4 right-4">
-            <!-- Close button -->
-            <Button
-                icon="pi pi-times"
-                text
-                rounded
-                severity="secondary"
-                @click="$router.replace(`/#${project.id}`)"
-            />
         </div>
 
         <!-- Fullscreen Modal -->
@@ -238,16 +249,19 @@
 
             <!-- Fullscreen Image -->
             <div class="relative">
-                <Skeleton 
-                    v-if="!fullscreenImageLoaded" 
+                <Skeleton
+                    v-if="!fullscreenImageLoaded"
                     class="absolute inset-0 m-auto"
-                    width="800px" 
-                    height="600px" 
+                    width="800px"
+                    height="600px"
                 />
                 <NuxtImg
                     :src="currentImage"
                     :alt="project.title"
-                    :class="['max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300', fullscreenImageLoaded ? 'opacity-100' : 'opacity-0']"
+                    :class="[
+                        'max-w-[95vw] max-h-[95vh] object-contain transition-opacity duration-300',
+                        fullscreenImageLoaded ? 'opacity-100' : 'opacity-0',
+                    ]"
                     @load="fullscreenImageLoaded = true"
                     @error="fullscreenImageLoaded = true"
                     @click.stop
@@ -262,6 +276,8 @@ import { projectsData } from '~/data'
 
 const route = useRoute()
 const router = useRouter()
+const viewport = useViewport()
+
 const id = route.params.id as string
 
 const project = projectsData[id]
@@ -329,6 +345,13 @@ const nextImage = () => {
 
 const openLink = (url: string) => {
     window.open(url, '_blank')
+}
+
+const selectActiveThumbnail = (index: number) => {
+    selectedImageIndex.value = index
+    if (viewport.isLessOrEquals('tablet')) {
+        openFullscreen()
+    }
 }
 
 const openFullscreen = () => {

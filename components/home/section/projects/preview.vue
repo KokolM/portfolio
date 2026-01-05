@@ -32,6 +32,11 @@
                     <div>{{ feature }}</div>
                 </div>
             </div>
+            <!-- Mobile Click Indicator -->
+            <div class="flex items-center gap-2 mt-12 pb-6 lg:hidden text-primary text-sm font-semibold animate-pulse">
+                <span>Tap to view details</span>
+                <font-awesome-icon icon="arrow-right" class="text-lg" />
+            </div>
         </div>
         <div class="relative z-10">
             <NuxtImg
