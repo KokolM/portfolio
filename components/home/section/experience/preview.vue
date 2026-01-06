@@ -17,6 +17,14 @@
                         }}
                     </div>
                 </div>
+                <Button
+                    v-if="website"
+                    @click="openWebsite()"
+                    link
+                    label="Visit Website"
+                    size="small"
+                    class="mt-2 px-0"
+                />
             </div>
         </div>
         <div class="mt-8">
@@ -32,6 +40,13 @@ const props = defineProps<{
     subtitle: string
     startDate: Date
     endDate?: Date
+    website?: string
 }>()
+
+const openWebsite = () => {
+    if (props.website) {
+        window.open(props.website, '_blank')
+    }
+}
 </script>
 <style lang=""></style>

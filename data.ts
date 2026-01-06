@@ -18,10 +18,16 @@ export const experienceData: Record<string, Experience> = {
         id: 'bavenir',
         company: 'bAvenir s.r.o.',
         position: 'Fullstack Developer',
+        website: 'https://bavenir.eu/',
         startDate: new Date(2023, 9),
         description: [
-            'I contributed to the development of a decentralized data sharing and governance platform, designing user interfaces and implementing core server-side features. The system uses Keycloak for role-based access control and certificate-based authentication to enable secure machine-to-machine communication.',
-            'In collaboration with energy experts, I developed a customer portal for energy communities in Slovakia. The platform enables users and administrators to manage communities, share energy, and handle transparent billing for energy production and consumption.',
+            'Designed, developed, and maintained production web applications using Angular, Vue / Nuxt, Node.js, and PostgreSQL.',
+            'Built and integrated REST APIs supporting data-driven platforms and internal tools.',
+            'Implemented authentication and authorization flows using OAuth 2.0 (Keycloak) with BFF (Backend for Frontend) architecture, ensuring secure access to user and system data.',
+            'Collaborated with product stakeholders to translate business requirements into technical solutions.',
+            'Deployed and managed applications using Docker, Traefik, and Nginx in cloud and on-premises environments.',
+            'Improved existing codebases through refactoring, bug fixing, and performance optimizations.',
+            'Took responsibility for features end-to-end, from implementation to deployment and maintenance.',
         ],
         techStackFrontend: [
             { name: 'Nuxt', component: 'TechIconNuxt' },
@@ -48,7 +54,11 @@ export const experienceData: Record<string, Experience> = {
         position: 'Fullstack Developer',
         startDate: new Date(2023, 5),
         description: [
-            "As a freelance full-stack developer, I've worked on diverse projects building modern, scalable web applications. My experience includes creating a role-based dashboard for an investment company, implementing backend integrations with third-party APIs, and developing a Notion-like collaborative app for real-time content editing and teamwork.",
+            'Delivered custom full-stack solutions for clients across fintech, SaaS, and data-oriented domains.',
+            'Built frontend applications using Vue / Nuxt and backend services with Node.js / Python.',
+            'Designed APIs, data models, and integrations with third-party services.',
+            'Worked with UX designers and project managers to clarify requirements, propose solutions, and iterate on feedback.',
+            'Managed projects independently, including deployment and ongoing maintenance.'
         ],
         techStackFrontend: [
             { name: 'Angular', component: 'TechIconAngular' },
@@ -68,10 +78,16 @@ export const experienceData: Record<string, Experience> = {
         id: 'zvjs',
         company: 'ZVJS - Chance for Reentry',
         position: 'Frontend Developer',
+        website: 'https://www.sancananavrat.sk/',
         startDate: new Date(2021, 3),
         endDate: new Date(2023, 9),
         description: [
-            'I contributed to the "Chance for Reentry" project, developing a mobile and kiosk application, along with several supporting tools, to support the reintegration of formerly incarcerated individuals. These applications are now deployed across all Slovak correctional facilities.',
+            'Developed a mobile and kiosk application for the "Chance for Reentry" project, to support the reintegration of formerly incarcerated individuals.',
+            'Built the application using Flutter, ensuring cross-platform compatibility for both mobile devices and kiosk systems.',
+            'Collaborated closely with UX designers and project stakeholders to create an intuitive and user-friendly interface tailored to the needs of the target audience.',
+            'Implemented features such as job search, CV building, housing assistance, and step-by-step guidance for life after release.',
+            'Ensured the application met security and privacy standards, given the sensitive nature of the user base.',
+            'Conducted testing and debugging to ensure a smooth user experience across all supported platforms.',
         ],
         techStackFrontend: [
             { name: 'Flutter', component: 'TechIconFlutter' },
@@ -305,8 +321,7 @@ export const educationData: Record<string, Education> = {
             'Studied at the Faculty of Informatics and Information Technologies (FIIT), focusing on modern web technologies, software engineering, and mobile application development.',
             'Gained expertise in full-stack development, database systems, and user interface design, which laid the foundation for my professional career as a software developer.',
         ],
-        thesis:
-            'Mobile Application for Prisoners - Developed a Flutter-based mobile application designed to support the reintegration of prisoners into society. This project evolved into the Holup app, which is now deployed across all Slovak correctional facilities.',
+        thesis: 'Mobile Application for Prisoners - Developed a Flutter-based mobile application designed to support the reintegration of prisoners into society. This project evolved into the Holup app, which is now deployed across all Slovak correctional facilities.',
     },
 }
 

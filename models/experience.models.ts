@@ -9,6 +9,7 @@ export interface Experience {
     position: string
     startDate: Date
     endDate?: Date
+    website?: string
     description: string[]
     techStackFrontend?: TechStack[]
     techStackBackend?: TechStack[]
