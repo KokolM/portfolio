@@ -82,11 +82,12 @@ const onClick = async () => {
 const getImageSizeClass = () => {
     // You can customize image sizes based on project id or other criteria
     const sizeMap: Record<string, string> = {
-        holup: 'sm:w-[32rem]',
-        'data-sharing-platform': 'sm:w-[40rem]',
-        'omnium-capital-portal': 'sm:max-w-xl',
-        greencast: 'sm:max-w-[32rem]',
-        heyme: 'sm:max-w-xl',
+        holup: 'sm:max-w-md',
+        'data-sharing-platform': 'sm:max-w-md',
+        'omnium-capital-portal': 'sm:max-w-md',
+        greencast: 'sm:max-w-md',
+        heyme: 'sm:max-w-md',
+        wic: 'sm:max-w-md',
     }
     return sizeMap[props.id] || 'max-w-xl'
 }

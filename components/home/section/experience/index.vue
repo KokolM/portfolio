@@ -13,9 +13,9 @@
                 <div
                     v-for="(paragraph, index) in experience.description"
                     :key="index"
-                    class="flex items-start gap-6"
+                    class="flex items-start gap-2 lg:gap-6"
                 >
-                    <div>-</div>
+                    <div>•</div>
                     <p>
                         {{ paragraph }}
                     </p>

@@ -3,11 +3,11 @@
         <div class="flex flex-col lg:flex-row min-h-screen">
             <!-- Left Panel - Project Details -->
             <div
-                class="w-full lg:w-2/5 p-8 flex flex-col justify-between relative"
+                class="w-full lg:w-2/5 p-2 lg:p-8 flex flex-col justify-between relative"
             >
                 <!-- Back button -->
                 <div
-                    class="w-fit sticky top-0 z-50 py-4 mb-6 pr-4 bg-transparent pb-4"
+                    class="w-fit sticky top-0 z-50 py-3 mb-6 pr-4 bg-transparent pb-4"
                 >
                     <Button
                         icon="pi pi-chevron-left"
