@@ -58,7 +58,7 @@ export const experienceData: Record<string, Experience> = {
             'Built frontend applications using Vue / Nuxt and backend services with Node.js / Python.',
             'Designed APIs, data models, and integrations with third-party services.',
             'Worked with UX designers and project managers to clarify requirements, propose solutions, and iterate on feedback.',
-            'Managed projects independently, including deployment and ongoing maintenance.'
+            'Managed projects independently, including deployment and ongoing maintenance.',
         ],
         techStackFrontend: [
             { name: 'Angular', component: 'TechIconAngular' },
@@ -137,9 +137,15 @@ export const projectsData: Record<string, Project> = {
                 url: 'https://apps.apple.com/sk/app/holup/id6503700108',
                 icon: 'devicon-apple-original',
             },
+            {
+                text: 'Private GitHub',
+                url: '',
+                icon: 'devicon-github-plain',
+                disabled: true,
+            },
         ],
         contribution:
-            'Developed the Flutter app for kiosks, iOS, and Android. Integrated job and housing features, and focused on usability and security for a sensitive user base.',
+            'Developed the Flutter app from scratch for kiosks, iOS, and Android. Integrated job and housing features, and focused on usability and security for a sensitive user base.',
     },
     'data-sharing-platform': {
         id: 'data-sharing-platform',
@@ -147,7 +153,7 @@ export const projectsData: Record<string, Project> = {
         subtitle: 'Decentralized platform for data sharing and governance',
         description: 'Decentralized platform for data sharing and governance',
         longDescription:
-            'A decentralized platform for secure data sharing and governance, developed for EU Horizon projects (Auroral, Spade, Circuless) at bAvenir s.r.o. The platform enables organizations to share data and manage identities across Europe, supporting innovative and sustainable data ecosystems.',
+            'A decentralized platform for secure data sharing and governance, developed for EU Horizon projects (Auroral, Spade, Circuless) at bAvenir s.r.o. The platform enables organizations to share data and manage identities across Europe using open source technologies, supporting innovative and sustainable data ecosystems.',
         features: [
             'Frontend for decentralized data tools',
             'Centralized backend for identity & relationships',
@@ -173,13 +179,13 @@ export const projectsData: Record<string, Project> = {
         links: [
             {
                 text: 'Live Demo',
-                url: 'https://spade.example.com',
+                url: 'https://spade.bavenir.eu/',
                 icon: 'devicon-chrome-plain',
             },
             {
-                text: 'GitHub',
-                url: 'https://github.com/KokolM/spade',
-                icon: 'devicon-github-original',
+                text: 'GitLab',
+                url: 'https://gitlab.eclipse.org/eclipse-research-labs/spade-project',
+                icon: 'devicon-gitlab-plain',
             },
         ],
         contribution:
@@ -191,14 +197,14 @@ export const projectsData: Record<string, Project> = {
         subtitle: 'Client Portal for Investment Company',
         description: 'Client Portal for Investment Company',
         longDescription:
-            'Engineered a secure, full-stack client portal for Omnium Capital, providing clients and staff with role-based access to investment data and tools. The platform integrates with upstream investment systems and automates data flows.',
+            'Engineered a secure, full-stack client portal for Omnium Capital, providing clients and staff with role-based access to investment data and tools. The platform integrates with upstream SOAP investment system and automates data flows. The responsive Vue.js frontend offers an intuitive user experience, while the Django REST backend ensures robust data management and security. Deployed behind Nginx, the system architecture is designed for reliability.',
         features: [
             'Django REST API with data sync & transformation',
             'Role-based access for clients, staff, brokers, admins',
             'Responsive Vue.js + PrimeVue frontend',
             'Secure authentication & authorization',
             'VM-based deployment with Nginx & HTTPS',
-            'Scalable, robust system architecture',
+            'Robust system architecture',
         ],
         status: 'Production',
         layout: 'image-right',
@@ -218,8 +224,14 @@ export const projectsData: Record<string, Project> = {
         ],
         links: [
             {
-                text: 'Private Project',
-                icon: '',
+                text: 'Live Demo',
+                url: 'https://portal.omniumcapital.sk/',
+                icon: 'devicon-chrome-plain',
+            },
+            {
+                text: 'Private GitHub',
+                url: '',
+                icon: 'devicon-github-plain',
                 disabled: true,
             },
         ],
@@ -232,7 +244,7 @@ export const projectsData: Record<string, Project> = {
         subtitle: 'Management portal for energy communities',
         description: 'Management portal for energy communities',
         longDescription:
-            "A client-server Nuxt application that integrates with Slovakia's Energetic Data Center (EDC) to provide simplified access and role management for renewable energy source owners. The dashboard enables solar panel owners to organize into energy communities and manage their renewable energy assets.",
+            "A client-server Nuxt application that integrates with Slovakia's Energetic Data Center (EDC) to provide simplified access and role management for renewable energy source owners. The dashboard enables solar panel owners to organize into energy communities and manage their renewable energy assets. It features analytics, billing, and consumption tracking.",
         features: [
             'Integration with Slovakia EDC',
             'User role & access management',
@@ -248,6 +260,7 @@ export const projectsData: Record<string, Project> = {
         screenshots: [
             '/images/greencast/greencast-desktop.webp',
             '/images/greencast/greencast-mobile.webp',
+            '/images/greencast/greencast-landing.webp',
         ],
         techStack: [
             { name: 'Vue', component: 'TechIconVue' },
@@ -259,8 +272,14 @@ export const projectsData: Record<string, Project> = {
         ],
         links: [
             {
-                text: 'Private Project',
-                icon: '',
+                text: 'Live Demo',
+                url: 'https://greencast.keks.energy/',
+                icon: 'devicon-chrome-plain',
+            },
+            {
+                text: 'Private GitHub',
+                url: '',
+                icon: 'devicon-github-plain',
                 disabled: true,
             },
         ],
@@ -273,7 +292,7 @@ export const projectsData: Record<string, Project> = {
         subtitle: 'Task and collaboration software platform',
         description: 'Task and collaboration software platform',
         longDescription:
-            'A task and collaboration software platform similar to Notion, designed to streamline team productivity and project management. The platform provides intuitive tools for task organization, team collaboration, and project tracking.',
+            'A task and collaboration software platform similar to Notion, designed to streamline team productivity and project management. The platform provides intuitive tools for task organization, team collaboration, project tracking and online videoconferencing thanks to integration with LiveKit service. Built with a scalable backend architecture using Node.js and PostgreSQL, it ensures robust data management and real-time synchronization across users.',
         features: [
             'Task management & organization',
             'Team collaboration tools',
@@ -281,6 +300,7 @@ export const projectsData: Record<string, Project> = {
             'RESTful API architecture',
             'Real-time data synchronization',
             'Scalable backend infrastructure',
+            'Integration with LiveKit for videoconferencing',
         ],
         status: 'Development',
         layout: 'image-right',
@@ -298,13 +318,68 @@ export const projectsData: Record<string, Project> = {
         ],
         links: [
             {
-                text: 'Private Project',
-                icon: '',
+                text: 'Live Demo',
+                url: 'https://my.heyme.uk/',
+                icon: 'devicon-chrome-plain',
+            },
+            {
+                text: 'Private GitHub',
+                url: '',
+                icon: 'devicon-github-plain',
                 disabled: true,
             },
         ],
         contribution:
             'Developed the complete backend architecture and RESTful API, ensuring robust data management, real-time synchronization, and scalable infrastructure to support the collaboration platform.',
+    },
+    wic: {
+        id: 'wic',
+        title: 'Wic',
+        subtitle: 'Multi-brand luxury jewelry investment platform',
+        description: 'Multi-tenant platform for luxury jewelry brands with investment-based purchasing.',
+        longDescription:
+            'Multi-brand (multi-tenant) platform where customers invest toward a catalog item or a custom commission. Once funded, the jewelry is produced and delivered/handed over; includes an admin CMS and a broker portal. Built with Nuxt (frontend + backend) and Keycloak realms.',
+        features: [
+            'Multi-brand (multi-tenant) architecture',
+            'Catalog + custom commission ordering',
+            'Investment tracking until fully funded',
+            'Single admin CMS (brands, catalog, orders, users)',
+            'Broker portal for client strategy and status',
+        ],
+        status: 'Discontinued',
+        layout: 'image-left',
+        image: '/images/wic/wic-combined.webp',
+        screenshots: [
+            '/images/wic/wic-desktop-1.webp',
+            '/images/wic/wic-desktop-2.webp',
+            '/images/wic/wic-desktop-3.webp',
+            '/images/wic/wic-desktop-4.webp',
+            '/images/wic/wic-mobile.webp',
+        ],
+        techStack: [
+            { name: 'Nuxt', component: 'TechIconNuxt' },
+            { name: 'Node', component: 'TechIconNode' },
+            { name: 'TypeScript', component: 'TechIconTypescript' },
+            { name: 'PostgreSQL', component: 'TechIconPostgres' },
+            { name: 'Keycloak' },
+            { name: 'Docker', component: 'TechIconDocker' },
+            { name: 'Nginx', component: 'TechIconNginx' },
+        ],
+        links: [
+            {
+                text: 'Live Demo',
+                url: 'https://app.wic.dev.matejkokol.eu/lujery/',
+                icon: 'devicon-chrome-plain',
+            },
+            {
+                text: 'Private GitHub',
+                url: '',
+                icon: 'devicon-github-plain',
+                disabled: true,
+            },
+        ],
+        contribution:
+            'Built the platform end-to-end (frontend + backend): multi-tenant setup, Keycloak realms, admin CMS, and broker/client flows.',
     },
 }
 

@@ -60,7 +60,8 @@
                             :key="link.text"
                             :label="link.text"
                             :disabled="link.disabled"
-                            :severity="link.disabled ? 'secondary' : 'contrast'"
+                            severity="secondary"
+                            :icon="link.icon"
                             class="w-full"
                             @click="
                                 link.url && !link.disabled
@@ -158,7 +159,7 @@
             <!-- Right Panel - Image -->
             <div class="w-full lg:w-3/5 bg-gray-50 relative hidden lg:flex">
                 <div
-                    class="sticky top-0 h-screen flex items-center justify-center p-8"
+                    class="sticky top-0 h-screen flex items-center justify-center p-8 w-full"
                 >
                     <!-- Navigation Arrows for Images -->
                     <Button
