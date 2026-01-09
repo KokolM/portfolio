@@ -131,3 +131,21 @@ h4 {
 .p-drawer {
   border: none !important;
 }
+
+.my-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.my-icon-keycloak {
+  mask-image: url("/icons/keycloak.svg");
+  -webkit-mask-image: url("/icons/keycloak.svg");
+}

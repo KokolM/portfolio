@@ -69,6 +69,7 @@ export const useCVGenerator = () => {
         if (personalData?.email) contactItems.push({ label: 'Email', text: personalData.email })
         if (personalData?.phone) contactItems.push({ label: 'Phone', text: personalData.phone })
         if (personalData?.location) contactItems.push({ label: 'Location', text: personalData.location })
+        if (personalData?.website) contactItems.push({ label: 'Website', text: personalData.website })
         if (personalData?.github) contactItems.push({ label: 'GitHub', text: personalData.github })
         if (personalData?.linkedin) contactItems.push({ label: 'LinkedIn', text: personalData.linkedin })
         
@@ -147,7 +148,17 @@ export const useCVGenerator = () => {
             doc.setFont('helvetica', 'italic')
             doc.setTextColor(primaryColor.r, primaryColor.g, primaryColor.b)
             doc.text(exp.company, 20, yPosition)
-            yPosition += 6
+            yPosition += 4
+
+            // Company website link if exists
+            if (exp.website) {
+                doc.setFontSize(8)
+                doc.setFont('helvetica', 'normal')
+                doc.textWithLink(`Visit website (${exp.website})`, 20, yPosition, { url: exp.website })
+                yPosition += 5
+            } else {
+                yPosition += 2
+            }
 
             // Description with bullets
             doc.setFont('helvetica', 'normal')
@@ -191,7 +202,7 @@ export const useCVGenerator = () => {
         }
 
         // Display skills by category
-        const categories = ['Frontend', 'Backend', 'DevOps', 'Design']
+        const categories = ['Frontend', 'Backend', 'Programming', 'DevOps', 'Design']
         for (const category of categories) {
             const categorySkills = skillsByCategory[category]
             if (!categorySkills || categorySkills.length === 0) continue
@@ -320,11 +331,8 @@ export const useCVGenerator = () => {
         yPosition = addSectionHeader('KEY PROJECTS', yPosition)
 
         const projects = Object.values(projectsData)
-        const productionProjects = projects.filter(
-            (p) => p.status === 'Production'
-        )
 
-        for (const project of productionProjects) {
+        for (const project of projects) {
             // Check if we need a new page
             if (yPosition > 235) {
                 doc.addPage()
@@ -376,8 +384,16 @@ export const useCVGenerator = () => {
                     170,
                     8
                 )
-                yPosition += techHeight + 6
+                yPosition += techHeight + 2
             }
+
+            // Project link
+            doc.setFontSize(8)
+            doc.setTextColor(primaryColor.r, primaryColor.g, primaryColor.b)
+            doc.setFont('helvetica', 'italic')
+            const projectUrl = `${personalData.website}/projects/${project.id}`
+            doc.textWithLink(`View project details (www.${projectUrl})`, 20, yPosition, { url: `https://${projectUrl}` })
+            yPosition += 6
 
             yPosition += 2
         }

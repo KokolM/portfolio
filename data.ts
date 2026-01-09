@@ -8,9 +8,10 @@ export const personalData = {
     surname: 'Kokol',
     email: 'kokol.matej0@gmail.com',
     phone: '(+421) 948 432 249',
-    location: 'Slovakia',
+    location: 'Warsaw, Poland',
     linkedin: 'linkedin.com/in/matej-kokol',
     github: 'github.com/KokolM',
+    website: 'matejkokol.eu',
 }
 
 export const experienceData: Record<string, Experience> = {
@@ -20,6 +21,7 @@ export const experienceData: Record<string, Experience> = {
         position: 'Fullstack Developer',
         website: 'https://bavenir.eu/',
         startDate: new Date(2023, 9),
+        endDate: new Date(2025, 11),
         description: [
             'Designed, developed, and maintained production web applications using Angular, Vue / Nuxt, Node.js, and PostgreSQL.',
             'Built and integrated REST APIs supporting data-driven platforms and internal tools.',
@@ -125,6 +127,7 @@ export const projectsData: Record<string, Project> = {
         techStack: [
             { name: 'Flutter', component: 'TechIconFlutter' },
             { name: 'Dart', component: 'TechIconDart' },
+            { name: 'Nginx', component: 'TechIconNginx' },
         ],
         links: [
             {
@@ -170,11 +173,16 @@ export const projectsData: Record<string, Project> = {
             '/images/spade/spade-2.webp',
         ],
         techStack: [
-            { name: 'Vue', component: 'TechIconVue' },
-            { name: 'TypeScript', component: 'TechIconTypescript' },
+            { name: 'Angular', component: 'TechIconAngular' },
             { name: 'Tailwind', component: 'TechIconTailwind' },
-            { name: 'Node', component: 'TechIconNode' },
+            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
+            { name: 'Express', component: 'TechIconExpress' },
+            { name: 'Prisma', component: 'TechIconPrisma' },
+            { name: 'Postgres', component: 'TechIconPostgres' },
+            { name: 'Keycloak', component: 'TechIconKeycloak' },
+            { name: 'TypeScript', component: 'TechIconTypescript' },
             { name: 'Docker', component: 'TechIconDocker' },
+            { name: 'Traefik', component: 'TechIconTraefik' },
         ],
         links: [
             {
@@ -217,10 +225,10 @@ export const projectsData: Record<string, Project> = {
             { name: 'Vue', component: 'TechIconVue' },
             { name: 'TypeScript', component: 'TechIconTypescript' },
             { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
-            { name: 'Node', component: 'TechIconNode' },
-            { name: 'Docker', component: 'TechIconDocker' },
-            { name: 'Nginx', component: 'TechIconNginx' },
+            { name: 'DRF', component: 'TechIconDrf' },
             { name: 'PostgreSQL', component: 'TechIconPostgres' },
+            { name: 'Python', component: 'TechIconPython' },
+            { name: 'Nginx', component: 'TechIconNginx' },
         ],
         links: [
             {
@@ -263,12 +271,15 @@ export const projectsData: Record<string, Project> = {
             '/images/greencast/greencast-landing.webp',
         ],
         techStack: [
-            { name: 'Vue', component: 'TechIconVue' },
             { name: 'Nuxt', component: 'TechIconNuxt' },
-            { name: 'TypeScript', component: 'TechIconTypescript' },
             { name: 'Tailwind', component: 'TechIconTailwind' },
-            { name: 'Node', component: 'TechIconNode' },
+            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
+            { name: 'Prisma', component: 'TechIconPrisma' },
+            { name: 'Postgres', component: 'TechIconPostgres' },
+            { name: 'Keycloak', component: 'TechIconKeycloak' },
+            { name: 'TypeScript', component: 'TechIconTypescript' },
             { name: 'Docker', component: 'TechIconDocker' },
+            { name: 'Traefik', component: 'TechIconTraefik' },
         ],
         links: [
             {
@@ -310,11 +321,13 @@ export const projectsData: Record<string, Project> = {
             '/images/heyme/heyme-mobile.webp',
         ],
         techStack: [
-            { name: 'Node', component: 'TechIconNode' },
+            { name: 'Express', component: 'TechIconExpress' },
+            { name: 'Prisma', component: 'TechIconPrisma' },
+            { name: 'Postgres', component: 'TechIconPostgres' },
+            { name: 'Keycloak', component: 'TechIconKeycloak' },
             { name: 'TypeScript', component: 'TechIconTypescript' },
-            { name: 'PostgreSQL', component: 'TechIconPostgres' },
             { name: 'Docker', component: 'TechIconDocker' },
-            { name: 'Nginx', component: 'TechIconNginx' },
+            { name: 'Traefik', component: 'TechIconTraefik' },
         ],
         links: [
             {
@@ -336,7 +349,8 @@ export const projectsData: Record<string, Project> = {
         id: 'wic',
         title: 'Wic',
         subtitle: 'Multi-brand luxury jewelry investment platform',
-        description: 'Multi-tenant platform for luxury jewelry brands with investment-based purchasing.',
+        description:
+            'Multi-tenant platform for luxury jewelry brands with investment-based purchasing.',
         longDescription:
             'Multi-brand (multi-tenant) platform where customers invest toward a catalog item or a custom commission. Once funded, the jewelry is produced and delivered/handed over; includes an admin CMS and a broker portal. Built with Nuxt (frontend + backend) and Keycloak realms.',
         features: [
@@ -358,12 +372,14 @@ export const projectsData: Record<string, Project> = {
         ],
         techStack: [
             { name: 'Nuxt', component: 'TechIconNuxt' },
-            { name: 'Node', component: 'TechIconNode' },
+            { name: 'Tailwind', component: 'TechIconTailwind' },
+            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
+            { name: 'Prisma', component: 'TechIconPrisma' },
+            { name: 'Postgres', component: 'TechIconPostgres' },
+            { name: 'Keycloak', component: 'TechIconKeycloak' },
             { name: 'TypeScript', component: 'TechIconTypescript' },
-            { name: 'PostgreSQL', component: 'TechIconPostgres' },
-            { name: 'Keycloak' },
             { name: 'Docker', component: 'TechIconDocker' },
-            { name: 'Nginx', component: 'TechIconNginx' },
+            { name: 'Traefik', component: 'TechIconTraefik' },
         ],
         links: [
             {
@@ -401,87 +417,122 @@ export const educationData: Record<string, Education> = {
 }
 
 export const skillsData: Record<string, Skill> = {
-    nuxt: {
+    nuxtFE: {
         id: 'nuxt',
         name: 'Nuxt',
-        yearsOfExperience: 2,
+        yearsOfExperience: 3,
         category: 'Frontend',
+        component: 'TechIconNuxt',
+    },
+    nuxtBE: {
+        id: 'nuxt',
+        name: 'Nuxt',
+        yearsOfExperience: 3,
+        category: 'Backend',
         component: 'TechIconNuxt',
     },
     angular: {
         id: 'angular',
         name: 'Angular',
-        yearsOfExperience: 4,
+        yearsOfExperience: 3,
         category: 'Frontend',
         component: 'TechIconAngular',
     },
     primefaces: {
         id: 'primefaces',
         name: 'PrimeFaces',
-        yearsOfExperience: 4,
+        yearsOfExperience: 5,
         category: 'Frontend',
         component: 'TechIconPrimeFaces',
     },
     tailwind: {
         id: 'tailwind',
         name: 'Tailwind',
-        yearsOfExperience: 4,
+        yearsOfExperience: 3,
         category: 'Frontend',
         component: 'TechIconTailwind',
     },
     vue: {
         id: 'vue',
         name: 'Vue',
-        yearsOfExperience: 4,
+        yearsOfExperience: 5,
         category: 'Frontend',
         component: 'TechIconVue',
-    },
-    vuetify: {
-        id: 'vuetify',
-        name: 'Vuetify',
-        yearsOfExperience: 2,
-        category: 'Frontend',
-        component: 'TechIconVuetify',
     },
     flutter: {
         id: 'flutter',
         name: 'Flutter',
-        yearsOfExperience: 4,
+        yearsOfExperience: 2,
         category: 'Frontend',
         component: 'TechIconFlutter',
     },
     typescript: {
         id: 'typescript',
         name: 'TypeScript',
-        yearsOfExperience: 4,
-        category: 'Backend',
+        yearsOfExperience: 5,
+        category: 'Programming',
         component: 'TechIconTypescript',
     },
-    node: {
-        id: 'node',
-        name: 'Node',
+    python: {
+        id: 'python',
+        name: 'Python',
+        yearsOfExperience: 6,
+        category: 'Programming',
+        component: 'TechIconPython',
+    },
+    bash: {
+        id: 'bash',
+        name: 'Bash',
+        yearsOfExperience: 5,
+        category: 'Programming',
+        component: 'TechIconBash',
+    },
+    c: {
+        id: 'c',
+        name: 'C',
         yearsOfExperience: 4,
+        category: 'Programming',
+        component: 'TechIconC',
+    },
+    express: {
+        id: 'express',
+        name: 'Express',
+        yearsOfExperience: 3,
         category: 'Backend',
-        component: 'TechIconNode',
+        component: 'TechIconExpress',
+    },
+    keycloak: {
+        id: 'keycloak',
+        name: 'Keycloak',
+        yearsOfExperience: 3,
+        category: 'Backend',
+        component: 'TechIconKeycloak',
+    },
+    drf: {
+        id: 'drf',
+        name: 'DRF',
+        yearsOfExperience: 2,
+        category: 'Backend',
+        component: 'TechIconDrf',
     },
     postgres: {
         id: 'postgres',
         name: 'PostgreSQL',
-        yearsOfExperience: 4,
+        yearsOfExperience: 3,
         category: 'Backend',
         component: 'TechIconPostgres',
     },
     prisma: {
         id: 'prisma',
         name: 'Prisma',
-        yearsOfExperience: 2,
+        yearsOfExperience: 3,
         category: 'Backend',
         component: 'TechIconPrisma',
     },
     docker: {
         id: 'docker',
         name: 'Docker',
-        yearsOfExperience: 4,
+        yearsOfExperience: 3,
         category: 'DevOps',
         component: 'TechIconDocker',
     },
@@ -495,7 +546,7 @@ export const skillsData: Record<string, Skill> = {
     nginx: {
         id: 'nginx',
         name: 'Nginx',
-        yearsOfExperience: 4,
+        yearsOfExperience: 5,
         category: 'DevOps',
         component: 'TechIconNginx',
     },
@@ -509,14 +560,14 @@ export const skillsData: Record<string, Skill> = {
     sketch: {
         id: 'sketch',
         name: 'Sketch',
-        yearsOfExperience: 3,
+        yearsOfExperience: 2,
         category: 'Design',
         component: 'TechIconSketch',
     },
     dart: {
         id: 'dart',
         name: 'Dart',
-        yearsOfExperience: 4,
+        yearsOfExperience: 2,
         category: 'Backend',
         component: 'TechIconDart',
     },
