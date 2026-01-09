@@ -12,6 +12,11 @@ export const personalData = {
     linkedin: 'linkedin.com/in/matej-kokol',
     github: 'github.com/KokolM',
     website: 'matejkokol.eu',
+    jobSeeking: {
+        active: true,
+        location: 'Warsaw, Poland',
+        message: 'Currently seeking full-time opportunities',
+    },
 }
 
 export const experienceData: Record<string, Experience> = {
