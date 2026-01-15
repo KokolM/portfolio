@@ -7,7 +7,7 @@ export const personalData = {
     name: 'Matej',
     surname: 'Kokol',
     email: 'kokol.matej0@gmail.com',
-    phone: '(+421) 948 432 249',
+    phone: '(+48) 575 357 810',
     location: 'Warsaw, Poland',
     linkedin: 'linkedin.com/in/matej-kokol',
     github: 'github.com/KokolM',
