@@ -10,6 +10,7 @@ export interface Experience {
     startDate: Date
     endDate?: Date
     website?: string
+    about: string
     description: string[]
     techStackFrontend?: TechStack[]
     techStackBackend?: TechStack[]

@@ -9,6 +9,13 @@
             :endDate="experience.endDate"
             :website="experience.website"
         >
+            <div class="relative pl-4 border-l-2 border-primary-500/30 py-2 mb-8">
+                <p
+                    class="text-surface-600 dark:text-surface-400 italic leading-relaxed"
+                >
+                    {{ experience.about }}
+                </p>
+            </div>
             <div class="space-y-4">
                 <div
                     v-for="(paragraph, index) in experience.description"

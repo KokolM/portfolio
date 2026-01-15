@@ -2,7 +2,7 @@ import { jsPDF } from 'jspdf'
 import { personalData, experienceData, educationData, skillsData, projectsData } from '~/data'
 
 export const useCVGenerator = () => {
-    const generateCV = () => {
+    const generateCV = async () => {
         const doc = new jsPDF()
         let yPosition = 25
         
@@ -160,11 +160,26 @@ export const useCVGenerator = () => {
                 yPosition += 2
             }
 
+            // About section
+            if (exp.about) {
+                doc.setFont('helvetica', 'italic')
+                doc.setTextColor(lightGray.r, lightGray.g, lightGray.b)
+                doc.setFontSize(9)
+                const aboutHeight = addText(exp.about, 20, yPosition, 170, 9)
+                yPosition += aboutHeight + 4
+            }
+
             // Description with bullets
             doc.setFont('helvetica', 'normal')
             doc.setTextColor(darkGray.r, darkGray.g, darkGray.b)
             doc.setFontSize(9)
             for (const desc of exp.description) {
+                // Check if we need a new page before adding each bullet
+                if (yPosition > 270) {
+                    doc.addPage()
+                    yPosition = 25
+                }
+                
                 // Use a simple dash instead of Unicode bullet
                 doc.setFont('helvetica', 'bold')
                 doc.text('-', 20, yPosition)
@@ -177,7 +192,7 @@ export const useCVGenerator = () => {
         }
 
         // Skills Section
-        if (yPosition > 200) {
+        if (yPosition > 220) {
             doc.addPage()
             yPosition = 25
         }

@@ -27,6 +27,7 @@ export const experienceData: Record<string, Experience> = {
         website: 'https://bavenir.eu/',
         startDate: new Date(2023, 9),
         endDate: new Date(2025, 11),
+        about: 'bAvenir is a tech company that delivers innovative software solutions through cutting-edge research, expert development, and strategic collaboration with forward-thinking organizations.',
         description: [
             'Designed, developed, and maintained production web applications using Angular, Vue / Nuxt, Node.js, and PostgreSQL.',
             'Built and integrated REST APIs supporting data-driven platforms and internal tools.',
@@ -60,6 +61,7 @@ export const experienceData: Record<string, Experience> = {
         company: 'Freelance',
         position: 'Fullstack Developer',
         startDate: new Date(2023, 5),
+        about: 'Independent software development services for clients in various industries, delivering tailored web and mobile applications to meet specific business needs.',
         description: [
             'Delivered custom full-stack solutions for clients across fintech, SaaS, and data-oriented domains.',
             'Built frontend applications using Vue / Nuxt and backend services with Node.js / Python.',
@@ -88,6 +90,7 @@ export const experienceData: Record<string, Experience> = {
         website: 'https://www.sancananavrat.sk/',
         startDate: new Date(2021, 3),
         endDate: new Date(2023, 9),
+        about: 'The "Chance for Reentry" project by ZVJS aims to support the reintegration of formerly incarcerated individuals through a comprehensive reentry program. Project was co-funded by the EU, Slovak Office of Labour, Social Affairs and Family and the Slovak Ministry of Justice.',
         description: [
             'Developed a mobile and kiosk application for the "Chance for Reentry" project, to support the reintegration of formerly incarcerated individuals.',
             'Built the application using Flutter, ensuring cross-platform compatibility for both mobile devices and kiosk systems.',
@@ -124,9 +127,9 @@ export const projectsData: Record<string, Project> = {
         ],
         status: 'Production',
         layout: 'image-right',
-        image: '/images/holup/holup-kiosk.webp',
+        image: '/images/holup/holup-combined.webp',
         screenshots: [
-            '/images/holup/holup-kiosk.webp',
+            '/images/holup/holup-combined.webp',
             '/images/holup/holup-mobile.webp',
         ],
         techStack: [
