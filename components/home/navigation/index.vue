@@ -10,7 +10,7 @@
                 v-for="item in menu"
                 :item="item"
             ></HomeNavigationButton>
-            <HomeNavigationCvDownload class="mt-8" />
+            <CvDownload class="mt-8" />
         </div>
     </div>
     <div class="fixed top-0 right-0 lg:hidden w-full">
@@ -44,7 +44,7 @@
                             :item="item"
                             @onLinkClick="closeCallback"
                         ></HomeNavigationButton>
-                        <HomeNavigationCvDownload class="mt-8" />
+                        <CvDownload class="mt-8" />
                     </div>
                 </template>
             </Drawer>

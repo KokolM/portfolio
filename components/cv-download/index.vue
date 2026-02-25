@@ -10,7 +10,12 @@
 <script setup lang="ts">
 const { generateCV } = useCVGenerator()
 
+const props = defineProps<{
+    companyName?: string
+    companyAddress?: string
+}>()
+
 const downloadCV = () => {
-    generateCV()
+    generateCV(props.companyName, props.companyAddress)
 }
 </script>
