@@ -18,7 +18,26 @@
         >
             <h3>{{ props.title }}</h3>
             <h4>{{ props.description }}</h4>
-            <StatusTag :status="props.status" size="small" class="mt-3" />
+            <div class="flex flex-wrap items-center gap-3 mt-3">
+                <StatusTag :status="props.status" size="small" />
+                <Tag
+                    v-if="props.activeUsers"
+                    severity="success"
+                    class="text-xs px-2 py-1"
+                >
+                    <span class="flex items-center gap-2">
+                        <span class="relative flex h-2 w-2 shrink-0">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"
+                            ></span>
+                            <span
+                                class="relative inline-flex rounded-full h-2 w-2 bg-current"
+                            ></span>
+                        </span>
+                        {{ formatUsers(props.activeUsers) }}+ ACTIVE USERS
+                    </span>
+                </Tag>
+            </div>
             <div class="flex flex-col gap-4 mt-8">
                 <div
                     v-for="feature in props.features"
@@ -64,7 +83,14 @@ const props = defineProps<{
     status: ProjectStatus
     layout: 'image-left' | 'image-right'
     image: string
+    activeUsers?: number
 }>()
+
+const formatUsers = (n: number): string => {
+    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
+    if (n >= 1_000) return `${(n / 1_000).toFixed(1).replace(/\.0$/, '')}K`
+    return n.toString()
+}
 
 const router = useRouter()
 const route = useRoute()

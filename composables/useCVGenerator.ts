@@ -38,6 +38,87 @@ export const useCVGenerator = () => {
             return lines.length * (fontSize * 0.5) // Return height used
         }
 
+        // Helper function to render text with <strong> tags as bold inline segments,
+        // with manual word-wrap so mixed bold/normal fits within maxWidth.
+        const addStyledText = (
+            html: string,
+            x: number,
+            y: number,
+            maxWidth: number,
+            fontSize: number = 9,
+        ) => {
+            doc.setFontSize(fontSize)
+            const lineHeightMm = fontSize * 0.5
+
+            // Parse into [{text, bold}] segments
+            const segments: { text: string; bold: boolean }[] = []
+            const tagRe = /<strong>(.*?)<\/strong>|([^<]+)/gs
+            let m: RegExpExecArray | null
+            while ((m = tagRe.exec(html)) !== null) {
+                if (m[1] !== undefined)
+                    segments.push({ text: m[1], bold: true })
+                else if (m[2]) segments.push({ text: m[2], bold: false })
+            }
+
+            // Split each segment into word-level tokens (preserving spaces)
+            const tokens: { text: string; bold: boolean }[] = []
+            for (const seg of segments) {
+                // split on whitespace boundaries, keeping the spaces as tokens
+                const parts = seg.text.split(/(\s+)/)
+                for (const part of parts) {
+                    if (part) tokens.push({ text: part, bold: seg.bold })
+                }
+            }
+
+            // Build wrapped lines
+            type Chunk = { text: string; bold: boolean }
+            const lines: Chunk[][] = []
+            let currentLine: Chunk[] = []
+            let currentWidth = 0
+
+            for (const token of tokens) {
+                doc.setFont('helvetica', token.bold ? 'bold' : 'normal')
+                const w = doc.getTextWidth(token.text)
+
+                // If this token would overflow, start a new line (skip pure-whitespace at line start)
+                if (
+                    currentWidth + w > maxWidth + 0.01 &&
+                    currentLine.length > 0
+                ) {
+                    lines.push(currentLine)
+                    currentLine = []
+                    currentWidth = 0
+                    if (token.text.trim() === '') continue // skip leading space on new line
+                }
+
+                // Merge adjacent tokens of same style
+                const last = currentLine[currentLine.length - 1]
+                if (last && last.bold === token.bold) {
+                    last.text += token.text
+                    doc.setFont('helvetica', token.bold ? 'bold' : 'normal')
+                    currentWidth += w
+                } else {
+                    currentLine.push({ text: token.text, bold: token.bold })
+                    currentWidth += w
+                }
+            }
+            if (currentLine.length > 0) lines.push(currentLine)
+
+            // Render
+            lines.forEach((line, li) => {
+                let xPos = x
+                for (const chunk of line) {
+                    doc.setFont('helvetica', chunk.bold ? 'bold' : 'normal')
+                    doc.text(chunk.text, xPos, y + li * lineHeightMm)
+                    xPos += doc.getTextWidth(chunk.text)
+                }
+            })
+
+            // Restore normal font
+            doc.setFont('helvetica', 'normal')
+            return lines.length * lineHeightMm
+        }
+
         // Helper function to draw a section header with underline
         const addSectionHeader = (title: string, y: number) => {
             doc.setFontSize(14)
@@ -115,6 +196,21 @@ export const useCVGenerator = () => {
             contactItems.push({
                 label: 'LinkedIn',
                 text: personalData.linkedin,
+            })
+        if (personalData?.contract)
+            contactItems.push({
+                label: 'Contract',
+                text: personalData.contract,
+            })
+        if (personalData?.nip)
+            contactItems.push({
+                label: 'NIP',
+                text: personalData.nip,
+            })
+        if (personalData?.regon)
+            contactItems.push({
+                label: 'REGON',
+                text: personalData.regon,
             })
 
         // Split into two columns
@@ -234,7 +330,7 @@ export const useCVGenerator = () => {
                 doc.setFont('helvetica', 'bold')
                 doc.text('-', 20, yPosition)
                 doc.setFont('helvetica', 'normal')
-                const height = addText(desc, 25, yPosition, 165, 9)
+                const height = addStyledText(desc, 25, yPosition, 165, 9)
                 yPosition += height + 2
             }
 
@@ -368,7 +464,7 @@ export const useCVGenerator = () => {
                 doc.setFont('helvetica', 'bold')
                 doc.text('-', 20, yPosition)
                 doc.setFont('helvetica', 'normal')
-                const height = addText(desc, 25, yPosition, 165, 9)
+                const height = addStyledText(desc, 25, yPosition, 165, 9)
                 yPosition += height + 2
             }
 
@@ -422,6 +518,20 @@ export const useCVGenerator = () => {
             doc.text(project.subtitle, 20, yPosition)
             yPosition += 5
 
+            // Active Users
+            if (project.activeUsers) {
+                const formatUsers = (n: number): string => {
+                    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
+                    if (n >= 1_000) return `${(n / 1_000).toFixed(1).replace(/\.0$/, '')}K`
+                    return n.toString()
+                }
+                doc.setFontSize(9)
+                doc.setFont('helvetica', 'bold')
+                doc.setTextColor(primaryColor.r, primaryColor.g, primaryColor.b)
+                doc.text(`${formatUsers(project.activeUsers)}+ active users`, 20, yPosition)
+                yPosition += 5
+            }
+
             // Description with bullet
             doc.setFont('helvetica', 'normal')
             doc.setTextColor(darkGray.r, darkGray.g, darkGray.b)
@@ -469,8 +579,19 @@ export const useCVGenerator = () => {
         // Footer on last page
         const pageCount = doc.getNumberOfPages()
         doc.setPage(pageCount)
-        doc.setFontSize(8)
+        doc.setFontSize(6.5)
+        doc.setFont('helvetica', 'italic')
         doc.setTextColor(lightGray.r, lightGray.g, lightGray.b)
+        const consentText =
+            'Wyrazam zgode na przetwarzanie moich danych osobowych przez DREAMAI TECHNOLOGIES PROSTA SA z siedziba w Warszawie przy ul. Kruczej 16/22 w celu przeprowadzenia rekrutacji na aplikowane przeze mnie stanowisko. Wyrazam rowniez dobrowolna zgode na przetwarzanie moich danych osobowych na potrzeby przyszlych rekrutacji prowadzonych przez tego pracodawce.'
+        const consentLines = doc.splitTextToSize(consentText, 170)
+        const lineHeight = 2.8
+        const consentStartY = 282 - consentLines.length * lineHeight
+        doc.text(consentLines, 20, consentStartY, {
+            lineHeightFactor: 1.1,
+        })
+        doc.setFontSize(8)
+        doc.setFont('helvetica', 'normal')
         doc.text(
             `Generated on ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
             105,

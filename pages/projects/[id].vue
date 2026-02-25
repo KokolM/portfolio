@@ -39,6 +39,24 @@
                         <StatusTag :status="project.status" />
                     </div>
 
+                    <!-- Active Users -->
+                    <div v-if="project.activeUsers" class="space-y-2">
+                        <p class="text-sm text-gray-600 font-medium">ACTIVE USERS</p>
+                        <Tag severity="success" class="text-sm px-3 py-2">
+                            <span class="flex items-center gap-2">
+                                <span class="relative flex h-2.5 w-2.5 shrink-0">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"
+                                    ></span>
+                                    <span
+                                        class="relative inline-flex rounded-full h-2.5 w-2.5 bg-current"
+                                    ></span>
+                                </span>
+                                {{ formatUsers(project.activeUsers) }}+ ACTIVE USERS
+                            </span>
+                        </Tag>
+                    </div>
+
                     <!-- Tech Stack -->
                     <div class="space-y-8">
                         <p class="text-sm text-gray-600 font-medium">
@@ -285,6 +303,12 @@ const viewport = useViewport()
 const id = route.params.id as string
 
 const project = projectsData[id]
+
+const formatUsers = (n: number): string => {
+    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
+    if (n >= 1_000) return `${(n / 1_000).toFixed(1).replace(/\.0$/, '')}K`
+    return n.toString()
+}
 
 if (!project) {
     throw createError({ statusCode: 404, statusMessage: 'Project not found' })

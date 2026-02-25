@@ -9,7 +9,9 @@
             :endDate="experience.endDate"
             :website="experience.website"
         >
-            <div class="relative pl-4 border-l-2 border-primary-500/30 py-2 mb-8">
+            <div
+                class="relative pl-4 border-l-2 border-primary-500/30 py-2 mb-8"
+            >
                 <p
                     class="text-surface-600 dark:text-surface-400 italic leading-relaxed"
                 >
@@ -23,9 +25,7 @@
                     class="flex items-start gap-2 lg:gap-6"
                 >
                     <div>•</div>
-                    <p>
-                        {{ paragraph }}
-                    </p>
+                    <p v-html="paragraph" />
                 </div>
             </div>
         </HomeSectionExperiencePreview>

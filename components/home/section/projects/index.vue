@@ -11,6 +11,7 @@
                 :status="project.status"
                 :layout="project.layout"
                 :image="project.image"
+                :active-users="project.activeUsers"
             />
         </div>
     </HomeSection>

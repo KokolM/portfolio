@@ -26,4 +26,5 @@ export interface Project {
     techStack: TechStack[]
     links: ProjectLink[]
     contribution?: string
+    activeUsers?: number
 }
