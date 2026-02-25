@@ -23,6 +23,32 @@ export const personalData = {
 }
 
 export const experienceData: Record<string, Experience> = {
+    freelance: {
+        id: 'freelance',
+        company: 'Freelance',
+        position: 'Fullstack Developer',
+        startDate: new Date(2023, 5),
+        about: 'Independent software development services for clients in various industries, delivering tailored web and mobile applications to meet specific business needs.',
+        description: [
+            'Delivered custom <strong>full-stack solutions</strong> for clients in <strong>Fintech and SaaS</strong>, including a secure investment portal for <strong>Omnium Capital</strong> and collaboration tools for <strong>Heyme</strong>.',
+            'Built production-ready applications using <strong>Vue / Nuxt</strong> frontends and <strong>Node.js / Python</strong> backends with relational databases.',
+            'Integrated external systems including <strong>SOAP investment services</strong> and <strong>LiveKit</strong> (real-time video), designing APIs to synchronize and transform data.',
+            'Independently managed projects end-to-end — from architecture and implementation to <strong>deployment and maintenance</strong> in production environments.',
+        ],
+        techStackFrontend: [
+            { name: 'Angular', component: 'TechIconAngular' },
+            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
+            { name: 'Tailwind', component: 'TechIconTailwind' },
+            { name: 'Node', component: 'TechIconNode' },
+            { name: 'PostgreSQL', component: 'TechIconPostgres' },
+        ],
+        techStackBackend: [
+            { name: 'Docker', component: 'TechIconDocker' },
+            { name: 'Figma', component: 'TechIconFigma' },
+            { name: 'Sketch', component: 'TechIconSketch' },
+            { name: 'Nginx', component: 'TechIconNginx' },
+        ],
+    },
     bavenir: {
         id: 'bavenir',
         company: 'bAvenir s.r.o.',
@@ -53,32 +79,6 @@ export const experienceData: Record<string, Experience> = {
         techStackDevOps: [
             { name: 'Docker', component: 'TechIconDocker' },
             { name: 'Traefik', component: 'TechIconTraefik' },
-            { name: 'Nginx', component: 'TechIconNginx' },
-        ],
-    },
-    freelance: {
-        id: 'freelance',
-        company: 'Freelance',
-        position: 'Fullstack Developer',
-        startDate: new Date(2023, 5),
-        about: 'Independent software development services for clients in various industries, delivering tailored web and mobile applications to meet specific business needs.',
-        description: [
-            'Delivered custom <strong>full-stack solutions</strong> for clients in <strong>Fintech and SaaS</strong>, including a secure investment portal for <strong>Omnium Capital</strong> and collaboration tools for <strong>Heyme</strong>.',
-            'Built production-ready applications using <strong>Vue / Nuxt</strong> frontends and <strong>Node.js / Python</strong> backends with relational databases.',
-            'Integrated external systems including <strong>SOAP investment services</strong> and <strong>LiveKit</strong> (real-time video), designing APIs to synchronize and transform data.',
-            'Independently managed projects end-to-end — from architecture and implementation to <strong>deployment and maintenance</strong> in production environments.',
-        ],
-        techStackFrontend: [
-            { name: 'Angular', component: 'TechIconAngular' },
-            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
-            { name: 'Tailwind', component: 'TechIconTailwind' },
-            { name: 'Node', component: 'TechIconNode' },
-            { name: 'PostgreSQL', component: 'TechIconPostgres' },
-        ],
-        techStackBackend: [
-            { name: 'Docker', component: 'TechIconDocker' },
-            { name: 'Figma', component: 'TechIconFigma' },
-            { name: 'Sketch', component: 'TechIconSketch' },
             { name: 'Nginx', component: 'TechIconNginx' },
         ],
     },
