@@ -116,7 +116,7 @@ export const projectsData: Record<string, Project> = {
         description:
             'Government-deployed Flutter application supporting prisoner reintegration at national scale.',
         longDescription:
-            'Holup is a cross-platform application (kiosks, iOS, Android) developed for the Slovak government to support the reintegration of incarcerated individuals into society. Originally started as a Bachelor’s thesis, the project evolved into a nationally deployed production system running in all Slovak correctional facilities. The platform provides employment search integration (Profesia.sk), CV creation, housing assistance, and structured step-by-step guidance for life after release, with a strong focus on accessibility and secure deployment in a regulated environment.',
+            'Holup is a cross-platform application (kiosks, iOS, Android) developed for the Slovak government to support the reintegration of incarcerated individuals into society. Originally started as a Bachelor’s thesis, the project evolved into a nationally deployed production system running in all Slovak correctional facilities. The platform provides employment search integration (Profesia.sk), CV creation, housing assistance, and structured step-by-step guidance for life after release, with a strong focus on user experience.',
         features: [
             'Integrated job search (Profesia.sk) and built-in CV generator',
             'Housing assistance and emergency contact directory',
