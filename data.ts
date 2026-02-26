@@ -54,7 +54,7 @@ export const experienceData: Record<string, Experience> = {
         company: 'bAvenir s.r.o.',
         position: 'Fullstack Developer',
         website: 'https://bavenir.eu/',
-        startDate: new Date(2023, 9),
+        startDate: new Date(2022, 9),
         endDate: new Date(2025, 11),
         about: 'bAvenir is a tech company that delivers innovative software solutions through cutting-edge research, expert development, and strategic collaboration with forward-thinking organizations.',
         description: [
@@ -87,8 +87,8 @@ export const experienceData: Record<string, Experience> = {
         company: 'ZVJS - Chance for Reentry',
         position: 'Frontend Developer',
         website: 'https://www.sancananavrat.sk/',
-        startDate: new Date(2021, 3),
-        endDate: new Date(2023, 9),
+        startDate: new Date(2020, 0),
+        endDate: new Date(2022, 9),
         about: 'The "Chance for Reentry" project by ZVJS aims to support the reintegration of formerly incarcerated individuals through a comprehensive reentry program. Project was co-funded by the EU, Slovak Office of Labour, Social Affairs and Family and the Slovak Ministry of Justice.',
         description: [
             'Engineered a <strong>Flutter-based application</strong> for mobile and prison kiosks to support the reintegration of formerly incarcerated individuals.',
