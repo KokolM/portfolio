@@ -41,10 +41,14 @@
 
                     <!-- Active Users -->
                     <div v-if="project.activeUsers" class="space-y-2">
-                        <p class="text-sm text-gray-600 font-medium">ACTIVE USERS</p>
+                        <p class="text-sm text-gray-600 font-medium">
+                            ACTIVE USERS
+                        </p>
                         <Tag severity="success" class="text-sm px-3 py-2">
                             <span class="flex items-center gap-2">
-                                <span class="relative flex h-2.5 w-2.5 shrink-0">
+                                <span
+                                    class="relative flex h-2.5 w-2.5 shrink-0"
+                                >
                                     <span
                                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"
                                     ></span>
@@ -52,7 +56,8 @@
                                         class="relative inline-flex rounded-full h-2.5 w-2.5 bg-current"
                                     ></span>
                                 </span>
-                                {{ formatUsers(project.activeUsers) }}+ ACTIVE USERS
+                                {{ formatUsers(project.activeUsers) }}+ ACTIVE
+                                USERS
                             </span>
                         </Tag>
                     </div>
@@ -73,20 +78,22 @@
 
                     <!-- Links/Actions -->
                     <div class="space-y-3 pt-4">
-                        <Button
-                            v-for="link in project.links"
-                            :key="link.text"
-                            :label="link.text"
-                            :disabled="link.disabled"
-                            severity="secondary"
-                            :icon="link.icon"
-                            class="w-full"
-                            @click="
-                                link.url && !link.disabled
-                                    ? openLink(link.url)
-                                    : null
-                            "
-                        />
+                        <div v-for="link in project.links">
+                            <Button
+                                :key="link.text"
+                                :label="link.text"
+                                :disabled="link.disabled"
+                                severity="secondary"
+                                :icon="link.icon"
+                                class="w-full"
+                                @click="
+                                    link.url && !link.disabled
+                                        ? openLink(link.url)
+                                        : null
+                                "
+                            />
+                            <div v-if="link.divider" class="mt-8 pb-5 border-t border-gray-200"></div>
+                        </div>
                     </div>
 
                     <!-- Screenshots Navigation -->
@@ -305,7 +312,8 @@ const id = route.params.id as string
 const project = projectsData[id]
 
 const formatUsers = (n: number): string => {
-    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
+    if (n >= 1_000_000)
+        return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
     if (n >= 1_000) return `${(n / 1_000).toFixed(1).replace(/\.0$/, '')}K`
     return n.toString()
 }

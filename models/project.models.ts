@@ -10,6 +10,7 @@ export interface ProjectLink {
     url?: string
     icon: string
     disabled?: boolean
+    divider?: boolean
 }
 
 export interface Project {

@@ -130,6 +130,9 @@ export const projectsData: Record<string, Project> = {
         screenshots: [
             '/images/holup/holup-combined.webp',
             '/images/holup/holup-mobile.webp',
+            '/images/holup/holup-in-action-1.webp',
+            '/images/holup/holup-in-action-2.webp',
+            '/images/holup/holup-in-action-3.webp',
         ],
         techStack: [
             { name: 'Flutter', component: 'TechIconFlutter' },
@@ -137,6 +140,12 @@ export const projectsData: Record<string, Project> = {
             { name: 'Nginx', component: 'TechIconNginx' },
         ],
         links: [
+            {
+                text: 'About the App',
+                url: 'https://www.sancananavrat.sk/realizacia/holup',
+                icon: 'devicon-chrome-plain',
+                divider: true,
+            },
             {
                 text: 'Google Play',
                 url: 'https://play.google.com/store/apps/details?id=sk.sancananavrat.holup',
