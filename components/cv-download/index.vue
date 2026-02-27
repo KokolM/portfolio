@@ -1,7 +1,7 @@
 <template>
     <Button @click="downloadCV">
         <font-awesome-icon :icon="['fas', 'download']" class="w-4 h-4" />
-        <span>Download CV</span>
+        <span>Download CV</span><span v-if="compact"> (compact)</span>
     </Button>
 </template>
 
@@ -10,6 +10,7 @@ const { generateCV: generateCVFull } = useCVGenerator()
 const { generateCV: generateCVCompact } = useCVGeneratorCompact()
 
 const props = defineProps<{
+    summary?: string
     companyName?: string
     companyAddress?: string
     compact?: boolean
@@ -17,9 +18,9 @@ const props = defineProps<{
 
 const downloadCV = () => {
     if (props.compact) {
-        generateCVCompact(props.companyName, props.companyAddress)
+        generateCVCompact(props.summary, props.companyName, props.companyAddress)
     } else {
-        generateCVFull(props.companyName, props.companyAddress)
+        generateCVFull(props.summary, props.companyName, props.companyAddress)
     }
 }
 </script>

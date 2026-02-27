@@ -3,6 +3,7 @@ import { personalData, experienceData, educationData, skillsData } from '~/data'
 
 export const useCVGeneratorCompact = () => {
     const generateCV = async (
+        summary?: string,
         companyName?: string,
         companyAddress?: string,
     ) => {
@@ -129,9 +130,47 @@ export const useCVGeneratorCompact = () => {
         // SUMMARY
         // ════════════════════════════════════════════════════════════════════
         y = heading('SUMMARY', y)
-        const summaryPlain = personalData.aboutMe.replace(/<[^>]+>/g, '')
+        const summaryPlain = (summary ?? personalData.aboutMe).replace(/<[^>]+>/g, '')
         const summaryH = text(summaryPlain, MARGIN, y, TEXT_W, 8.5)
         y += summaryH + 5
+
+        // ════════════════════════════════════════════════════════════════════
+        // SKILLS
+        // ════════════════════════════════════════════════════════════════════
+        newPageIfNeeded(30)
+        y = heading('SKILLS', y)
+
+        const skills = Object.values(skillsData).sort(
+            (a, b) => b.yearsOfExperience - a.yearsOfExperience,
+        )
+
+        const byCategory: Record<string, typeof skills> = {}
+        for (const s of skills) {
+            if (!byCategory[s.category]) byCategory[s.category] = []
+            byCategory[s.category]!.push(s)
+        }
+
+        const categoryOrder = ['Frontend', 'Backend', 'Programming', 'DevOps']
+        for (const cat of categoryOrder) {
+            const list = byCategory[cat]
+            if (!list?.length) continue
+
+            newPageIfNeeded(7)
+            const label = `${cat}: `
+            const skillLine = list.map((s) => s.name).join(', ')
+
+            doc.setFontSize(8.5)
+            doc.setFont('helvetica', 'bold')
+            doc.setTextColor(dark.r, dark.g, dark.b)
+            doc.text(label, MARGIN, y)
+            const labelW = doc.getTextWidth(label)
+
+            doc.setFont('helvetica', 'normal')
+            const sh = text(skillLine, MARGIN + labelW, y, TEXT_W - labelW, 8.5)
+            y += sh + 3
+        }
+
+        y += 2
 
         // ════════════════════════════════════════════════════════════════════
         // EXPERIENCE
@@ -179,44 +218,6 @@ export const useCVGeneratorCompact = () => {
 
             y += 3
         }
-
-        // ════════════════════════════════════════════════════════════════════
-        // SKILLS
-        // ════════════════════════════════════════════════════════════════════
-        newPageIfNeeded(30)
-        y = heading('SKILLS', y)
-
-        const skills = Object.values(skillsData).sort(
-            (a, b) => b.yearsOfExperience - a.yearsOfExperience,
-        )
-
-        const byCategory: Record<string, typeof skills> = {}
-        for (const s of skills) {
-            if (!byCategory[s.category]) byCategory[s.category] = []
-            byCategory[s.category]!.push(s)
-        }
-
-        const categoryOrder = ['Frontend', 'Backend', 'Programming', 'DevOps']
-        for (const cat of categoryOrder) {
-            const list = byCategory[cat]
-            if (!list?.length) continue
-
-            newPageIfNeeded(7)
-            const label = `${cat}: `
-            const skillLine = list.map((s) => s.name).join(', ')
-
-            doc.setFontSize(8.5)
-            doc.setFont('helvetica', 'bold')
-            doc.setTextColor(dark.r, dark.g, dark.b)
-            doc.text(label, MARGIN, y)
-            const labelW = doc.getTextWidth(label)
-
-            doc.setFont('helvetica', 'normal')
-            const sh = text(skillLine, MARGIN + labelW, y, TEXT_W - labelW, 8.5)
-            y += sh + 3
-        }
-
-        y += 2
 
         // ════════════════════════════════════════════════════════════════════
         // EDUCATION

@@ -12,6 +12,7 @@ const profilePictureData =
 
 export const useCVGenerator = () => {
     const generateCV = async (
+        summary?: string,
         companyName?: string,
         companyAddress?: string,
     ) => {
@@ -279,7 +280,7 @@ export const useCVGenerator = () => {
         doc.setFontSize(9)
         doc.setFont('helvetica', 'normal')
         doc.setTextColor(darkGray.r, darkGray.g, darkGray.b)
-        const introText = personalData.aboutMe
+        const introText = summary ?? personalData.aboutMe
         const introHeight = addStyledText(introText, 20, yPosition, 170, 9)
         yPosition += introHeight + 10
 
