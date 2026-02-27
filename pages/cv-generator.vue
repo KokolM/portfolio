@@ -6,12 +6,14 @@
             <CvDownload
                 :companyName="companyName"
                 :companyAddress="companyAddress"
+                :compact="true"
             />
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+
 const companyName = ref('')
 const companyAddress = ref('')
 </script>

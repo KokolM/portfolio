@@ -12,7 +12,4 @@ export interface Experience {
     website?: string
     about: string
     description: string[]
-    techStackFrontend?: TechStack[]
-    techStackBackend?: TechStack[]
-    techStackDevOps?: TechStack[]
 }

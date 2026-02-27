@@ -20,7 +20,7 @@ export const personalData = {
         location: 'Warsaw, Poland',
         message: 'Currently seeking full-time opportunities',
     },
-    aboutMe: 'After graduating from <strong>Slovak Technical University</strong>, I began my career developing a <strong>Flutter app</strong> for a Slovak government project that supported the reintegration of ex-prisoners into society. Since then, I’ve expanded into full-stack web development, creating <strong>fintech, SaaS and EU Horizon R&D applications</strong> that people rely on every day, using <strong>Angular, Vue, Nuxt, and ExpressJS</strong> to turn ideas into reliable, scalable systems'
+    aboutMe: 'After graduating from <strong>Slovak Technical University</strong>, I began my career developing a <strong>Flutter app</strong> for a Slovak government project that supported the reintegration of ex-prisoners into society. Since then, I’ve expanded into full-stack web development, creating <strong>fintech, SaaS and EU Horizon R&D applications</strong> that people rely on every day, using <strong>Angular, Vue, Nuxt, and ExpressJS</strong> to turn ideas into reliable, scalable systems.'
 }
 
 export const experienceData: Record<string, Experience> = {
@@ -32,22 +32,9 @@ export const experienceData: Record<string, Experience> = {
         about: 'Independent software development services for clients in various industries, delivering tailored web and mobile applications to meet specific business needs.',
         description: [
             'Delivered custom <strong>full-stack solutions</strong> for clients in <strong>Fintech and SaaS</strong>, including a secure investment portal for <strong>Omnium Capital</strong> and collaboration tools for <strong>Heyme</strong>.',
-            'Built production-ready applications using <strong>Vue / Nuxt</strong> frontends and <strong>Node.js / Python</strong> backends with relational databases.',
+            'Built production-ready applications using <strong>Vue / Nuxt</strong> frontends and <strong>ExpressJS / Django Rest Framework</strong> backends with relational <strong>PostgreSQL</strong> databases and <strong>Prisma ORM</strong>.',
             'Integrated external systems including <strong>SOAP investment services</strong> and <strong>LiveKit</strong> (real-time video), designing APIs to synchronize and transform data.',
-            'Independently managed projects end-to-end — from architecture and implementation to <strong>deployment and maintenance</strong> in production environments.',
-        ],
-        techStackFrontend: [
-            { name: 'Angular', component: 'TechIconAngular' },
-            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
-            { name: 'Tailwind', component: 'TechIconTailwind' },
-            { name: 'Node', component: 'TechIconNode' },
-            { name: 'PostgreSQL', component: 'TechIconPostgres' },
-        ],
-        techStackBackend: [
-            { name: 'Docker', component: 'TechIconDocker' },
-            { name: 'Figma', component: 'TechIconFigma' },
-            { name: 'Sketch', component: 'TechIconSketch' },
-            { name: 'Nginx', component: 'TechIconNginx' },
+            'Independently managed projects end-to-end — from architecture and implementation to <strong>deployment and maintenance</strong> using <strong>Docker</strong> and <strong>Traefik</strong> in production environments.',
         ],
     },
     bavenir: {
@@ -59,28 +46,10 @@ export const experienceData: Record<string, Experience> = {
         endDate: new Date(2025, 11),
         about: 'bAvenir is a tech company that delivers innovative software solutions through cutting-edge research, expert development, and strategic collaboration with forward-thinking organizations.',
         description: [
-            'Contributed to core web applications for <strong>EU Horizon projects</strong> (Auroral, Spade), enabling secure cross-border data sharing between European organizations.',
+            'Contributed to core web applications for <strong>EU Horizon projects</strong> (Auroral, Spade), building <strong>Angular</strong> and <strong>Nuxt</strong> applications enabling secure cross-border data sharing between European organizations.',
             'Implemented a <strong>BFF (Backend-for-Frontend)</strong> architecture with <strong>Keycloak</strong> to strengthen authentication security and protect user tokens.',
-            'Built and maintained <strong>REST APIs</strong> using <strong>Node.js</strong> and <strong>PostgreSQL</strong> for data-intensive platforms and internal tools.',
+            'Built and maintained <strong>REST APIs</strong> using <strong>ExpressJS, PostgreSQL</strong> and <strong>Prisma ORM</strong> for data-intensive platforms and internal tools.',
             'Supported production deployments with <strong>Docker</strong> and <strong>Traefik</strong>, and improved performance through targeted refactoring and database optimization.',
-        ],
-        techStackFrontend: [
-            { name: 'Nuxt', component: 'TechIconNuxt' },
-            { name: 'Angular', component: 'TechIconAngular' },
-            { name: 'PrimeFaces', component: 'TechIconPrimeFaces' },
-            { name: 'Tailwind', component: 'TechIconTailwind' },
-            { name: 'Figma', component: 'TechIconFigma' },
-        ],
-        techStackBackend: [
-            { name: 'Nuxt', component: 'TechIconNuxt' },
-            { name: 'Node', component: 'TechIconNode' },
-            { name: 'PostgreSQL', component: 'TechIconPostgres' },
-            { name: 'Prisma', component: 'TechIconPrisma' },
-        ],
-        techStackDevOps: [
-            { name: 'Docker', component: 'TechIconDocker' },
-            { name: 'Traefik', component: 'TechIconTraefik' },
-            { name: 'Nginx', component: 'TechIconNginx' },
         ],
     },
     zvjs: {
@@ -97,13 +66,6 @@ export const experienceData: Record<string, Experience> = {
             'Built and maintained the cross-platform frontend using <strong>Flutter</strong>, optimizing performance for constrained kiosk hardware and mobile devices.',
             'Worked directly with government stakeholders and end users in a <strong>regulated environment</strong>, ensuring accessibility, data privacy compliance, and real-world usability.',
         ],
-        techStackFrontend: [
-            { name: 'Flutter', component: 'TechIconFlutter' },
-            { name: 'Vue', component: 'TechIconVue' },
-            { name: 'Vuetify', component: 'TechIconVuetify' },
-            { name: 'Sketch', component: 'TechIconSketch' },
-        ],
-        techStackDevOps: [{ name: 'Nginx', component: 'TechIconNginx' }],
     },
 }
 
@@ -499,16 +461,9 @@ export const skillsData: Record<string, Skill> = {
     python: {
         id: 'python',
         name: 'Python',
-        yearsOfExperience: 6,
+        yearsOfExperience: 3,
         category: 'Programming',
         component: 'TechIconPython',
-    },
-    bash: {
-        id: 'bash',
-        name: 'Bash',
-        yearsOfExperience: 5,
-        category: 'Programming',
-        component: 'TechIconBash',
     },
     c: {
         id: 'c',
@@ -562,7 +517,7 @@ export const skillsData: Record<string, Skill> = {
     traefik: {
         id: 'traefik',
         name: 'Traefik',
-        yearsOfExperience: 2,
+        yearsOfExperience: 3,
         category: 'DevOps',
         component: 'TechIconTraefik',
     },
@@ -573,25 +528,11 @@ export const skillsData: Record<string, Skill> = {
         category: 'DevOps',
         component: 'TechIconNginx',
     },
-    figma: {
-        id: 'figma',
-        name: 'Figma',
-        yearsOfExperience: 2,
-        category: 'Design',
-        component: 'TechIconFigma',
-    },
-    sketch: {
-        id: 'sketch',
-        name: 'Sketch',
-        yearsOfExperience: 2,
-        category: 'Design',
-        component: 'TechIconSketch',
-    },
     dart: {
         id: 'dart',
         name: 'Dart',
         yearsOfExperience: 2,
-        category: 'Backend',
+        category: 'Programming',
         component: 'TechIconDart',
     },
 }
