@@ -13,10 +13,9 @@
                 <span class="text-primary">{{ personalData.email }} ·</span>
             </h4>
         </div>
-        <div class="mt-10 max-w-[820px]">
-            Hello 👋, I'm a passionate full-stack software developer dedicated
-            to turning innovative ideas into functional, user-friendly
-            solutions.
+        <div class="mt-10 max-w-[820px] flex flex-col gap-10">
+            <div>Hello 👋, I’m Matej, a full-stack software developer.</div>
+            <div class="text-sm" v-html="personalData.aboutMe" />
         </div>
         <div
             v-if="personalData.jobSeeking?.active"

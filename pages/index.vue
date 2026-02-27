@@ -2,8 +2,8 @@
 
 <template>
     <HomeSectionAbout id="about"> </HomeSectionAbout>
-    <HomeSectionExperience id="experience"> </HomeSectionExperience>
     <HomeSectionProjects id="projects"> </HomeSectionProjects>
+    <HomeSectionExperience id="experience"> </HomeSectionExperience>
     <HomeSectionSkills id="skills"> </HomeSectionSkills>
     <HomeSectionEducation id="education"> </HomeSectionEducation>
 </template>

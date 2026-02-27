@@ -20,6 +20,7 @@ export const personalData = {
         location: 'Warsaw, Poland',
         message: 'Currently seeking full-time opportunities',
     },
+    aboutMe: 'After graduating from <strong>Slovak Technical University</strong>, I began my career developing a <strong>Flutter app</strong> for a Slovak government project that supported the reintegration of ex-prisoners into society. Since then, I’ve expanded into full-stack web development, creating <strong>fintech, SaaS and EU Horizon R&D applications</strong> that people rely on every day, using <strong>Angular, Vue, Nuxt, and ExpressJS</strong> to turn ideas into reliable, scalable systems'
 }
 
 export const experienceData: Record<string, Experience> = {
@@ -111,12 +112,12 @@ export const projectsData: Record<string, Project> = {
         id: 'holup',
         title: 'Holup',
         subtitle:
-            'National reintegration platform deployed in all Slovak prisons',
+            'Kiosk and mobile application deployed in all Slovak prisons',
         activeUsers: 300,
         description:
             'Government-deployed Flutter application supporting prisoner reintegration at national scale.',
         longDescription:
-            'Holup is a cross-platform application (kiosks, iOS, Android) developed for the Slovak government to support the reintegration of incarcerated individuals into society. Originally started as a Bachelor’s thesis, the project evolved into a nationally deployed production system running in all Slovak correctional facilities. The platform provides employment search integration (Profesia.sk), CV creation, housing assistance, and structured step-by-step guidance for life after release, with a strong focus on user experience.',
+            'Holup is a cross-platform application (Flutter Web for kiosks, iOS, Android) developed for the Slovak government to support the reintegration of incarcerated individuals into society. Originally started as a Bachelor’s thesis, the project evolved into a nationally deployed production application running in all Slovak correctional facilities. The application provides employment search integration (Profesia.sk), CV creation, housing assistance, and structured step-by-step guidance for life after release, with a strong focus on user experience.',
         features: [
             'Integrated job search (Profesia.sk) and built-in CV generator',
             'Housing assistance and emergency contact directory',
@@ -274,7 +275,7 @@ export const projectsData: Record<string, Project> = {
         description:
             'Platform for team task management, collaboration, and project tracking.',
         longDescription:
-            'Built a task and collaboration platform similar to Notion to help teams organize tasks, track projects, and collaborate efficiently. Integrated LiveKit for online videoconferencing and real-time data synchronization. Developed a scalable backend with Node.js, Express, and PostgreSQL, ensuring robust data handling and multi-user support.',
+            'Built a backend for task and collaboration platform similar to Notion to help teams organize tasks, track projects, and collaborate efficiently. Integrated LiveKit for online videoconferencing and real-time data synchronization. Developed a scalable backend with Node.js, Express, and PostgreSQL, ensuring robust data handling and multi-user support.',
         features: [
             'Task management and organization',
             'Team collaboration tools',
