@@ -181,7 +181,6 @@ export const projectsData: Record<string, Project> = {
             'Role-based access for clients, staff, brokers, and admins',
             'Responsive Vue.js + PrimeVue frontend',
             'Secure authentication and authorization',
-            'VM-based deployment with Nginx & HTTPS',
             'Robust and maintainable system architecture',
         ],
         status: 'Production',
@@ -226,12 +225,11 @@ export const projectsData: Record<string, Project> = {
         longDescription:
             'Developed for EU Horizon projects (Auroral, Spade, Circuless) at bAvenir s.r.o., this platform allows organizations to securely share data and manage identities using open source technologies. It supports collaboration and governance across Europe while ensuring compliance and data protection.',
         features: [
-            'User-facing frontend for decentralized data tools',
-            'Backend management of identities and relationships',
-            'API development and integration',
+            'Frontend and backend managing identities and relationships',
+            'Analytics dashboard for data sharing insights',
             'Secure and compliant data handling',
             'Support for EU Horizon collaborative projects',
-            'Decentralized governance functionality',
+            'Enabeling decentralized governance of data',
         ],
         status: 'Production',
         layout: 'image-right',
