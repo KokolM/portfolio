@@ -1,10 +1,5 @@
 import { jsPDF } from 'jspdf'
-import {
-    personalData,
-    experienceData,
-    educationData,
-    skillsData,
-} from '~/data'
+import { personalData, experienceData, educationData, skillsData } from '~/data'
 
 export const useCVGeneratorCompact = () => {
     const generateCV = async (
@@ -14,13 +9,13 @@ export const useCVGeneratorCompact = () => {
         const doc = new jsPDF()
 
         // ── Colours ────────────────────────────────────────────────────────
-        const accent   = { r: 189, g:  93, b:  56 } // #BD5D38
-        const dark     = { r:  52, g:  58, b:  64 } // #343a40
-        const mid      = { r: 100, g: 110, b: 120 } // grey for dates/meta
-        const PAGE_W   = 210
-        const MARGIN   = 15
-        const TEXT_W   = PAGE_W - MARGIN * 2  // 180 mm
-        let y          = 0
+        const accent = { r: 189, g: 93, b: 56 } // #BD5D38
+        const dark = { r: 52, g: 58, b: 64 } // #343a40
+        const mid = { r: 100, g: 110, b: 120 } // grey for dates/meta
+        const PAGE_W = 210
+        const MARGIN = 15
+        const TEXT_W = PAGE_W - MARGIN * 2 // 180 mm
+        let y = 0
 
         // ── Helpers ─────────────────────────────────────────────────────────
 
@@ -113,15 +108,15 @@ export const useCVGeneratorCompact = () => {
         y += 5
 
         // Contact bar – single line, pipe-separated
-        const contacts = [
-            personalData.email,
-            personalData.phone,
-            personalData.location,
-            personalData.linkedin,
-            personalData.github,
-            personalData.website,
-        ].join('  |  ')
-        text(contacts, MARGIN, y, TEXT_W, 8, 'normal', mid)
+        const contacts = []
+        if (personalData.email) contacts.push(personalData.email)
+        if (personalData.phone) contacts.push(personalData.phone)
+        if (personalData.location) contacts.push(personalData.location)
+        if (personalData.linkedin) contacts.push(personalData.linkedin)
+        if (personalData.github) contacts.push(personalData.github)
+        if (personalData.website) contacts.push(personalData.website)
+
+        text(contacts.join('  |  '), MARGIN, y, TEXT_W, 8, 'normal', mid)
         y += 4
 
         // Thin divider
@@ -290,4 +285,3 @@ export const useCVGeneratorCompact = () => {
 
     return { generateCV }
 }
-

@@ -10,7 +10,7 @@ export const personalData = {
     phone: '(+48) 575 357 810',
     location: 'Warsaw, Poland',
     linkedin: 'linkedin.com/in/matej-kokol',
-    github: 'github.com/KokolM',
+    github: undefined, //'github.com/KokolM',
     website: 'matejkokol.eu',
     contract: 'B2B preferred (JDG)',
     nip: '7011294635',
@@ -20,7 +20,8 @@ export const personalData = {
         location: 'Warsaw, Poland',
         message: 'Currently seeking full-time opportunities',
     },
-    aboutMe: 'After graduating from <strong>Slovak Technical University</strong>, I began my career developing a <strong>Flutter app</strong> for a Slovak government project that supported the reintegration of ex-prisoners into society. Since then, I’ve expanded into full-stack web development, creating <strong>fintech, SaaS and EU Horizon R&D applications</strong> that people rely on every day, using <strong>Angular, Vue, Nuxt, and ExpressJS</strong> to turn ideas into reliable, scalable systems.'
+    aboutMe:
+        'After graduating from <strong>Slovak Technical University</strong>, I began my career developing a <strong>Flutter app</strong> for a Slovak government project that supported the reintegration of ex-prisoners into society. Since then, I’ve expanded into full-stack web development, creating <strong>fintech, SaaS and EU Horizon R&D applications</strong> that people rely on every day, using <strong>Angular, Vue, Nuxt, and ExpressJS</strong> to turn ideas into reliable, scalable systems.',
 }
 
 export const experienceData: Record<string, Experience> = {
@@ -73,8 +74,7 @@ export const projectsData: Record<string, Project> = {
     holup: {
         id: 'holup',
         title: 'Holup',
-        subtitle:
-            'Kiosk and mobile application deployed in all Slovak prisons',
+        subtitle: 'Kiosk and mobile application deployed in all Slovak prisons',
         activeUsers: 300,
         description:
             'Government-deployed Flutter application supporting prisoner reintegration at national scale.',
