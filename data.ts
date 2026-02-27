@@ -47,7 +47,7 @@ export const experienceData: Record<string, Experience> = {
         endDate: new Date(2025, 11),
         about: 'bAvenir is a tech company that delivers innovative software solutions through cutting-edge research, expert development, and strategic collaboration with forward-thinking organizations.',
         description: [
-            'Contributed to core web applications for <strong>EU Horizon projects</strong> (Auroral, Spade), building <strong>Angular</strong> and <strong>Nuxt</strong> applications enabling secure cross-border data sharing between European organizations.',
+            'Contributed to core web applications for <strong>EU Horizon projects</strong> (Auroral, Spade), building <strong>Angular</strong> and <strong>Nuxt</strong> applications enabling secure data sharing between European organizations.',
             'Implemented a <strong>BFF (Backend-for-Frontend)</strong> architecture with <strong>Keycloak</strong> to strengthen authentication security and protect user tokens.',
             'Built and maintained <strong>REST APIs</strong> using <strong>ExpressJS, PostgreSQL</strong> and <strong>Prisma ORM</strong> for data-intensive platforms and internal tools.',
             'Supported production deployments with <strong>Docker</strong> and <strong>Traefik</strong>, and improved performance through targeted refactoring and database optimization.',
