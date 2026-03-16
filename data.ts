@@ -402,18 +402,11 @@ export const educationData: Record<string, Education> = {
 }
 
 export const skillsData: Record<string, Skill> = {
-    nuxtFE: {
+    nuxt: {
         id: 'nuxt',
         name: 'Nuxt',
         yearsOfExperience: 3,
         category: 'Frontend',
-        component: 'TechIconNuxt',
-    },
-    nuxtBE: {
-        id: 'nuxt',
-        name: 'Nuxt',
-        yearsOfExperience: 3,
-        category: 'Backend',
         component: 'TechIconNuxt',
     },
     angular: {
@@ -479,12 +472,12 @@ export const skillsData: Record<string, Skill> = {
         category: 'Backend',
         component: 'TechIconExpress',
     },
-    keycloak: {
-        id: 'keycloak',
-        name: 'Keycloak',
+    nitro: {
+        id: 'nitro',
+        name: 'Nitro',
         yearsOfExperience: 3,
         category: 'Backend',
-        component: 'TechIconKeycloak',
+        component: 'TechIconNitro',
     },
     drf: {
         id: 'drf',
@@ -492,6 +485,13 @@ export const skillsData: Record<string, Skill> = {
         yearsOfExperience: 2,
         category: 'Backend',
         component: 'TechIconDrf',
+    },
+    keycloak: {
+        id: 'keycloak',
+        name: 'Keycloak',
+        yearsOfExperience: 3,
+        category: 'Backend',
+        component: 'TechIconKeycloak',
     },
     postgres: {
         id: 'postgres',
@@ -534,5 +534,19 @@ export const skillsData: Record<string, Skill> = {
         yearsOfExperience: 2,
         category: 'Programming',
         component: 'TechIconDart',
+    },
+    minio: {
+        id: 'minio',
+        name: 'MinIO',
+        yearsOfExperience: 3,
+        category: 'Backend',
+        component: 'TechIconMinio',
+    },
+    liveKit: {
+        id: 'livekit',
+        name: 'LiveKit',
+        yearsOfExperience: 1,
+        category: 'Backend',
+        component: 'TechIconLiveKit',
     },
 }

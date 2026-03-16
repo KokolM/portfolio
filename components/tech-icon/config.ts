@@ -66,7 +66,7 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
         icon: 'devicon-traefikproxy-original',
         title: 'Traefik',
         url: 'https://traefik.io/',
-        sizeRem: 2.5,
+        sizeRem: 2.0,
     },
     nginx: {
         icon: 'devicon-nginx-original',
@@ -137,6 +137,24 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
         url: 'https://en.cppreference.com/w/c/language',
         sizeRem: 2.0,
     },
+    minio: {
+        icon: 'my-icon my-icon-minio',
+        title: 'Minio',
+        url: 'https://min.io/',
+        sizeRem: 2.4,
+    },
+    liveKit: {
+        icon: 'my-icon my-icon-livekit',
+        title: 'LiveKit',
+        url: 'https://livekit.io/',
+        sizeRem: 1.8,
+    },
+    nitro: {
+        icon: 'my-icon my-icon-nitro',
+        title: 'Nitro',
+        url: 'https://nitro.unjs.io/',
+        sizeRem: 2.0,
+    }
 }
 
 // Helper to convert component name to config key

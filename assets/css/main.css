@@ -149,3 +149,18 @@ h4 {
   mask-image: url("/icons/keycloak.svg");
   -webkit-mask-image: url("/icons/keycloak.svg");
 }
+
+.my-icon-minio {
+  mask-image: url("/icons/minio.svg");
+  -webkit-mask-image: url("/icons/minio.svg");
+}
+
+.my-icon-livekit {
+  mask-image: url("/icons/livekit.svg");
+  -webkit-mask-image: url("/icons/liveKit.svg");
+}
+
+.my-icon-nitro {
+  mask-image: url("/icons/nitro.svg");
+  -webkit-mask-image: url("/icons/nitro.svg");
+}
