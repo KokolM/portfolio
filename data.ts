@@ -34,7 +34,8 @@ export const experienceData: Record<string, Experience> = {
         description: [
             'Delivered custom <strong>full-stack solutions</strong> for clients in <strong>Fintech and SaaS</strong>, including a secure investment portal for <strong>Omnium Capital</strong> and collaboration tools for <strong>Heyme</strong>.',
             'Built production-ready applications using <strong>Vue / Nuxt</strong> frontends and <strong>ExpressJS / Django Rest Framework</strong> backends with relational <strong>PostgreSQL</strong> databases and <strong>Prisma ORM</strong>.',
-            'Integrated external systems including <strong>SOAP investment services</strong> and <strong>LiveKit</strong> (real-time video), designing APIs to synchronize and transform data.',
+            'Integrated external systems including <strong>SOAP investment services</strong>, designing APIs to synchronize and transform data.',
+            'Deployed and integrated open-source platforms such as <strong>LiveKit</strong> (real-time video), <strong>Keycloak</strong> (authentication), and <strong>MinIO</strong> (object storage) to enhance application capabilities.',
             'Independently managed projects end-to-end — from architecture and implementation to <strong>deployment and maintenance</strong> using <strong>Docker</strong> and <strong>Traefik</strong> in production environments.',
         ],
     },
