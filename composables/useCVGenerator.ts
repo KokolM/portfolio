@@ -295,7 +295,6 @@ export const useCVGenerator = () => {
         const projects = Object.values(projectsData)
 
         for (const project of projects) {
-
             if (project.status === 'Discontinued') continue
             if (project.activeUsers && project.activeUsers <= 20) continue
 
@@ -636,9 +635,13 @@ export const useCVGenerator = () => {
         const consentLines = doc.splitTextToSize(consentText, 170)
         const lineHeight = 2.8
         const consentStartY = 282 - consentLines.length * lineHeight
-        doc.text(consentLines, 20, consentStartY, {
-            lineHeightFactor: 1.1,
-        })
+
+        if (companyName) {
+            doc.text(consentLines, 20, consentStartY, {
+                lineHeightFactor: 1.1,
+            })
+        }
+
         doc.setFontSize(8)
         doc.setFont('helvetica', 'normal')
         doc.text(

@@ -266,7 +266,10 @@ export const useCVGeneratorCompact = () => {
         const consentLines = doc.splitTextToSize(consentText, TEXT_W)
         const lineH = 2.8
         const consentY = 282 - consentLines.length * lineH
-        doc.text(consentLines, MARGIN, consentY, { lineHeightFactor: 1.1 })
+        
+        if (companyName) {
+            doc.text(consentLines, MARGIN, consentY, { lineHeightFactor: 1.1 })
+        }
 
         doc.setFontSize(8)
         doc.setFont('helvetica', 'normal')
