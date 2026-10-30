@@ -16,7 +16,7 @@ export const personalData = {
     nip: '7011294635',
     regon: '543722483',
     jobSeeking: {
-        active: true,
+        active: false,
         location: 'Warsaw, Poland',
         message: 'Currently seeking full-time opportunities',
     },
